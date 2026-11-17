@@ -8,6 +8,7 @@
   --ink:#1F1A17;--ink2:#2E2824;--ink3:#3B332D;--mute:#5B5048;
   --wa:#128C4A;--err:#A3121F;
   --sans:var(--font-hanken),var(--font-deva),system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --display:var(--font-cormorant),var(--font-newsreader),var(--font-deva),Georgia,serif;
   --serif:var(--font-newsreader),var(--font-deva),Georgia,'Times New Roman',serif;
   --gutter:20px;
   --sec:56px;
@@ -41,7 +42,7 @@ html[lang=mr] .eyebrow{letter-spacing:.04em;text-transform:none}
 .weave{background-color:var(--cream);background-image:repeating-linear-gradient(0deg,rgba(110,20,35,.05) 0 1px,transparent 1px 7px),repeating-linear-gradient(90deg,rgba(110,20,35,.05) 0 1px,transparent 1px 7px)}
 .weave-d{background-image:repeating-linear-gradient(0deg,rgba(246,240,228,.045) 0 1px,transparent 1px 7px),repeating-linear-gradient(90deg,rgba(246,240,228,.045) 0 1px,transparent 1px 7px)}
 .sec{padding-block:var(--sec)}
-.h2{font-family:var(--serif);font-weight:500;font-size:clamp(34px,5vw,60px);line-height:1.07;letter-spacing:-.014em;margin:12px 0 0}
+.h2{font-family:var(--display);font-weight:600;font-size:clamp(38px,5.4vw,66px);line-height:1.07;letter-spacing:-.014em;margin:12px 0 0}
 .rule{height:1px;background:var(--gold);margin:0 0 40px}
 @media (min-width:900px){.rule{margin-bottom:64px}}
 
@@ -152,14 +153,14 @@ dialog.sheet::backdrop{background:var(--maroon-d)}
 .hero__in{position:relative;display:flex;flex-direction:column;gap:16px;padding:0}
 .hero__copy{padding:0 6px}
 .hero .eyebrow{color:var(--gold-l);margin-bottom:10px}
-.hero h1{font:500 40px/1.04 var(--serif);letter-spacing:-.015em}
-.hero h1 .it{color:var(--gold-l)}
+.hero h1{font:600 46px/1 var(--display);letter-spacing:-.01em}
+.hero h1 .it{color:var(--gold-l);font-weight:500}
 .hero__sub{margin-top:10px;font-size:15.5px;line-height:1.45;opacity:.92;max-width:340px}
 .hero__cta{display:none}
 @media (min-width:640px){
   .hero{padding:36px var(--gutter) 40px}
   .hero__copy{padding:0}
-  .hero h1{font-size:56px}
+  .hero h1{font-size:64px}
   .hero__sub{font-size:18px;margin-top:14px;max-width:440px}
   .hero__in{gap:28px}
   .lead{max-width:560px;width:100%}
@@ -173,7 +174,7 @@ dialog.sheet::backdrop{background:var(--maroon-d)}
   .hero__fade{display:block;position:absolute;left:0;top:0;bottom:0;width:260px;background:linear-gradient(to right,var(--maroon-dd),rgba(58,8,17,0))}
   .hero__in{flex-direction:row;align-items:center;gap:48px;min-height:760px;padding:56px var(--gutter);max-width:1440px;margin:0 auto}
   .hero__copy{flex:1;max-width:640px}
-  .hero h1{font-size:clamp(64px,6.7vw,96px);line-height:.98;letter-spacing:-.025em;margin-top:26px}
+  .hero h1{font-size:clamp(72px,7.4vw,108px);line-height:.96;letter-spacing:-.015em;margin-top:26px}
   .hero .eyebrow{margin-bottom:0}
   .hero__sub{font-size:clamp(18px,1.5vw,21px);line-height:1.5;margin:28px 0 38px;max-width:470px}
   .hero__cta{display:flex;gap:14px;flex-wrap:wrap}
