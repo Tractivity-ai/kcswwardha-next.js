@@ -458,6 +458,7 @@ dialog.sheet::backdrop{background:var(--maroon-d)}
 .ftr .wrap{position:relative}
 .ftr__brand{display:flex;align-items:center;gap:12px}
 .ftr__brand img{width:48px;height:48px;object-fit:contain}
+.ftr__brand .ftr__naac{width:auto;height:52px;margin-left:10px;background:var(--cream);padding:3px 6px;border-radius:3px}
 .ftr__brand span{font:500 22px/1.15 var(--serif)}
 .ftr__hr{height:1px;background:var(--gold);margin:28px 0}
 .ftr__cols{display:flex;flex-direction:column;gap:20px;font-size:15.5px;line-height:1.55}

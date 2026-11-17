@@ -8,7 +8,7 @@ import './globals.css';
 
 const title = 'Kumbhalkar College of Social Work, Wardha | BSW, MSW, M.A. and Ph.D. Admissions 2026-27';
 const description =
-  'Social work education in Sevagram, Wardha since 1993. Affiliated to Rashtrasant Tukadoji Maharaj Nagpur University. Apply for BSW, MSW, M.A. and Ph.D. 2026-27.';
+  'Social work education in Sevagram, Wardha since 1993. NAAC A+ accredited. Affiliated to Rashtrasant Tukadoji Maharaj Nagpur University. Apply for BSW, MSW, M.A. and Ph.D. 2026-27.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -42,7 +42,7 @@ const jsonLd = {
   url: site.url,
   logo: `${site.url}/og.jpg`,
   description:
-    'Social work college in Sevagram, Wardha, offering BSW, MSW, M.A. in Travel and Tourism and Ph.D. programmes. Affiliated to Rashtrasant Tukadoji Maharaj Nagpur University.',
+    'Social work college in Sevagram, Wardha, offering BSW, MSW, M.A. in Travel and Tourism and Ph.D. programmes. Accredited by NAAC with grade A+. Affiliated to Rashtrasant Tukadoji Maharaj Nagpur University.',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Sevagram Road, Opp. Mahila Ashram',

@@ -54,7 +54,7 @@ export const trust = [
   { big: 'Est. 1993', small: 'Wardha, Maharashtra' },
   { big: 'RTMNU', small: 'Affiliated university, Nagpur' },
   { big: '1,203', small: 'Graduates in 25 years [update figure]' },
-  { big: 'NAAC', small: 'Peer Team Report 2022 [grade to confirm]' },
+  { big: 'NAAC A+', small: 'Accredited, grade A+ [cycle and year to confirm]' },
 ] as const;
 
 export const programs = [
@@ -103,7 +103,7 @@ export const facts = [
 ] as const;
 
 export const quality = [
-  { title: 'NAAC', text: 'Self Study Report, Peer Team Report 2022 and certificate.', href: '/quality/naac' },
+  { title: 'NAAC', text: 'Accredited with grade A+. Self Study Report, Peer Team Report 2022 and certificate.', href: '/quality/naac' },
   { title: 'NIRF', text: 'Submissions for 2026 and 2023.', href: '/quality/nirf' },
   { title: 'IQAC and AQAR', text: 'Members, minutes, MOUs and annual reports.', href: '/quality/iqac' },
   { title: 'Committees and cells', text: 'Anti-ragging, internal complaints, counselling, exam cell and more.', href: '/quality' },

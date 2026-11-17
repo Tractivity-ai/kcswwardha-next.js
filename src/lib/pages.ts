@@ -573,10 +573,11 @@ export const pages: Page[] = [
   },
   {
     path: '/quality/naac', title: 'NAAC', group: 'quality',
-    desc: 'NAAC records of Kumbhalkar College of Social Work, Wardha: Self Study Report, Peer Team Report 2022 and certificate.',
+    desc: 'NAAC A+ accredited. NAAC records of Kumbhalkar College of Social Work, Wardha: Self Study Report, Peer Team Report 2022 and certificate.',
     blocks: [
+      P('Kumbhalkar College of Social Work is accredited by the National Assessment and Accreditation Council (NAAC) with grade A+.'),
       { t: 'docs', items: [docs.ssr, docs.peerTeam, docs.naacCertificate] },
-      TODO('NAAC grade, CGPA and validity period. The old site shows the documents but does not state the grade.'),
+      TODO('NAAC CGPA, accreditation cycle and validity period.'),
     ],
   },
   {

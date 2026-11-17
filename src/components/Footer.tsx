@@ -4,6 +4,7 @@ import { site } from '@/lib/site';
 import { Icon, Wheel } from './Icon';
 import { SmartLink } from './SmartLink';
 import crest from '@/assets/img/crest.png';
+import naac from '@/assets/img/naac-a-plus.png';
 
 export function Footer() {
   const tel = (p: string) => `tel:${p.replace(/[^\d+]/g, '')}`;
@@ -14,6 +15,7 @@ export function Footer() {
         <div className="ftr__brand">
           <Image src={crest} alt="" width={48} height={47} />
           <span>Kumbhalkar College<br />of Social Work</span>
+          <Image className="ftr__naac" src={naac} alt="Accredited by NAAC with grade A+" height={52} />
         </div>
         <div className="ftr__hr" />
         <div className="ftr__cols">
@@ -46,7 +48,7 @@ export function Footer() {
           </div>
         </div>
         <p className="ftr__legal">
-          Affiliated to Rashtrasant Tukadoji Maharaj Nagpur University, Nagpur. Run by Rashtrasant Tukadoji Maharaj Technical and Educational Society.<br />
+          Affiliated to Rashtrasant Tukadoji Maharaj Nagpur University, Nagpur. Accredited by NAAC with grade A+. Run by Rashtrasant Tukadoji Maharaj Technical and Educational Society.<br />
           &copy; 2026 Kumbhalkar College of Social Work, Wardha.
         </p>
       </div>
