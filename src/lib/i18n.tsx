@@ -7,8 +7,8 @@ export type Lang = 'en' | 'mr';
 /** English is final copy. Marathi is placeholder text for a native speaker to review. */
 export const dict = {
   en: {
-    h1a: 'Education that', h1b: 'serves.',
-    sub: 'Social work education in Sevagram, Wardha, since 1993.',
+    h1: 'Social work education in Sevagram, Wardha.',
+    sub: 'BSW, MSW, M.A. in Travel and Tourism and Ph.D., taught since 1993. Classroom study is paired with supervised field work.',
     apply: 'Apply for 2026-27', applyShort: 'Apply', view: 'View programs',
     programs: 'Social work programs', story: 'Social work college in Sevagram', admission: 'BSW and MSW admissions',
     notices: 'Notices', life: 'Life and field work', principal: "Principal's message",
@@ -19,8 +19,8 @@ export const dict = {
     submit: 'Request a call back', wa: 'Chat on WhatsApp',
   },
   mr: {
-    h1a: 'शिक्षण जे', h1b: 'सेवा करते.',
-    sub: 'सेवाग्राम, वर्धा येथे १९९३ पासून समाजकार्य शिक्षण.',
+    h1: 'सेवाग्राम, वर्धा येथे समाजकार्य शिक्षण.',
+    sub: 'बीएसडब्ल्यू, एमएसडब्ल्यू, एम.ए. आणि पीएच.डी. १९९३ पासून. वर्गातील अभ्यासाला क्षेत्रकार्याची जोड.',
     apply: '२०२६-२७ साठी अर्ज करा', applyShort: 'अर्ज करा', view: 'अभ्यासक्रम पहा',
     programs: 'अभ्यासक्रम', story: 'सेवाग्रामची कथा', admission: 'प्रवेश',
     notices: 'सूचना', life: 'जीवन आणि क्षेत्रकार्य', principal: 'प्राचार्यांचा संदेश',

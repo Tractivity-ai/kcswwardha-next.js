@@ -5,7 +5,8 @@ import {
   APPLY_FORM, downloads, facts, faqs, lifePhotos, lifeTiles, notices, principal as pr, programs, quality, steps, trust,
 } from '@/lib/content';
 import { SmartLink } from './SmartLink';
-import { waLink } from '@/lib/site';
+import { site, waLink } from '@/lib/site';
+import { LeadForm } from './LeadForm';
 import { Arrow, Icon, Wheel } from './Icon';
 import hero from '@/assets/img/hero.jpg';
 import e1 from '@/assets/img/e1.jpg';
@@ -30,12 +31,31 @@ export function Trust() {
   );
 }
 
+export function Callback() {
+  return (
+    <section className="cb sec" aria-label="Admission enquiry">
+      <div className="wrap cb__g">
+        <LeadForm />
+        <div className="cb__side">
+          <h2 className="h3">Contact the college office</h2>
+          <dl className="cb__dl">
+            <div><dt>Phone</dt><dd>{site.phones.map((n, i) => <span key={n}>{i > 0 && ', '}<a href={`tel:${n.replace(/[^\d+]/g, '')}`}>{n}</a></span>)}</dd></div>
+            <div><dt>Email</dt><dd>{site.emails.map((m, i) => <span key={m}>{i > 0 && ', '}<a href={`mailto:${m}`}>{m}</a></span>)}</dd></div>
+            <div><dt>Address</dt><dd>{site.address[0]} {site.address[1]}</dd></div>
+          </dl>
+          <p className="cb__note">[Office hours to be confirmed]</p>
+          <Link className="lnk lnk--u" href="/contact"><span>Map and full contact details</span><Arrow /></Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function Programs() {
   return (
     <section className="programs weave sec" id="programs" aria-labelledby="programs-h">
       <div className="wrap">
-        <p className="eyebrow rv"><T k="programs" /></p>
-        <h2 className="h2 rv" id="programs-h">Four programmes, one purpose.</h2>
+        <h2 className="h2 rv" id="programs-h">Programmes</h2>
         <div className="pgrid">
           {programs.map((p) => (
             <article className={`pcard pcard--${p.tone} card rv`} key={p.code}>
@@ -72,7 +92,7 @@ export function Story() {
         <div className="story__g">
           <div className="story__a">
             <p className="eyebrow rv"><T k="story" /></p>
-            <blockquote className="serif it rv" id="story-q">A campus that once spun khadi now trains social workers.</blockquote>
+            <h2 className="h2 rv" id="story-q">About the college</h2>
           </div>
           <div className="story__b">
             <div className="ph rv">
@@ -99,7 +119,7 @@ export function Admission() {
         <div className="adm__g">
           <div className="adm__a">
             <p className="eyebrow rv"><span><T k="admission" /></span> · 2026-27</p>
-            <h2 className="h2 rv" id="adm-h">Three steps to join us.</h2>
+            <h2 className="h2 rv" id="adm-h">How to apply</h2>
             <ol className="steps">
               {steps.map((s) => (
                 <li className="step rv" key={s.n}>
@@ -137,8 +157,7 @@ export function Notices() {
     <section className="weave sec" id="notices" aria-labelledby="notices-h">
       <div className="wrap notices__g">
         <div className="notices__head">
-          <p className="eyebrow rv"><T k="notices" /></p>
-          <h2 className="h2 rv" id="notices-h">From the office.</h2>
+          <h2 className="h2 rv" id="notices-h">Notices and circulars</h2>
         </div>
         <div className="notices__list rv">
           {notices.map((n) => (
@@ -158,8 +177,7 @@ export function Life() {
   return (
     <section className="life sec" id="life" aria-labelledby="life-h">
       <div className="wrap">
-        <p className="eyebrow rv"><T k="life" /></p>
-        <h2 className="h2 rv" id="life-h">Learning happens outside the classroom.</h2>
+        <h2 className="h2 rv" id="life-h">Campus life and field work</h2>
         <div className="life__g">
           <div className="life__photos">
             {lifePhotos.map((p) => (
@@ -191,8 +209,7 @@ export function Faq() {
     <section className="faq weave sec" id="faq" aria-labelledby="faq-h">
       <div className="wrap faq__g">
         <div className="faq__head">
-          <p className="eyebrow rv">Questions</p>
-          <h2 className="h2 rv" id="faq-h">Questions we hear most.</h2>
+          <h2 className="h2 rv" id="faq-h">Admission questions</h2>
           <p className="faq__intro rv">Short answers from the admission desk. [Answers to be supplied by the office]</p>
         </div>
         <div className="faq__list rv">
@@ -250,8 +267,7 @@ export function Facts() {
   return (
     <section className="facts-s sec" id="people" aria-labelledby="facts-h">
       <div className="wrap">
-        <p className="eyebrow">Our people and campus</p>
-        <h2 className="h2" id="facts-h">The college in numbers.</h2>
+        <h2 className="h2" id="facts-h">The college at a glance</h2>
         <div className="fgrid">
           {facts.map((f) => (
             <Link className="fcard" href={f.href} key={f.label}>
@@ -271,8 +287,7 @@ export function Quality() {
     <section className="qual weave sec" id="quality" aria-labelledby="qual-h">
       <div className="wrap qual__g">
         <div className="qual__head">
-          <p className="eyebrow">Quality and records</p>
-          <h2 className="h2" id="qual-h">Open records, easy to find.</h2>
+          <h2 className="h2" id="qual-h">Quality and records</h2>
           <p className="qual__intro">Accreditation reports, quality assurance records and the committees that keep the college accountable.</p>
         </div>
         <div className="qual__list">
