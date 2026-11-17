@@ -1,8 +1,10 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { T } from '@/lib/i18n';
 import {
-  downloads, faqs, lifePhotos, notices, principal as pr, programs, steps, trust,
+  APPLY_FORM, downloads, facts, faqs, lifePhotos, lifeTiles, notices, principal as pr, programs, quality, steps, trust,
 } from '@/lib/content';
+import { SmartLink } from './SmartLink';
 import { waLink } from '@/lib/site';
 import { Arrow, Icon, Wheel } from './Icon';
 import hero from '@/assets/img/hero.jpg';
@@ -33,7 +35,7 @@ export function Programs() {
     <section className="programs weave sec" id="programs" aria-labelledby="programs-h">
       <div className="wrap">
         <p className="eyebrow rv"><T k="programs" /></p>
-        <h2 className="h2 rv" id="programs-h">Choose your path in social work.</h2>
+        <h2 className="h2 rv" id="programs-h">Four programmes, one purpose.</h2>
         <div className="pgrid">
           {programs.map((p) => (
             <article className={`pcard pcard--${p.tone} card rv`} key={p.code}>
@@ -52,7 +54,7 @@ export function Programs() {
                 <h3>{p.title}</h3>
                 <p>{p.text}</p>
               </div>
-              <a className="lnk" href="#callback">Explore {p.code}<Arrow /></a>
+              <Link className="lnk" href={p.href}>Explore {p.code}<Arrow /></Link>
             </article>
           ))}
         </div>
@@ -78,10 +80,10 @@ export function Story() {
               <span className="keyline" />
             </div>
             <p className="rv">
-              Wardha is Gandhi&apos;s Sevabhoomi. Our campus on Sevagram Road began as a Khadi and Gramudyog workstation.
-              Since 1993, the same ground has prepared students for a life of service.
+              Wardha is Gandhi&apos;s Sevabhoomi. Our campus on Sevagram Road was once a Khadi and Gramudyog workstation.
+              Since 1993, the same ground has prepared students for a life of service, with classroom learning strengthened by field work.
             </p>
-            <a className="lnk lnk--u" href="#"><span><T k="readStory" /></span><Arrow /></a>
+            <Link className="lnk lnk--u" href="/about"><span><T k="readStory" /></span><Arrow /></Link>
           </div>
         </div>
       </div>
@@ -107,19 +109,20 @@ export function Admission() {
               ))}
             </ol>
             <div className="adm__cta rv">
-              <a className="btn btn--gold btn--lg" href="#"><span><T k="apply" /></span><Arrow /></a>
+              <a className="btn btn--gold btn--lg" href={APPLY_FORM} target="_blank" rel="noopener noreferrer"><span><T k="apply" /></span><Arrow /></a>
               <p className="adm__last">Last date to apply: [to be confirmed]</p>
             </div>
           </div>
           <div className="dl rv">
             <p className="eyebrow">Downloads</p>
+            <p className="dl__note">[Prospectus is the 2024-25 edition. Update for 2026-27]</p>
             <div className="dl__list">
               {downloads.map((d) => (
-                <a className="row rowd" href={d.href} key={d.label}>
+                <SmartLink className="row rowd" href={d.href} key={d.label}>
                   <Icon name="doc" />
                   <span className="rt">{d.label}</span>
                   <span className="tag">PDF</span>
-                </a>
+                </SmartLink>
               ))}
             </div>
           </div>
@@ -139,13 +142,13 @@ export function Notices() {
         </div>
         <div className="notices__list rv">
           {notices.map((n) => (
-            <a className="notice row" href={n.href} key={n.title}>
+            <SmartLink className="notice row" href={n.href} key={n.title}>
               <div className="notice__b"><time>{n.date}</time><h3 className="rt">{n.title}</h3></div>
-              <span className="tag">PDF</span>
-            </a>
+              <span className="tag">{n.href.endsWith('.pdf') ? 'PDF' : 'View'}</span>
+            </SmartLink>
           ))}
         </div>
-        <a className="lnk lnk--u notices__all" href="#"><span><T k="allNotices" /></span><Arrow /></a>
+        <Link className="lnk lnk--u notices__all" href="/notices"><span><T k="allNotices" /></span><Arrow /></Link>
       </div>
     </section>
   );
@@ -173,9 +176,9 @@ export function Life() {
             ))}
           </div>
           <div className="tiles rv">
-            <a className="tile" href="#"><Icon name="nss" /><span className="tile__l">NSS</span></a>
-            <a className="tile" href="#"><Icon name="place" /><span className="tile__l">Placement</span></a>
-            <a className="tile" href="#"><Icon name="research" /><span className="tile__l">Research Centre</span></a>
+            {lifeTiles.map((t) => (
+              <Link className="tile" href={t.href} key={t.label}><Icon name={t.icon} /><span className="tile__l">{t.label}</span></Link>
+            ))}
           </div>
         </div>
       </div>
@@ -235,9 +238,50 @@ export function Principal() {
           </div>
           <div className="pr__txt rv">
             <blockquote className="serif it">{pr.excerpt}</blockquote>
-            <p className="pr__draft">Draft excerpt, to be approved by the Principal</p>
-            <a className="lnk lnk--u" href="#">Read the full message<Arrow /></a>
+            <Link className="lnk lnk--u" href="/about/principal">Read the full message<Arrow /></Link>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function Facts() {
+  return (
+    <section className="facts-s sec" id="people" aria-labelledby="facts-h">
+      <div className="wrap">
+        <p className="eyebrow">Our people and campus</p>
+        <h2 className="h2" id="facts-h">The college in numbers.</h2>
+        <div className="fgrid">
+          {facts.map((f) => (
+            <Link className="fcard" href={f.href} key={f.label}>
+              <b className="serif">{f.n}</b>
+              <span className="fcard__l">{f.label}</span>
+              <span className="fcard__t">{f.text}</span>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function Quality() {
+  return (
+    <section className="qual weave sec" id="quality" aria-labelledby="qual-h">
+      <div className="wrap qual__g">
+        <div className="qual__head">
+          <p className="eyebrow">Quality and records</p>
+          <h2 className="h2" id="qual-h">Open records, easy to find.</h2>
+          <p className="qual__intro">Accreditation reports, quality assurance records and the committees that keep the college accountable.</p>
+        </div>
+        <div className="qual__list">
+          {quality.map((q) => (
+            <Link className="row qrow" href={q.href} key={q.title}>
+              <span className="rt"><b className="serif">{q.title}</b><small>{q.text}</small></span>
+              <Arrow />
+            </Link>
+          ))}
         </div>
       </div>
     </section>

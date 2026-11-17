@@ -1,6 +1,6 @@
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
-import { Admission, Faq, Life, Notices, Principal, Programs, Story, Trust } from '@/components/Sections';
+import { Admission, Faq, Facts, Life, Notices, Principal, Programs, Quality, Story, Trust } from '@/components/Sections';
 import { Footer } from '@/components/Footer';
 import { FloatingActions } from '@/components/FloatingActions';
 
@@ -17,6 +17,8 @@ export default function Home() {
         <Admission />
         <Notices />
         <Life />
+        <Facts />
+        <Quality />
         <Faq />
         <Principal />
       </main>

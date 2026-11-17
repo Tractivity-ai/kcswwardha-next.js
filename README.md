@@ -50,3 +50,13 @@ Change copy in `content.ts` and `i18n.tsx`. Component files rarely need touching
 3. Marathi text is placeholder. Have a native speaker review it.
 4. Swap in higher resolution photos. The supplied ones are small, so the hero photo is used only behind an overlay.
 5. Add analytics if wanted. Track the lead form by listening for a successful `/api/lead` response in `LeadForm.tsx`.
+
+
+## Inner pages (added)
+
+All inner pages live in one data file, `src/lib/pages.ts`, and render through one template (`src/components/PageShell.tsx` and `Blocks.tsx`). To edit a page, change its entry in that file. Block types: paragraph, heading, list, table, documents, facts, semesters, to-confirm note, embedded PDF, button, hub, contact.
+
+- Source of truth for the content is the old site, kcswwardha.in. Anything the old site did not say is a visible bracketed placeholder or a "To confirm" box. `PLACEHOLDERS.md` lists them all.
+- PDFs still point to the old site (`src/lib/docs.ts`, `DOC_BASE`). Copy the files into `public/documents/` and change `DOC_BASE` to `/documents/` before the old site is taken down.
+- Old `.php` addresses need 301 redirects before launch (see the redirect map in the plan).
+- Motion is kept to hover and focus states only.

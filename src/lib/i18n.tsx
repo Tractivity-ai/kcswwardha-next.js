@@ -9,7 +9,7 @@ export const dict = {
   en: {
     h1a: 'Education that', h1b: 'serves.',
     sub: 'Social work education in Sevagram, Wardha, since 1993.',
-    apply: 'Apply for 2026-27', view: 'View programs',
+    apply: 'Apply for 2026-27', applyShort: 'Apply', view: 'View programs',
     programs: 'Social work programs', story: 'Social work college in Sevagram', admission: 'BSW and MSW admissions',
     notices: 'Notices', life: 'Life and field work', principal: "Principal's message",
     allNotices: 'All notices', readStory: 'Read our story',
@@ -21,7 +21,7 @@ export const dict = {
   mr: {
     h1a: 'शिक्षण जे', h1b: 'सेवा करते.',
     sub: 'सेवाग्राम, वर्धा येथे १९९३ पासून समाजकार्य शिक्षण.',
-    apply: '२०२६-२७ साठी अर्ज करा', view: 'अभ्यासक्रम पहा',
+    apply: '२०२६-२७ साठी अर्ज करा', applyShort: 'अर्ज करा', view: 'अभ्यासक्रम पहा',
     programs: 'अभ्यासक्रम', story: 'सेवाग्रामची कथा', admission: 'प्रवेश',
     notices: 'सूचना', life: 'जीवन आणि क्षेत्रकार्य', principal: 'प्राचार्यांचा संदेश',
     allNotices: 'सर्व सूचना', readStory: 'आमची कथा वाचा',

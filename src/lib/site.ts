@@ -11,6 +11,9 @@ export const site = {
   whatsapp: clean(process.env.NEXT_PUBLIC_WHATSAPP).replace(/\D/g, ''),
   phone: clean(process.env.NEXT_PUBLIC_PHONE),
   email: clean(process.env.NEXT_PUBLIC_EMAIL),
+  /** Contact details as printed on the old site. The college confirms which are primary. */
+  phones: ['+91 715-224-1848', '9403339741', '9637755310'],
+  emails: ['info@kcswwardha.in', 'kcswwardha@rediffmail.com'],
   address: ['Sevagram Road, Opp. Mahila Ashram,', 'Wardha 442001, Maharashtra'],
   mapsUrl: 'https://maps.google.com/?q=Kumbhalkar+College+of+Social+Work+Wardha',
 } as const;
@@ -29,5 +32,5 @@ export function waLink(kind: WaKind): string {
 }
 
 export const hasWhatsapp = site.whatsapp.length > 0;
-export const telHref = site.phone ? `tel:${site.phone.replace(/[^\d+]/g, '')}` : '#';
-export const mailHref = site.email ? `mailto:${site.email}` : '#';
+export const telHref = `tel:${(site.phone || '+919403339741').replace(/[^\d+]/g, '')}`;
+export const mailHref = `mailto:${site.email || site.emails[0]}`;

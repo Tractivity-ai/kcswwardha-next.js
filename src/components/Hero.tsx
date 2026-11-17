@@ -14,7 +14,7 @@ export function Hero() {
       </div>
       <div className="hero__in">
         <div className="hero__copy">
-          <p className="eyebrow in d1">BSW, MSW and Ph.D. in Wardha</p>
+          <p className="eyebrow in d1">BSW, MSW, M.A. and Ph.D. in Wardha</p>
           <h1 id="h1" className="in d2">
             <span><T k="h1a" /></span>
             <br />

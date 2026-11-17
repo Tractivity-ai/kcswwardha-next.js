@@ -2,6 +2,7 @@
 
 import { useRef } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { menuGroups } from '@/lib/content';
 import { T } from '@/lib/i18n';
 import { Arrow, Icon } from './Icon';
@@ -43,13 +44,13 @@ export function MobileMenu() {
         </div>
         <nav aria-label="Menu">
           {menuGroups.map((g) => (
-            <a key={g.title} href={g.href} onClick={close}>
+            <Link key={g.title} href={g.href} onClick={close}>
               <span className="rt">
                 <span className="serif">{g.title}</span>
                 <small>{g.sub}</small>
               </span>
               <Arrow />
-            </a>
+            </Link>
           ))}
         </nav>
         <div className="sheet__foot">
@@ -57,9 +58,9 @@ export function MobileMenu() {
             <span>Language</span>
             <LangToggle />
           </div>
-          <a className="btn btn--gold" href="#callback" onClick={close}>
+          <Link className="btn btn--gold" href="/#callback" onClick={close}>
             <span><T k="submit" /></span>
-          </a>
+          </Link>
         </div>
       </dialog>
     </>

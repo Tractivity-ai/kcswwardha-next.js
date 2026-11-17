@@ -1,52 +1,85 @@
-/** Editable page content. Bracketed text is a visible placeholder waiting for the college to confirm. */
+/**
+ * Homepage content, navigation and footer links. Facts come from the old site (kcswwardha.in).
+ * Bracketed text is a visible placeholder waiting for the college to confirm.
+ */
+import { docs } from './docs';
 
-export const nav = [
-  { label: 'About', href: '#story', items: [['Our story', '#story'], ['Leadership', '#principal'], ['Campus', '#life']] },
-  { label: 'Programs', href: '#programs', items: [['BSW', '#programs'], ['MSW', '#programs'], ['Ph.D.', '#programs']] },
-  { label: 'Admissions', href: '#admission', items: [['How to apply', '#admission'], ['Fee structure', '#admission'], ['Prospectus', '#admission']] },
-  { label: 'Student Life', href: '#life', items: [['NSS', '#life'], ['Field work', '#life'], ['Placement', '#life']] },
-  { label: 'IQAC and NAAC', href: '#trust', items: [['Quality reports', '#trust'], ['NAAC records', '#trust']] },
-] as const;
+export const APPLY_FORM = 'https://forms.gle/hwxwjpRg2chMeUoF9';
+
+type Item = readonly [label: string, href: string];
+
+export const nav: readonly { label: string; href: string; items: readonly Item[] }[] = [
+  { label: 'About', href: '/about', items: [
+    ['About KCSW', '/about'], ['About the society (RTMTES)', '/about/society'], ['Vision and mission', '/about/vision-mission'],
+    ["Principal's desk", '/about/principal'], ['Governing body', '/about/governing-body'],
+    ['Teaching staff', '/about/teaching-staff'], ['Administrative staff', '/about/administrative-staff'],
+    ['Recognition and approvals', '/about/recognition-approvals'],
+  ] },
+  { label: 'Programmes', href: '/programmes', items: [
+    ['Bachelor of Social Work (BSW)', '/programmes/bsw'], ['Master of Social Work (MSW)', '/programmes/msw'],
+    ['M.A. Travel and Tourism', '/programmes/ma-travel-tourism'], ['Ph.D. in Social Work', '/programmes/phd'],
+    ['Research Center', '/programmes/research-centre'], ['Academic calendar', '/programmes/academic-calendar'],
+  ] },
+  { label: 'Admissions', href: '/admissions', items: [
+    ['How to apply', '/admissions'], ['Fee structure', '/admissions/fee-structure'],
+    ['Prospectus (PDF)', docs.prospectus.href], ['Admission procedure (PDF)', docs.admissionProcedure.href],
+  ] },
+  { label: 'Campus life', href: '/campus', items: [
+    ['Training and placement', '/campus/placement'], ['NSS', '/campus/nss'], ['Games and sports', '/campus/sports'],
+    ['Health facilities', '/campus/health-facilities'], ['Alumni', '/campus/alumni'], ["Students' zone", '/campus/students-zone'],
+    ['Library', '/campus/library'], ['E-library', '/campus/e-library'], ['Magazine', '/campus/magazine'], ['Gallery', '/campus/gallery'],
+  ] },
+  { label: 'Quality', href: '/quality', items: [
+    ['IQAC and AQAR', '/quality/iqac'], ['NAAC', '/quality/naac'], ['NIRF', '/quality/nirf'],
+    ['Committees and cells', '/quality'], ['Anti-ragging', '/quality/anti-ragging'], ['Internal Complaints Committee', '/quality/internal-complaints-committee'],
+  ] },
+  { label: 'Notices', href: '/notices', items: [
+    ['Circulars and notices', '/notices'], ['News and events', '/notices/news'], ['Job openings', '/notices/job-openings'],
+    ['RTI', '/notices/rti'], ['Accounts', '/notices/accounts'], ['Feedback', '/notices/feedback'],
+  ] },
+];
 
 export const menuGroups = [
-  { title: 'About', sub: 'Our story, leadership, campus', href: '#story' },
-  { title: 'Programs', sub: 'BSW, MSW, Ph.D.', href: '#programs' },
-  { title: 'Admissions', sub: 'How to apply, fees, prospectus', href: '#admission' },
-  { title: 'Student Life', sub: 'NSS, field work, placement', href: '#life' },
-  { title: 'IQAC and NAAC', sub: 'Quality reports and records', href: '#trust' },
-  { title: 'Contact', sub: 'Address, phone, map', href: '#contact' },
+  { title: 'About', sub: 'College, leadership, faculty', href: '/about' },
+  { title: 'Programmes', sub: 'BSW, MSW, M.A., Ph.D.', href: '/programmes' },
+  { title: 'Admissions', sub: 'How to apply, fees, prospectus', href: '/admissions' },
+  { title: 'Campus life', sub: 'Placement, NSS, library, alumni', href: '/campus' },
+  { title: 'Quality', sub: 'IQAC, NAAC, NIRF, committees', href: '/quality' },
+  { title: 'Notices', sub: 'Circulars, RTI, feedback', href: '/notices' },
+  { title: 'Contact', sub: 'Address, phone, map', href: '/contact' },
 ] as const;
 
+/** Four facts shown under the hero. */
 export const trust = [
-  { big: 'NAAC A+', small: 'Accredited' },
-  { big: 'NIRF 201-300', small: 'College category · [year to confirm]' },
-  { big: 'Est. 1993', small: 'Wardha' },
-  { big: 'RTMNU', small: 'Affiliated university' },
+  { big: 'Est. 1993', small: 'Wardha, Maharashtra' },
+  { big: 'RTMNU', small: 'Affiliated university, Nagpur' },
+  { big: '1,203', small: 'Graduates in 25 years [update figure]' },
+  { big: 'NAAC', small: 'Peer Team Report 2022 [grade to confirm]' },
 ] as const;
 
 export const programs = [
-  { code: 'BSW', tone: 'm', duration: '3 years', sub: '6 semesters', segments: 6, title: 'Bachelor of Social Work', text: 'Your first degree in social work, after Class 12. Classroom learning paired with work in real communities.' },
-  { code: 'MSW', tone: 's', duration: '2 years', sub: '4 semesters', segments: 4, title: 'Master of Social Work', text: 'For graduates who want to practise, lead or teach. Deeper study, supervised field practice.' },
-  { code: 'Ph.D.', tone: 'k', duration: 'Research', sub: '[duration to confirm]', segments: 0, title: 'Doctor of Philosophy in Social Work', text: 'For researchers who want to add to the field. Guided work through our Research Centre.' },
+  { code: 'BSW', tone: 'm', duration: '3 years', sub: '6 semesters', segments: 6, title: 'Bachelor of Social Work', text: 'Your first degree in social work, with classroom study and supervised field practice.', href: '/programmes/bsw' },
+  { code: 'MSW', tone: 's', duration: '2 years', sub: '4 semesters', segments: 4, title: 'Master of Social Work', text: 'For graduates who want to practise, lead or teach. Specialisation papers and a dissertation.', href: '/programmes/msw' },
+  { code: 'M.A.', tone: 'k', duration: '2 years', sub: '4 semesters', segments: 4, title: 'Travel and Tourism', text: 'A master\'s programme covering destinations, tourism planning, operations and management.', href: '/programmes/ma-travel-tourism' },
+  { code: 'Ph.D.', tone: 'm', duration: 'Research', sub: 'Usually 3 years, full time', segments: 0, title: 'Doctor of Philosophy in Social Work', text: 'Guided research through the Dr. Kailash Satyarthi Research Center.', href: '/programmes/phd' },
 ] as const;
 
 export const steps = [
-  { n: 1, title: 'Choose a program', text: 'BSW, MSW or Ph.D.' },
-  { n: 2, title: 'Fill the form', text: 'The application for 2026-27 takes a few minutes.' },
+  { n: 1, title: 'Choose a programme', text: 'BSW, MSW, M.A. or Ph.D.' },
+  { n: 2, title: 'Fill the form', text: 'The online admission form takes a few minutes.' },
   { n: 3, title: 'Submit documents', text: 'The list is in the admission procedure.' },
 ] as const;
 
-/** Point href at the real PDF once uploaded, for example /docs/prospectus.pdf (place files in /public/docs). */
 export const downloads = [
-  { label: 'Prospectus', href: '#' },
-  { label: 'Fee structure', href: '#' },
-  { label: 'Admission procedure', href: '#' },
+  { label: docs.prospectus.label, href: docs.prospectus.href },
+  { label: docs.fees.label, href: docs.fees.href },
+  { label: docs.admissionProcedure.label, href: docs.admissionProcedure.href },
 ] as const;
 
 export const notices = [
-  { date: '[DATE]', title: 'Ph.D. admission: seat status', href: '#' },
-  { date: '[DATE]', title: 'Provisional admission schedule, 2026-27', href: '#' },
-  { date: '[DATE]', title: '[Third circular title to be added]', href: '#' },
+  { date: '[DATE]', title: docs.phdSeats.label, href: docs.phdSeats.href },
+  { date: '[DATE]', title: docs.phdSchedule.label, href: docs.phdSchedule.href },
+  { date: '[DATE]', title: '[Latest circular to be added]', href: '/notices' },
 ] as const;
 
 export const lifePhotos = [
@@ -55,36 +88,56 @@ export const lifePhotos = [
   { key: 'e3', alt: 'Students listening to a faculty member outdoors', caption: 'Students in conversation outdoors', position: '60% 50%' },
 ] as const;
 
+/** Tiles under "Life and field work". */
+export const lifeTiles = [
+  { icon: 'nss', label: 'NSS', href: '/campus/nss' },
+  { icon: 'place', label: 'Training and placement', href: '/campus/placement' },
+  { icon: 'research', label: 'Research Center', href: '/programmes/research-centre' },
+] as const;
+
+export const facts = [
+  { n: '15', label: 'Teaching staff', text: 'Led by the Principal, with Ph.D., M.Phil. and NET qualified faculty.', href: '/about/teaching-staff' },
+  { n: '100', label: 'NSS volunteers', text: 'One active unit since 1993, with seven-day camps in adopted villages.', href: '/campus/nss' },
+  { n: '16', label: 'Research scholars', text: 'Enrolled through the Dr. Kailash Satyarthi Research Center. [Update figure]', href: '/programmes/research-centre' },
+  { n: '85%+', label: 'Women students', text: 'A woman medical officer for student health examinations.', href: '/campus/health-facilities' },
+] as const;
+
+export const quality = [
+  { title: 'NAAC', text: 'Self Study Report, Peer Team Report 2022 and certificate.', href: '/quality/naac' },
+  { title: 'NIRF', text: 'Submissions for 2026 and 2023.', href: '/quality/nirf' },
+  { title: 'IQAC and AQAR', text: 'Members, minutes, MOUs and annual reports.', href: '/quality/iqac' },
+  { title: 'Committees and cells', text: 'Anti-ragging, internal complaints, counselling, exam cell and more.', href: '/quality' },
+] as const;
+
 export const faqs = [
   { tag: 'BSW', q: 'Who can apply for the BSW?', a: '[Admission office to add: accepted Class 12 streams, minimum marks, age limit]' },
   { tag: 'MSW', q: 'Who can apply for the MSW, and what can I specialise in?', a: '[Add: accepted graduate degrees, minimum marks, specialisations offered]' },
   { tag: 'Admission', q: 'Is admission by merit or by entrance test?', a: '[Add: selection method, counselling or interview, last date to apply, merit list dates]' },
-  { tag: 'Fees', q: 'What are the fees, and are scholarships available?', a: '[Add: yearly fee for BSW, MSW and Ph.D., scholarships and fee concessions]. The full list is in the Fee structure PDF.' },
-  { tag: 'Documents', q: 'Which documents do I need to bring?', a: '[Add: certificates, mark sheets, photographs and ID proof, originals and copies]. The full list is in the Admission procedure PDF.' },
-  { tag: 'Field work', q: 'What is field work, and how often will I go?', a: '[Add: days per week, partner organisations, villages and communities, who supervises]' },
+  { tag: 'Fees', q: 'What are the fees, and are scholarships available?', a: '[Add: yearly fee for each programme, scholarships and fee concessions]. The full list is in the fee structure PDF.' },
+  { tag: 'Documents', q: 'Which documents do I need to bring?', a: '[Add: certificates, mark sheets, photographs and ID proof, originals and copies]. The full list is in the admission procedure PDF. Every student also needs a medical examination at admission.' },
+  { tag: 'Field work', q: 'What is field work, and how often will I go?', a: 'Classroom learning is reinforced through field work, where students learn from direct experience. [Add: days per week, partner organisations, supervisors]' },
   { tag: 'Campus', q: 'Is hostel accommodation available?', a: '[Add: hostel availability, seats, fees, rules, distance from campus]' },
-  { tag: 'Ph.D.', q: 'How do I apply for the Ph.D.?', a: '[Add: eligibility, entrance or eligibility test rules, supervisor allotment, seats, fees, duration]' },
-  { tag: 'After the degree', q: 'What can I do after the BSW or MSW?', a: '[Add: careers, placement support, further study. Use real outcomes from our graduates]' },
+  { tag: 'Ph.D.', q: 'How do I apply for the Ph.D.?', a: 'Ph.D. admission follows the directions of Nagpur University. The latest notices and seat status are on the Ph.D. page. [Add: eligibility, seats, fees]' },
+  { tag: 'After the degree', q: 'What can I do after the BSW or MSW?', a: 'The Training and Placement Cell supports internships and placements with NGOs, companies and government offices. [Add: real outcomes from our graduates]' },
 ] as const;
 
 export const principal = {
   name: 'Dr. Chandu K. Popatkar',
   role: 'Principal',
   credentials: 'B.Sc., M.S.W., NET, B.J., Ph.D.',
-  excerpt: 'We teach students to listen first, then to act with care. A degree here is measured by the service that follows.',
+  excerpt: 'Our commitment is to provide a safe and intellectually challenging environment that empowers students to become innovative thinkers, creative problem solvers and inspired learners.',
 } as const;
 
 export const social = [
-  { label: 'Facebook', href: '#' },
-  { label: 'Instagram', href: '#' },
-  { label: 'YouTube', href: '#' },
+  { label: 'Facebook', href: 'https://www.facebook.com/kscwwardha/' },
+  { label: 'YouTube', href: 'https://www.youtube.com/channel/UCPSsCtDb-Q9LClMiSvLMWWw' },
 ] as const;
 
 export const quickLinks = [
-  { label: 'Prospectus', href: '#admission' },
-  { label: 'Fee structure', href: '#admission' },
-  { label: 'Notices', href: '#notices' },
-  { label: 'IQAC and NAAC', href: '#trust' },
-  { label: 'Research Centre', href: '#life' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Admissions', href: '/admissions' },
+  { label: 'Prospectus', href: docs.prospectus.href },
+  { label: 'Fee structure', href: '/admissions/fee-structure' },
+  { label: 'Notices', href: '/notices' },
+  { label: 'IQAC and NAAC', href: '/quality/iqac' },
+  { label: 'Contact', href: '/contact' },
 ] as const;
