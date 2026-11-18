@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { T } from '@/lib/i18n';
+import { trust } from '@/lib/content';
 import { LeadForm } from './LeadForm';
 import hero from '@/assets/img/hero.jpg';
 
@@ -25,6 +26,14 @@ export function Hero() {
             <a className="btn btn--gold" href="#admission"><span><T k="apply" /></span></a>
             <a className="btn btn--ghost" href="#programs"><span><T k="view" /></span></a>
           </div>
+          <dl className="hf in d4" aria-label="About the college">
+            {trust.map((c) => (
+              <div key={c.big}>
+                <dt>{c.big}</dt>
+                <dd>{c.small}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
         <LeadForm />
       </div>
