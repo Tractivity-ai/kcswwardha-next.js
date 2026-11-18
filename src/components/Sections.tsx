@@ -72,18 +72,18 @@ export function Story() {
         <div className="story__g">
           <div className="story__a">
             <p className="eyebrow rv"><T k="story" /></p>
-            <blockquote className="serif it rv" id="story-q">A campus that once spun khadi now trains social workers.</blockquote>
-          </div>
-          <div className="story__b">
-            <div className="ph rv">
-              <Image src={e3} alt="Students and faculty gathered under trees on the campus" sizes="(min-width: 900px) 33vw, 100vw" />
-              <span className="keyline" />
-            </div>
-            <p className="rv">
+            <blockquote className="serif rv" id="story-q">A campus that once spun khadi now trains social workers.</blockquote>
+            <p className="story__p rv">
               Wardha is Gandhi&apos;s Sevabhoomi. Our campus on Sevagram Road was once a Khadi and Gramudyog workstation.
               Since 1993, the same ground has prepared students for a life of service, with classroom learning strengthened by field work.
             </p>
-            <Link className="lnk lnk--u" href="/about"><span><T k="readStory" /></span><Arrow /></Link>
+            <Link className="lnk lnk--u rv" href="/about"><span><T k="readStory" /></span><Arrow /></Link>
+          </div>
+          <div className="story__b">
+            <div className="ph rv">
+              <Image src={e3} alt="Students and faculty gathered under trees on the campus" sizes="(min-width: 900px) 50vw, 100vw" />
+              <span className="keyline" />
+            </div>
           </div>
         </div>
       </div>

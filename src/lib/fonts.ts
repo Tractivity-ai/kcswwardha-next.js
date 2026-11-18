@@ -13,18 +13,6 @@ export const newsreader = localFont({
   fallback: ['Georgia', 'Times New Roman', 'serif'],
 });
 
-/** Display face for the hero headline and section headings. */
-export const cormorant = localFont({
-  src: [
-    { path: '../assets/fonts/cormorant-garamond-latin-500-normal.woff2', weight: '500', style: 'normal' },
-    { path: '../assets/fonts/cormorant-garamond-latin-600-normal.woff2', weight: '600', style: 'normal' },
-    { path: '../assets/fonts/cormorant-garamond-latin-500-italic.woff2', weight: '500', style: 'italic' },
-  ],
-  variable: '--font-cormorant',
-  display: 'swap',
-  fallback: ['Georgia', 'Times New Roman', 'serif'],
-});
-
 export const hanken = localFont({
   src: [
     { path: '../assets/fonts/hanken-grotesk-latin-400-normal.woff2', weight: '400', style: 'normal' },

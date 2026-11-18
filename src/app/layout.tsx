@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
-import { newsreader, cormorant, hanken, deva } from '@/lib/fonts';
+import { newsreader, hanken, deva } from '@/lib/fonts';
 import { LangProvider } from '@/lib/i18n';
 import { site } from '@/lib/site';
 import { Sprite } from '@/components/Icon';
@@ -59,7 +59,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={`${newsreader.variable} ${cormorant.variable} ${hanken.variable} ${deva.variable}`}>
+    <html lang="en" className={`${newsreader.variable} ${hanken.variable} ${deva.variable}`}>
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <Sprite />
