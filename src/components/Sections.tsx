@@ -38,18 +38,11 @@ export function Programs() {
         <h2 className="h2 rv" id="programs-h">Four programmes, one purpose.</h2>
         <div className="pgrid">
           {programs.map((p) => (
-            <article className={`pcard pcard--${p.tone} card rv`} key={p.code}>
+            <article className="pcard card rv" key={p.code}>
               <div className="pcard__h">
                 <div className="pcard__n">{p.code}</div>
                 <div className="pcard__d"><b>{p.duration}</b><br />{p.sub}</div>
               </div>
-              {p.segments > 0 ? (
-                <div className="seg" aria-hidden="true">
-                  {Array.from({ length: p.segments }, (_, i) => <i key={i} />)}
-                </div>
-              ) : (
-                <div className="dash" aria-hidden="true" />
-              )}
               <div>
                 <h3>{p.title}</h3>
                 <p>{p.text}</p>
