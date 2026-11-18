@@ -125,12 +125,16 @@ export function Admission() {
   );
 }
 
+const noticeLinks = [
+  ['News and events', '/notices/news'], ['Job openings', '/notices/job-openings'], ['RTI', '/notices/rti'],
+  ['Accounts', '/notices/accounts'], ['Feedback', '/notices/feedback'], ['All notices', '/notices'],
+] as const;
+
 export function Notices() {
   return (
     <section className="weave sec" id="notices" aria-labelledby="notices-h">
       <div className="wrap notices__g">
         <div className="notices__head">
-          <p className="eyebrow rv"><T k="notices" /></p>
           <h2 className="h2 rv" id="notices-h">From the office.</h2>
         </div>
         <div className="notices__list rv">
@@ -141,7 +145,12 @@ export function Notices() {
             </SmartLink>
           ))}
         </div>
-        <Link className="lnk lnk--u notices__all" href="/notices"><span><T k="allNotices" /></span><Arrow /></Link>
+        <nav className="nq rv" aria-label="More from the office">
+          <h3>Quick links</h3>
+          {noticeLinks.map(([label, href]) => (
+            <Link href={href} key={href}><span>{label}</span><Arrow /></Link>
+          ))}
+        </nav>
       </div>
     </section>
   );
@@ -150,29 +159,29 @@ export function Notices() {
 export function Life() {
   return (
     <section className="life sec" id="life" aria-labelledby="life-h">
-      <div className="wrap">
-        <p className="eyebrow rv"><T k="life" /></p>
-        <h2 className="h2 rv" id="life-h">Learning happens outside the classroom.</h2>
-        <div className="life__g">
-          <div className="life__photos">
-            {lifePhotos.map((p) => (
-              <figure className="rv" key={p.key}>
-                <div className="ph">
-                  <Image
-                    src={lifeImages[p.key]} alt={p.alt}
-                    sizes="(min-width: 1100px) 28vw, (min-width: 768px) 30vw, 230px"
-                    style={'position' in p ? { objectPosition: p.position } : undefined}
-                  />
-                </div>
-                <figcaption>{p.caption}</figcaption>
-              </figure>
-            ))}
-          </div>
-          <div className="tiles rv">
-            {lifeTiles.map((t) => (
-              <Link className="tile" href={t.href} key={t.label}><Icon name={t.icon} /><span className="tile__l">{t.label}</span></Link>
-            ))}
-          </div>
+      <div className="wrap life__g">
+        <div className="life__head">
+          <p className="eyebrow rv"><T k="life" /></p>
+          <h2 className="h2 rv" id="life-h">Learning happens outside the classroom.</h2>
+        </div>
+        <div className="life__photos">
+          {lifePhotos.map((p) => (
+            <figure className="rv" key={p.key}>
+              <div className="ph">
+                <Image
+                  src={lifeImages[p.key]} alt={p.alt}
+                  sizes="(min-width: 1100px) 40vw, (min-width: 768px) 30vw, 230px"
+                  style={'position' in p ? { objectPosition: p.position } : undefined}
+                />
+              </div>
+              <figcaption>{p.caption}</figcaption>
+            </figure>
+          ))}
+        </div>
+        <div className="tiles rv">
+          {lifeTiles.map((t) => (
+            <Link className="tile" href={t.href} key={t.label}><Icon name={t.icon} /><span className="tile__l">{t.label}</span></Link>
+          ))}
         </div>
       </div>
     </section>
