@@ -132,7 +132,7 @@ const noticeLinks = [
 
 export function Notices() {
   return (
-    <section className="weave sec" id="notices" aria-labelledby="notices-h">
+    <section className="notices weave sec" id="notices" aria-labelledby="notices-h">
       <div className="wrap notices__g">
         <div className="notices__head">
           <h2 className="h2 rv" id="notices-h">From the office.</h2>

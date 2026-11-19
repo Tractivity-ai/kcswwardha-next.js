@@ -355,17 +355,22 @@ dialog.sheet::backdrop{background:var(--maroon-d)}
   .notice__b{display:flex;align-items:center;gap:24px}
   .notice h3{font-size:clamp(18px,1.8vw,22px);margin-top:0}
 }
-.nq{margin-top:28px;background:#EFE6D3;border-top:3px solid var(--maroon);padding:20px 22px}
-.nq h3{font:400 22px/1.2 var(--serif);margin-bottom:6px}
-.nq a{display:flex;align-items:center;justify-content:space-between;min-height:48px;border-top:1px solid rgba(110,20,35,.25);text-decoration:none;color:var(--ink);font-size:16.5px}
+.notices{padding-block:calc(var(--sec) * .75)}
+.nq{margin-top:20px;background:#EFE6D3;border-top:3px solid var(--maroon);padding:16px 20px 8px}
+.nq h3{font:400 20px/1.2 var(--serif);margin-bottom:2px}
+.nq a{display:flex;align-items:center;justify-content:space-between;min-height:46px;border-top:1px solid rgba(110,20,35,.25);text-decoration:none;color:var(--ink);font-size:16px}
 .nq h3+a{border-top:0}
 .nq a svg{width:16px;height:16px;color:var(--maroon)}
-.notices__head{margin-bottom:8px}
+.notices__head{margin-bottom:0}
+.notices .notice{padding-block:14px}
 @media (min-width:900px){
-  .notices__g{grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;align-items:start}
-  .notices__head{grid-column:1/-1;margin-bottom:24px}
+  .notices__g{grid-template-columns:repeat(12,minmax(0,1fr));column-gap:40px;align-items:stretch}
+  .notices__head{grid-column:1/-1;margin-bottom:16px}
   .notices__list{grid-column:1/span 7;margin-top:0}
-  .nq{grid-column:9/span 4;margin-top:0;padding:24px 26px}
+  .nq{grid-column:8/span 5;margin-top:0;padding:18px 24px 10px;display:grid;grid-template-columns:1fr 1fr;column-gap:32px;align-content:start}
+  .nq h3{grid-column:1/-1}
+  .nq h3+a{border-top:1px solid rgba(110,20,35,.25)}
+  .notices .notice{padding-block:20px}
 }
 
 /* ---------- Life ---------- */
