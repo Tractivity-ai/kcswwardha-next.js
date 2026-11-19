@@ -13,11 +13,11 @@ export default function Home() {
         <Hero />
         <Trust />
         <Programs />
+        <Facts />
         <Story />
         <Admission />
         <Notices />
         <Life />
-        <Facts />
         <Quality />
         <Faq />
         <Principal />

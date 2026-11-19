@@ -516,7 +516,7 @@ body{padding-bottom:calc(74px + env(safe-area-inset-bottom))}
 
 /* ---------- Homepage additions ---------- */
 .dl__note{font-size:12.5px;opacity:.78;margin:0 0 8px}
-.facts-s{background:var(--cream);border-top:1px solid var(--gold)}
+.facts-s{background:var(--sand)}
 .fgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:28px}
 .fcard{display:flex;flex-direction:column;gap:6px;padding:18px 16px 20px;border:1px solid var(--gold);background:var(--paper);text-decoration:none;color:var(--ink);border-radius:3px}
 .fcard b{font-size:34px;line-height:1;font-weight:400;color:var(--maroon);letter-spacing:-.02em}
