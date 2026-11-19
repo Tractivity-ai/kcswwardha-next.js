@@ -670,15 +670,11 @@ body{padding-bottom:calc(74px + env(safe-area-inset-bottom))}
 .srch__r span{font-size:13px;color:#6a5f58;flex:none}
 
 /* home notice bar and quick tiles */
-.quick{background:var(--sand);padding:12px 0}
-.quick__n{display:flex;flex-wrap:wrap;gap:4px 18px;align-items:center;font-size:15px;margin:0 0 10px}
+.quick{background:var(--sand);padding:4px 0}
+.quick__n{display:flex;flex-wrap:wrap;gap:0 18px;align-items:center;font-size:15px;margin:0}
 .quick__n b{font-weight:600;color:var(--maroon)}
 .quick__n a{color:var(--ink);display:inline-flex;align-items:center;min-height:44px}
-.quick__t{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.quick__t a{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:44px;padding:0 14px;background:var(--cream);border:1px solid #d9cdbd;border-radius:3px;text-decoration:none;color:var(--ink);font-size:15px}
-.quick__t a:hover{border-color:var(--maroon);color:var(--maroon)}
-.quick__t .arr{width:18px;height:18px;flex:none}
-@media (min-width:900px){.quick{padding:10px 0}.quick__n{margin:0 0 8px}.quick__t{grid-template-columns:repeat(6,1fr)}}
+
 @media (min-width:1280px) and (max-width:1439px){.hdr__naac{height:44px}.dd>a{padding:0 5px;font-size:14.5px}.brand__a{font-size:22px}.hdr__apply{padding:0 16px}.hdr__in{gap:8px;padding-inline:16px}}
 @media (min-width:1440px){.dd>a{padding:0 9px;font-size:15px}.hdr__in{gap:14px;padding-inline:20px}.nav{gap:2px}}
 @media (min-width:1700px){.hdr__in{max-width:1640px}.dd>a{padding:0 16px;font-size:16px}.hdr__in{gap:28px}}

@@ -291,16 +291,7 @@ export function Quality() {
   );
 }
 
-const quick: [string, string][] = [
-  ['Apply online', APPLY_FORM],
-  ['Results and exams', '/academics/calendar-examinations'],
-  ['Fee structure', '/admissions#fee-structure'],
-  ['Prospectus', docs.prospectus.href],
-  ['Ph.D. admission', '/research/phd'],
-  ['Contact', '/contact'],
-];
-
-/** Notice bar and quick tiles, directly under the header. Only real notices are listed. */
+/** Notice bar directly under the header. Only real notices are listed. */
 export function Quick() {
   const live = notices.filter((n) => !n.title.startsWith('['));
   return (
@@ -312,11 +303,6 @@ export function Quick() {
             <SmartLink key={n.title} href={n.href}>{n.title}</SmartLink>
           ))}
         </p>
-        <ul className="quick__t">
-          {quick.map(([label, href]) => (
-            <li key={label}><SmartLink href={href}><span>{label}</span><Arrow /></SmartLink></li>
-          ))}
-        </ul>
       </div>
     </section>
   );
