@@ -16,7 +16,7 @@ export const nav: readonly { label: string; href: string; items: readonly Item[]
   ] },
   { label: 'Academics', href: '/academics', items: [
     ['Bachelor of Social Work (BSW)', '/academics/bsw'], ['Master of Social Work (MSW)', '/academics/msw'],
-    ['M.A. Travel and Tourism', '/academics/ma-travel-tourism'], ['Calendar, examinations and results', '/academics/calendar-examinations'],
+    ['Calendar, examinations and results', '/academics/calendar-examinations'],
     ['Faculty and staff', '/academics/faculty-staff'], ['Fieldwork and practicum', '/academics/fieldwork'], ['Library and e-library', '/academics/library'],
   ] },
   { label: 'Admissions', href: '/admissions', items: [
@@ -62,12 +62,11 @@ export const trust = [
 export const programs = [
   { code: 'BSW', tone: 'm', duration: '3 years', sub: '6 semesters', segments: 6, title: 'Bachelor of Social Work', text: 'Your first degree in social work, with classroom study and supervised field practice.', href: '/academics/bsw' },
   { code: 'MSW', tone: 's', duration: '2 years', sub: '4 semesters', segments: 4, title: 'Master of Social Work', text: 'For graduates who want to practise, lead or teach. Specialisation papers and a dissertation.', href: '/academics/msw' },
-  { code: 'M.A.', tone: 'k', duration: '2 years', sub: '4 semesters', segments: 4, title: 'Travel and Tourism', text: 'A master\'s programme covering destinations, tourism planning, operations and management.', href: '/academics/ma-travel-tourism' },
   { code: 'Ph.D.', tone: 'm', duration: 'Research', sub: 'Usually 3 years, full time', segments: 0, title: 'Doctor of Philosophy in Social Work', text: 'Guided research through the Dr. Kailash Satyarthi Research Center.', href: '/research/phd' },
 ] as const;
 
 export const steps = [
-  { n: 1, title: 'Choose a programme', text: 'BSW, MSW, M.A. or Ph.D.' },
+  { n: 1, title: 'Choose a programme', text: 'BSW, MSW or Ph.D.' },
   { n: 2, title: 'Fill the form', text: 'The online admission form takes a few minutes.' },
   { n: 3, title: 'Submit documents', text: 'The list is in the admission procedure.' },
 ] as const;

@@ -133,13 +133,6 @@ const mswSems = [
   { title: 'Semester 4', papers: ['NGO Management and Media', 'Specialisation Paper IV', 'Specialisation Paper V', 'Specialisation Paper VI', 'Disaster Management, or Livelihood Promotion', 'Research Dissertation', 'Social Work Practicum'] },
 ];
 
-const maSems = [
-  { title: 'Semester 1', papers: ['Historical Background of India', 'Tourism Recreation', 'Tourist Indian Destinations', 'Tourist Hospitality (elective)', 'Tourism in Vidarbha (elective)', 'Tourism in India (elective)'] },
-  { title: 'Semester 2', papers: ['Religious and Cultural Background', 'India Tourism Transport System', 'Tour Operations and Travel Formalities (elective)', 'Tourism Industry in Vidarbha (elective)', 'Domestic Travel and Facilities (elective)'] },
-  { title: 'Semester 3', papers: ['Architectural History of India', 'Tourism Planning', 'International Tourist Destinations', 'Tourism Marketing (elective)', 'Tourism in Maharashtra (elective)', 'Tourism Industry in India (elective)'] },
-  { title: 'Semester 4', papers: ['Art, Iconography and Craft', 'Research Methodology', 'IATA and its Functions', 'Tourism Management (elective)', 'Tourism Industry in Maharashtra (elective)', 'Tourism Management and Operations (elective)'] },
-];
-
 /* ------------------------------------------------------------------ pages */
 
 const rawPages: RawPage[] = [
@@ -154,8 +147,7 @@ const rawPages: RawPage[] = [
       TODO('The figure of 1,203 graduates is from the old site (25 years). Update it to the current year.'),
       P('The college is committed to developing civic consciousness and a sense of social responsibility in its students. The curriculum is broad, so students build a holistic and ecological view of society. Classroom learning is reinforced through field work, where students learn by direct experience. The aim is education that is socially relevant, and that shapes responsible citizens as well as professionals.'),
       H('Programmes offered'),
-      L('Bachelor of Social Work (BSW)', 'Master of Social Work (MSW)', 'Master of Arts in Travel and Tourism (M.A.)', 'Doctor of Philosophy in Social Work (Ph.D.)'),
-      TODO('The old site also lists Master of Philosophy (M.Phil.) in its course list and admission form. Confirm whether the M.Phil. is still offered.'),
+      L('Bachelor of Social Work (BSW)', 'Master of Social Work (MSW)', 'Doctor of Philosophy in Social Work (Ph.D.)'),
       { t: 'cta', label: 'Read about the society that runs the college', href: '/about/society' },
     ],
   },
@@ -260,16 +252,14 @@ const rawPages: RawPage[] = [
   /* ----------------------------------------------------------- Programmes */
   {
     path: '/programmes', title: 'Programmes', group: 'programmes',
-    desc: 'BSW, MSW, M.A. in Travel and Tourism and Ph.D. in Social Work at Kumbhalkar College of Social Work, Wardha.',
-    lead: 'Four programmes, from a first degree in social work to research.',
+    desc: 'BSW, MSW and Ph.D. in Social Work at Kumbhalkar College of Social Work, Wardha.',
+    lead: 'Three programmes, from a first degree in social work to research.',
     blocks: [
       { t: 'table', head: ['Programme', 'Duration', 'Page'], rows: [
         ['Bachelor of Social Work (BSW)', 'Three years, six semesters', '/programmes/bsw'],
         ['Master of Social Work (MSW)', 'Two years, four semesters', '/programmes/msw'],
-        ['Master of Arts, Travel and Tourism (M.A.)', 'Two years, four semesters', '/programmes/ma-travel-tourism'],
         ['Doctor of Philosophy in Social Work (Ph.D.)', 'Usually three years, full time', '/programmes/phd'],
       ] },
-      TODO('Master of Philosophy (M.Phil.) appears in the old site\'s course list and admission form. Confirm whether it is still offered.'),
       { t: 'cta', label: 'Academic calendar', href: '/programmes/academic-calendar' },
     ],
   },
@@ -305,23 +295,6 @@ const rawPages: RawPage[] = [
       H('Structure of theory papers, practicum and research'),
       { t: 'sems', items: mswSems },
       { t: 'docs', items: [docs.fees, docs.admissionProcedure, docs.prospectus], title: 'Related documents' },
-      { t: 'cta', label: 'Apply for admission', href: '/admissions' },
-    ],
-  },
-  {
-    path: '/programmes/ma-travel-tourism', title: 'M.A. in Travel and Tourism', group: 'programmes',
-    desc: 'Master of Arts in Travel and Tourism at Kumbhalkar College of Social Work, Wardha: two-year programme.',
-    lead: 'A two-year master\'s programme in travel and tourism.',
-    blocks: [
-      { t: 'facts', items: [
-        ['Duration', 'Two years, four semesters'],
-        ['Eligibility', '[Admission office to confirm]'],
-        ['Intake', '[Admission office to confirm]'],
-        ['Status', '[Confirm the programme is currently running]'],
-      ] },
-      H('Structure of theory papers, practicum and research'),
-      { t: 'sems', items: maSems },
-      TODO('The old page repeats "Tourism Industry in Vidarbha" twice in semester 2. Confirm the correct paper list.'),
       { t: 'cta', label: 'Apply for admission', href: '/admissions' },
     ],
   },
@@ -378,7 +351,7 @@ const rawPages: RawPage[] = [
     blocks: [
       H('How to apply'),
       { t: 'list', ordered: true, items: [
-        'Choose a programme: BSW, MSW, M.A. in Travel and Tourism, or Ph.D.',
+        'Choose a programme: BSW, MSW or Ph.D.',
         'Fill in the online admission form.',
         'Submit your documents as listed in the admission procedure.',
       ] },
@@ -862,7 +835,7 @@ const extras: Record<string, { title: string; blocks: Block[]; lead?: string; de
     blocks: [
       P('Applications for 2026-27 are made through the online admission form.'),
       { t: 'list', ordered: true, items: [
-        'Choose a programme: BSW, MSW, M.A. Travel and Tourism or Ph.D.',
+        'Choose a programme: BSW, MSW or Ph.D.',
         'Fill in the online admission form. It takes a few minutes.',
         'Submit your documents. The list is in the admission procedure.',
       ] },

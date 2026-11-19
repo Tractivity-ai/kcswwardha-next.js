@@ -36,7 +36,7 @@ export function Programs() {
     <section className="programs weave sec" id="programs" aria-labelledby="programs-h">
       <div className="wrap">
         <p className="eyebrow rv"><T k="programs" /></p>
-        <h2 className="h2 rv" id="programs-h">Four programmes, one purpose.</h2>
+        <h2 className="h2 rv" id="programs-h">Three programmes, one purpose.</h2>
         <div className="pgrid">
           {programs.map((p) => (
             <article className="pcard card rv" key={p.code}>
