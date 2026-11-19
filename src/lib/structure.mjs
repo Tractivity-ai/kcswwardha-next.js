@@ -30,11 +30,20 @@ export const layout = [
   { path: '/academics/library', group: 'academics', owner: 'Librarian', title: 'Library and e-library',
     desc: 'Library department and e-library of Kumbhalkar College of Social Work, Wardha.',
     sources: ['/campus/library', '/campus/e-library'] },
+  { path: '/academics/fieldwork', group: 'academics', owner: 'Fieldwork coordinator', title: 'Fieldwork and practicum',
+    desc: 'Concurrent fieldwork, block placement, rural camps and study tours at Kumbhalkar College of Social Work, Wardha.',
+    lead: 'The practical part of the social work programmes.', sources: ['+fieldwork'] },
   // Admissions
   { path: '/admissions', group: 'admissions', owner: 'Admission cell', sources: ['/admissions', '/admissions/fee-structure'] },
+  { path: '/admissions/apply', group: 'admissions', owner: 'Admission cell', title: 'Apply online',
+    desc: 'How to apply to Kumbhalkar College of Social Work, Wardha: steps, documents and the online application form.',
+    lead: 'Apply in three steps.', sources: ['+apply'] },
   // Research
   { path: '/research/research-centre', group: 'research', owner: 'Research cell', sources: ['/programmes/research-centre'] },
   { path: '/research/phd', group: 'research', owner: 'Research cell', sources: ['/programmes/phd'] },
+  { path: '/research/projects-publications', group: 'research', owner: 'Research cell and library', title: 'Projects and publications',
+    desc: 'Funded and consultancy projects, publications, conferences and seminars at Kumbhalkar College of Social Work, Wardha.',
+    lead: 'Research projects, publications and academic events.', sources: ['+projects'] },
   { path: '/research/collaborations-consultancy', group: 'research', owner: 'Research cell and CSR cell', title: 'Collaborations, consultancy and incubation',
     desc: 'Academic and industry collaborations, the CSR, project and NGO consultancy cell, and the incubation centre of Kumbhalkar College of Social Work, Wardha.',
     sources: ['/quality/csr-cell', '/campus/incubation-centre'] },
@@ -62,7 +71,7 @@ export const layout = [
   { path: '/information/gallery', group: 'info', owner: 'Media cell', sources: ['/campus/gallery'] },
   { path: '/information/rti', group: 'info', owner: 'Administration', sources: ['/notices/rti'] },
   // Contact
-  { path: '/contact', group: 'contact', owner: 'Administration', sources: ['/contact'] },
+  { path: '/contact', group: 'contact', owner: 'Administration', sources: ['/contact', '+directory'] },
 ];
 
 /** Old addresses from the first build and the original kcswwardha.in. */

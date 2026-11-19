@@ -17,14 +17,14 @@ export const nav: readonly { label: string; href: string; items: readonly Item[]
   { label: 'Academics', href: '/academics', items: [
     ['Bachelor of Social Work (BSW)', '/academics/bsw'], ['Master of Social Work (MSW)', '/academics/msw'],
     ['M.A. Travel and Tourism', '/academics/ma-travel-tourism'], ['Calendar, examinations and results', '/academics/calendar-examinations'],
-    ['Faculty and staff', '/academics/faculty-staff'], ['Library and e-library', '/academics/library'],
+    ['Faculty and staff', '/academics/faculty-staff'], ['Fieldwork and practicum', '/academics/fieldwork'], ['Library and e-library', '/academics/library'],
   ] },
   { label: 'Admissions', href: '/admissions', items: [
-    ['How to apply', '/admissions'], ['Fee structure', '/admissions#fee-structure'],
+    ['How to apply', '/admissions'], ['Apply online', '/admissions/apply'], ['Fee structure', '/admissions#fee-structure'],
     ['Prospectus (PDF)', docs.prospectus.href], ['Admission procedure (PDF)', docs.admissionProcedure.href],
   ] },
   { label: 'Research', href: '/research/research-centre', items: [
-    ['Dr. Kailash Satyarthi Research Center', '/research/research-centre'], ['Ph.D. in Social Work', '/research/phd'],
+    ['Dr. Kailash Satyarthi Research Center', '/research/research-centre'], ['Ph.D. in Social Work', '/research/phd'], ['Projects and publications', '/research/projects-publications'],
     ['Collaborations, consultancy and incubation', '/research/collaborations-consultancy'],
   ] },
   { label: 'Quality', href: '/quality/iqac', items: [

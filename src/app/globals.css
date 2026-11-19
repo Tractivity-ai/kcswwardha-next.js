@@ -678,3 +678,4 @@ body{padding-bottom:calc(74px + env(safe-area-inset-bottom))}
 @media (min-width:1280px) and (max-width:1439px){.hdr__naac{height:44px}.dd>a{padding:0 5px;font-size:14.5px}.brand__a{font-size:22px}.hdr__apply{padding:0 16px}.hdr__in{gap:8px;padding-inline:16px}}
 @media (min-width:1440px){.dd>a{padding:0 9px;font-size:15px}.hdr__in{gap:14px;padding-inline:20px}.nav{gap:2px}}
 @media (min-width:1700px){.hdr__in{max-width:1640px}.dd>a{padding:0 16px;font-size:16px}.hdr__in{gap:28px}}
+.pg__cta{margin-bottom:28px}

@@ -7,6 +7,7 @@ import {
   alumniDocs, aqar, docs, feedbackDocs, studentDocs, type Doc,
 } from './docs';
 import { layout, oldToNew } from './structure.mjs';
+import { APPLY_FORM } from './content';
 
 export type Block =
   | { t: 'p'; text: string }
@@ -836,6 +837,70 @@ const extras: Record<string, { title: string; blocks: Block[]; lead?: string; de
     blocks: [
       { t: 'docs', items: aqar, title: 'Annual Quality Assurance Reports (AQAR)' },
       TODO('AQAR reports after 2019-20. The old site lists four years only.'),
+    ],
+  },
+  '+fieldwork': {
+    title: 'Fieldwork and practicum',
+    blocks: [
+      P('Fieldwork is part of every social work programme. Students work with communities and agencies under the guidance of faculty supervisors.'),
+      H('Concurrent fieldwork'),
+      TODO('How many days a week, which agencies, and how students are supervised.'),
+      H('Block placement'),
+      TODO('Duration, timing and the agencies used.'),
+      H('Rural camp and study tours'),
+      TODO('Where camps and tours are held, and the dates of the last year.'),
+      H('Agencies and MoUs'),
+      TODO('List of partner agencies with the MoU copies.'),
+      H('Fieldwork manual'),
+      TODO('The fieldwork manual as a PDF.'),
+      H('Student reports'),
+      TODO('A few selected student fieldwork reports, with the students\' consent.'),
+    ],
+  },
+  '+apply': {
+    title: 'Apply online',
+    blocks: [
+      P('Applications for 2026-27 are made through the online admission form.'),
+      { t: 'list', ordered: true, items: [
+        'Choose a programme: BSW, MSW, M.A. Travel and Tourism or Ph.D.',
+        'Fill in the online admission form. It takes a few minutes.',
+        'Submit your documents. The list is in the admission procedure.',
+      ] },
+      { t: 'cta', label: 'Open the admission form', href: APPLY_FORM, external: true },
+      { t: 'docs', items: [docs.admissionProcedure, docs.fees, docs.prospectus], title: 'Before you apply' },
+      P('If you would like a call before you apply, leave your number in the call back form on the home page or on the contact page.'),
+      TODO('The old form is a Google Form. The plan asks for a college-branded form with document upload, application tracking and a separate Ph.D. application. This needs a decision on where applications are stored and who handles them.'),
+      TODO('Last date to apply and the list of documents for each programme.'),
+    ],
+  },
+  '+projects': {
+    title: 'Projects and publications',
+    blocks: [
+      H('Funded projects'),
+      TODO('Title, investigator, funding agency, amount and years for each funded project.'),
+      H('Consultancy projects'),
+      TODO('Title, client, faculty lead and years for each consultancy project.'),
+      H('Publications'),
+      TODO('Papers, books and chapters by faculty and scholars, with year and journal.'),
+      H('Conferences and seminars'),
+      TODO('Seminars and conferences held, and calls for papers.'),
+    ],
+  },
+  '+directory': {
+    title: 'Telephone directory',
+    blocks: [
+      { t: 'table', head: ['Office', 'Contact person', 'Phone', 'Email'], rows: [
+        ['Principal\'s office', '[to confirm]', '[to confirm]', '[to confirm]'],
+        ['Admission office', '[to confirm]', '[to confirm]', '[to confirm]'],
+        ['Examination cell', '[to confirm]', '[to confirm]', '[to confirm]'],
+        ['Accounts office', '[to confirm]', '[to confirm]', '[to confirm]'],
+        ['Library', '[to confirm]', '[to confirm]', '[to confirm]'],
+        ['Placement cell', '[to confirm]', '[to confirm]', '[to confirm]'],
+        ['Research cell', '[to confirm]', '[to confirm]', '[to confirm]'],
+        ['Grievance redressal committee', '[to confirm]', '[to confirm]', '[to confirm]'],
+        ['Anti-ragging helpline', '[to confirm]', '[to confirm]', '[to confirm]'],
+      ] },
+      TODO('Names, phone numbers and emails by office. Three numbers are on the site today (+91 715-224-1848, 9403339741, 9637755310) without saying which office each belongs to.'),
     ],
   },
   '+accessibility': {
