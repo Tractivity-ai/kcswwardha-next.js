@@ -2,7 +2,7 @@ import type { CSSProperties } from 'react';
 
 export type IconName =
   | 'arr' | 'down' | 'menu' | 'close' | 'wa' | 'phone' | 'mail' | 'pin' | 'doc' | 'plus'
-  | 'check' | 'nss' | 'place' | 'research';
+  | 'check' | 'nss' | 'place' | 'research' | 'search';
 
 /** One line icon set, one stroke weight. Symbols live in <Sprite /> once per page. */
 export function Icon({ name, className = '', style }: { name: IconName; className?: string; style?: CSSProperties }) {
@@ -41,6 +41,7 @@ export function Sprite() {
         <symbol id="i-nss" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" /><circle cx="12" cy="12" r="2" /><path d="M12 4v6M12 14v6M4 12h6M14 12h6M6.3 6.3l4.2 4.2M13.5 13.5l4.2 4.2M17.7 6.3l-4.2 4.2M10.5 13.5l-4.2 4.2" /></symbol>
         <symbol id="i-place" viewBox="0 0 24 24"><path d="M4 20h4v-4h4v-4h4V8h4" /><path d="M16 4h4v4" /></symbol>
         <symbol id="i-research" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="5.5" /><path d="M15 15l5 5M8 10.5h5" /></symbol>
+        <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6" /><path d="M15 15l5 5" /></symbol>
         <symbol id="i-wheel" viewBox="0 0 200 200">
           <g fill="none" stroke="#B8893B" strokeWidth="1">
             <circle cx="100" cy="100" r="92" /><circle cx="100" cy="100" r="70" /><circle cx="100" cy="100" r="10" />

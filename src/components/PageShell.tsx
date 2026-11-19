@@ -47,6 +47,9 @@ export function PageShell({ page }: { page: Page }) {
           {siblings.length > 1 && <SideNav label={g.label} items={siblings.map((p) => ({ path: p.path, title: p.title }))} current={page.path} />}
           <article className="pg__body">
             <Blocks blocks={page.blocks} />
+            <p className="pg__meta">
+              Last updated {page.updated}. Maintained by {page.owner}. <Link href="/contact">Contact the office</Link>
+            </p>
           </article>
         </div>
       </main>

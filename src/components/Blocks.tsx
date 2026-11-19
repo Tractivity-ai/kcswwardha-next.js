@@ -84,7 +84,17 @@ export function Blocks({ blocks }: { blocks: Block[] }) {
           case 'p':
             return <p className="pg__p" key={i}>{b.text}</p>;
           case 'h':
-            return <h2 className="pg__h" key={i}>{b.text}</h2>;
+            return b.sub
+              ? <h3 className="pg__h pg__h--sub" key={i}>{b.text}</h3>
+              : <h2 className="pg__h" id={b.id} key={i}>{b.text}</h2>;
+          case 'toc':
+            return (
+              <nav className="toc" aria-label="On this page" key={i}>
+                {blocks.filter((x): x is Extract<Block, { t: 'h' }> => x.t === 'h' && !x.sub && !!x.id).map((x) => (
+                  <a href={`#${x.id}`} key={x.id}>{x.text}</a>
+                ))}
+              </nav>
+            );
           case 'list': {
             const Tag = b.ordered ? 'ol' : 'ul';
             return (
@@ -152,7 +162,7 @@ export function Blocks({ blocks }: { blocks: Block[] }) {
               </p>
             );
           case 'hub':
-            return <Hub key={i} group={b.group} />;
+            return <Hub key={i} group={b.group as GroupId} />;
           case 'contact':
             return <Contact key={i} />;
         }

@@ -10,42 +10,44 @@ type Item = readonly [label: string, href: string];
 
 export const nav: readonly { label: string; href: string; items: readonly Item[] }[] = [
   { label: 'About', href: '/about', items: [
-    ['About KCSW', '/about'], ['About the society (RTMTES)', '/about/society'], ['Vision and mission', '/about/vision-mission'],
-    ["Principal's desk", '/about/principal'], ['Governing body', '/about/governing-body'],
-    ['Teaching staff', '/about/teaching-staff'], ['Administrative staff', '/about/administrative-staff'],
-    ['Recognition and approvals', '/about/recognition-approvals'],
+    ['About KCSW', '/about'], ['Vision and mission', '/about#vision-mission'], ['Recognition and approvals', '/about#recognition-approvals'],
+    ['About the society (RTMTES)', '/about/society'], ['Leadership and governance', '/about/leadership'],
+    ['Plans, reports and accounts', '/about/plans-reports-accounts'],
   ] },
-  { label: 'Programmes', href: '/programmes', items: [
-    ['Bachelor of Social Work (BSW)', '/programmes/bsw'], ['Master of Social Work (MSW)', '/programmes/msw'],
-    ['M.A. Travel and Tourism', '/programmes/ma-travel-tourism'], ['Ph.D. in Social Work', '/programmes/phd'],
-    ['Research Center', '/programmes/research-centre'], ['Academic calendar', '/programmes/academic-calendar'],
+  { label: 'Academics', href: '/academics', items: [
+    ['Bachelor of Social Work (BSW)', '/academics/bsw'], ['Master of Social Work (MSW)', '/academics/msw'],
+    ['M.A. Travel and Tourism', '/academics/ma-travel-tourism'], ['Calendar, examinations and results', '/academics/calendar-examinations'],
+    ['Faculty and staff', '/academics/faculty-staff'], ['Library and e-library', '/academics/library'],
   ] },
   { label: 'Admissions', href: '/admissions', items: [
-    ['How to apply', '/admissions'], ['Fee structure', '/admissions/fee-structure'],
+    ['How to apply', '/admissions'], ['Fee structure', '/admissions#fee-structure'],
     ['Prospectus (PDF)', docs.prospectus.href], ['Admission procedure (PDF)', docs.admissionProcedure.href],
   ] },
-  { label: 'Campus life', href: '/campus', items: [
-    ['Training and placement', '/campus/placement'], ['NSS', '/campus/nss'], ['Games and sports', '/campus/sports'],
-    ['Health facilities', '/campus/health-facilities'], ['Alumni', '/campus/alumni'], ["Students' zone", '/campus/students-zone'],
-    ['Library', '/campus/library'], ['E-library', '/campus/e-library'], ['Magazine', '/campus/magazine'], ['Gallery', '/campus/gallery'],
+  { label: 'Research', href: '/research/research-centre', items: [
+    ['Dr. Kailash Satyarthi Research Center', '/research/research-centre'], ['Ph.D. in Social Work', '/research/phd'],
+    ['Collaborations, consultancy and incubation', '/research/collaborations-consultancy'],
   ] },
-  { label: 'Quality', href: '/quality', items: [
-    ['IQAC and AQAR', '/quality/iqac'], ['NAAC', '/quality/naac'], ['NIRF', '/quality/nirf'],
-    ['Committees and cells', '/quality'], ['Anti-ragging', '/quality/anti-ragging'], ['Internal Complaints Committee', '/quality/internal-complaints-committee'],
+  { label: 'Quality', href: '/quality/iqac', items: [
+    ['IQAC and feedback', '/quality/iqac'], ['NAAC, NIRF and AQAR', '/quality/naac-nirf-aqar'],
   ] },
-  { label: 'Notices', href: '/notices', items: [
-    ['Circulars and notices', '/notices'], ['News and events', '/notices/news'], ['Job openings', '/notices/job-openings'],
-    ['RTI', '/notices/rti'], ['Accounts', '/notices/accounts'], ['Feedback', '/notices/feedback'],
+  { label: 'Student life', href: '/student-life', items: [
+    ['Student zone', '/student-life'], ['Support, grievance and cells', '/student-life/support-cells'],
+    ['NSS, sports and activities', '/student-life/nss-sports'], ['Training and placement', '/student-life/placement'], ['Alumni', '/student-life/alumni'],
+  ] },
+  { label: 'Information corner', href: '/information/notices', items: [
+    ['Notices and circulars', '/information/notices'], ['News, events and magazine', '/information/news-events'],
+    ['Gallery', '/information/gallery'], ['RTI', '/information/rti'],
   ] },
 ];
 
 export const menuGroups = [
-  { title: 'About', sub: 'College, leadership, faculty', href: '/about' },
-  { title: 'Programmes', sub: 'BSW, MSW, M.A., Ph.D.', href: '/programmes' },
+  { title: 'About', sub: 'College, leadership, governance', href: '/about' },
+  { title: 'Academics', sub: 'Programmes, calendar, faculty, library', href: '/academics' },
   { title: 'Admissions', sub: 'How to apply, fees, prospectus', href: '/admissions' },
-  { title: 'Campus life', sub: 'Placement, NSS, library, alumni', href: '/campus' },
-  { title: 'Quality', sub: 'IQAC, NAAC, NIRF, committees', href: '/quality' },
-  { title: 'Notices', sub: 'Circulars, RTI, feedback', href: '/notices' },
+  { title: 'Research', sub: 'Research Center, Ph.D., collaborations', href: '/research/research-centre' },
+  { title: 'Quality', sub: 'IQAC, NAAC, NIRF, AQAR', href: '/quality/iqac' },
+  { title: 'Student life', sub: 'Support cells, NSS, placement, alumni', href: '/student-life' },
+  { title: 'Information corner', sub: 'Notices, news, gallery, RTI', href: '/information/notices' },
   { title: 'Contact', sub: 'Address, phone, map', href: '/contact' },
 ] as const;
 
@@ -58,10 +60,10 @@ export const trust = [
 ] as const;
 
 export const programs = [
-  { code: 'BSW', tone: 'm', duration: '3 years', sub: '6 semesters', segments: 6, title: 'Bachelor of Social Work', text: 'Your first degree in social work, with classroom study and supervised field practice.', href: '/programmes/bsw' },
-  { code: 'MSW', tone: 's', duration: '2 years', sub: '4 semesters', segments: 4, title: 'Master of Social Work', text: 'For graduates who want to practise, lead or teach. Specialisation papers and a dissertation.', href: '/programmes/msw' },
-  { code: 'M.A.', tone: 'k', duration: '2 years', sub: '4 semesters', segments: 4, title: 'Travel and Tourism', text: 'A master\'s programme covering destinations, tourism planning, operations and management.', href: '/programmes/ma-travel-tourism' },
-  { code: 'Ph.D.', tone: 'm', duration: 'Research', sub: 'Usually 3 years, full time', segments: 0, title: 'Doctor of Philosophy in Social Work', text: 'Guided research through the Dr. Kailash Satyarthi Research Center.', href: '/programmes/phd' },
+  { code: 'BSW', tone: 'm', duration: '3 years', sub: '6 semesters', segments: 6, title: 'Bachelor of Social Work', text: 'Your first degree in social work, with classroom study and supervised field practice.', href: '/academics/bsw' },
+  { code: 'MSW', tone: 's', duration: '2 years', sub: '4 semesters', segments: 4, title: 'Master of Social Work', text: 'For graduates who want to practise, lead or teach. Specialisation papers and a dissertation.', href: '/academics/msw' },
+  { code: 'M.A.', tone: 'k', duration: '2 years', sub: '4 semesters', segments: 4, title: 'Travel and Tourism', text: 'A master\'s programme covering destinations, tourism planning, operations and management.', href: '/academics/ma-travel-tourism' },
+  { code: 'Ph.D.', tone: 'm', duration: 'Research', sub: 'Usually 3 years, full time', segments: 0, title: 'Doctor of Philosophy in Social Work', text: 'Guided research through the Dr. Kailash Satyarthi Research Center.', href: '/research/phd' },
 ] as const;
 
 export const steps = [
@@ -79,7 +81,7 @@ export const downloads = [
 export const notices = [
   { date: '[DATE]', title: docs.phdSeats.label, href: docs.phdSeats.href },
   { date: '[DATE]', title: docs.phdSchedule.label, href: docs.phdSchedule.href },
-  { date: '[DATE]', title: '[Latest circular to be added]', href: '/notices' },
+  { date: '[DATE]', title: '[Latest circular to be added]', href: '/information/notices' },
 ] as const;
 
 export const lifePhotos = [
@@ -90,23 +92,23 @@ export const lifePhotos = [
 
 /** Tiles under "Life and field work". */
 export const lifeTiles = [
-  { icon: 'nss', label: 'NSS', href: '/campus/nss' },
-  { icon: 'place', label: 'Training and placement', href: '/campus/placement' },
-  { icon: 'research', label: 'Research Center', href: '/programmes/research-centre' },
+  { icon: 'nss', label: 'NSS', href: '/student-life/nss-sports' },
+  { icon: 'place', label: 'Training and placement', href: '/student-life/placement' },
+  { icon: 'research', label: 'Research Center', href: '/research/research-centre' },
 ] as const;
 
 export const facts = [
-  { n: '15', label: 'Teaching staff', text: 'Led by the Principal, with Ph.D., M.Phil. and NET qualified faculty.', href: '/about/teaching-staff' },
-  { n: '100', label: 'NSS volunteers', text: 'One active unit since 1993, with seven-day camps in adopted villages.', href: '/campus/nss' },
-  { n: '16', label: 'Research scholars', text: 'Enrolled through the Dr. Kailash Satyarthi Research Center. [Update figure]', href: '/programmes/research-centre' },
-  { n: '85%+', label: 'Women students', text: 'A woman medical officer for student health examinations.', href: '/campus/health-facilities' },
+  { n: '15', label: 'Teaching staff', text: 'Led by the Principal, with Ph.D., M.Phil. and NET qualified faculty.', href: '/academics/faculty-staff' },
+  { n: '100', label: 'NSS volunteers', text: 'One active unit since 1993, with seven-day camps in adopted villages.', href: '/student-life/nss-sports' },
+  { n: '16', label: 'Research scholars', text: 'Enrolled through the Dr. Kailash Satyarthi Research Center. [Update figure]', href: '/research/research-centre' },
+  { n: '85%+', label: 'Women students', text: 'A woman medical officer for student health examinations.', href: '/student-life/support-cells#health-facilities' },
 ] as const;
 
 export const quality = [
-  { title: 'NAAC', text: 'Accredited with grade A+. Self Study Report, Peer Team Report 2022 and certificate.', href: '/quality/naac' },
-  { title: 'NIRF', text: 'Submissions for 2026 and 2023.', href: '/quality/nirf' },
+  { title: 'NAAC', text: 'Accredited with grade A+. Self Study Report, Peer Team Report 2022 and certificate.', href: '/quality/naac-nirf-aqar' },
+  { title: 'NIRF', text: 'Submissions for 2026 and 2023.', href: '/quality/naac-nirf-aqar#nirf' },
   { title: 'IQAC and AQAR', text: 'Members, minutes, MOUs and annual reports.', href: '/quality/iqac' },
-  { title: 'Committees and cells', text: 'Anti-ragging, internal complaints, counselling, exam cell and more.', href: '/quality' },
+  { title: 'Committees and cells', text: 'Grievance, ombudsperson, internal complaints, anti-ragging, counselling and more.', href: '/student-life/support-cells' },
 ] as const;
 
 export const faqs = [
@@ -133,11 +135,14 @@ export const social = [
   { label: 'YouTube', href: 'https://www.youtube.com/channel/UCPSsCtDb-Q9LClMiSvLMWWw' },
 ] as const;
 
+/** Eight key links in the footer, as in the website plan. */
 export const quickLinks = [
-  { label: 'Admissions', href: '/admissions' },
-  { label: 'Prospectus', href: docs.prospectus.href },
-  { label: 'Fee structure', href: '/admissions/fee-structure' },
-  { label: 'Notices', href: '/notices' },
-  { label: 'IQAC and NAAC', href: '/quality/iqac' },
+  { label: 'NAAC and NIRF', href: '/quality/naac-nirf-aqar' },
+  { label: 'AQAR', href: '/quality/naac-nirf-aqar#aqar' },
+  { label: 'RTI', href: '/information/rti' },
+  { label: 'Fee structure', href: '/admissions#fee-structure' },
+  { label: 'Grievance and cells', href: '/student-life/support-cells' },
+  { label: 'Annual reports and accounts', href: '/about/plans-reports-accounts' },
+  { label: 'Notices', href: '/information/notices' },
   { label: 'Contact', href: '/contact' },
 ] as const;

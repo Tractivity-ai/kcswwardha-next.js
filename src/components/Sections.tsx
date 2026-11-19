@@ -5,6 +5,7 @@ import {
   APPLY_FORM, downloads, facts, faqs, lifePhotos, lifeTiles, notices, principal as pr, programs, quality, steps, trust,
 } from '@/lib/content';
 import { SmartLink } from './SmartLink';
+import { docs } from '@/lib/docs';
 import { waLink } from '@/lib/site';
 import { Arrow, Icon, Wheel } from './Icon';
 import hero from '@/assets/img/hero.jpg';
@@ -126,8 +127,8 @@ export function Admission() {
 }
 
 const noticeLinks = [
-  ['News and events', '/notices/news'], ['Job openings', '/notices/job-openings'], ['RTI', '/notices/rti'],
-  ['Accounts', '/notices/accounts'], ['Feedback', '/notices/feedback'], ['All notices', '/notices'],
+  ['News and events', '/information/news-events'], ['Job openings', '/information/notices#job-openings'], ['RTI', '/information/rti'],
+  ['Accounts', '/about/plans-reports-accounts#accounts'], ['Feedback', '/quality/iqac#feedback'], ['All notices', '/information/notices'],
 ] as const;
 
 export function Notices() {
@@ -240,7 +241,7 @@ export function Principal() {
           </div>
           <div className="pr__txt rv">
             <blockquote className="serif it">{pr.excerpt}</blockquote>
-            <Link className="lnk lnk--u" href="/about/principal">Read the full message<Arrow /></Link>
+            <Link className="lnk lnk--u" href="/about/leadership">Read the full message<Arrow /></Link>
           </div>
         </div>
       </div>
@@ -285,6 +286,37 @@ export function Quality() {
             </Link>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+const quick: [string, string][] = [
+  ['Apply online', APPLY_FORM],
+  ['Results and exams', '/academics/calendar-examinations'],
+  ['Fee structure', '/admissions#fee-structure'],
+  ['Prospectus', docs.prospectus.href],
+  ['Ph.D. admission', '/research/phd'],
+  ['Contact', '/contact'],
+];
+
+/** Notice bar and quick tiles, directly under the header. Only real notices are listed. */
+export function Quick() {
+  const live = notices.filter((n) => !n.title.startsWith('['));
+  return (
+    <section className="quick" aria-label="Notices and quick links">
+      <div className="wrap">
+        <p className="quick__n">
+          <b>Notices</b>
+          {live.map((n) => (
+            <SmartLink key={n.title} href={n.href}>{n.title}</SmartLink>
+          ))}
+        </p>
+        <ul className="quick__t">
+          {quick.map(([label, href]) => (
+            <li key={label}><SmartLink href={href}><span>{label}</span><Arrow /></SmartLink></li>
+          ))}
+        </ul>
       </div>
     </section>
   );

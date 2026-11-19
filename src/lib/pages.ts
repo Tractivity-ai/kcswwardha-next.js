@@ -6,10 +6,12 @@
 import {
   alumniDocs, aqar, docs, feedbackDocs, studentDocs, type Doc,
 } from './docs';
+import { layout, oldToNew } from './structure.mjs';
 
 export type Block =
   | { t: 'p'; text: string }
-  | { t: 'h'; text: string }
+  | { t: 'h'; text: string; id?: string; sub?: boolean }
+  | { t: 'toc' }
   | { t: 'list'; items: string[]; ordered?: boolean }
   | { t: 'table'; head: string[]; rows: string[][]; caption?: string }
   | { t: 'docs'; items: Doc[]; title?: string }
@@ -19,10 +21,21 @@ export type Block =
   | { t: 'embed'; href: string; title: string }
   | { t: 'quote'; text: string; by?: string }
   | { t: 'cta'; label: string; href: string; external?: boolean }
-  | { t: 'hub'; group: GroupId }
+  | { t: 'hub'; group: string }
   | { t: 'contact' };
 
-export type GroupId = 'about' | 'programmes' | 'admissions' | 'campus' | 'quality' | 'notices' | 'contact';
+export type GroupId = 'about' | 'academics' | 'admissions' | 'research' | 'quality' | 'student' | 'info' | 'contact';
+/** Groups of the first build. Pages are still written under these and regrouped by structure.mjs. */
+type RawGroup = 'about' | 'programmes' | 'admissions' | 'campus' | 'quality' | 'notices' | 'contact';
+
+type RawPage = {
+  path: string;
+  title: string;
+  desc: string;
+  group: RawGroup;
+  lead?: string;
+  blocks: Block[];
+};
 
 export type Page = {
   path: string;
@@ -31,15 +44,23 @@ export type Page = {
   group: GroupId;
   lead?: string;
   blocks: Block[];
+  /** Office that maintains the page. */
+  owner: string;
+  /** When the content was last changed (date text). */
+  updated: string;
 };
 
+/** Content of every page was moved from the old site on this date. Change a page's date when its text changes. */
+export const CONTENT_DATE = '19 November 2026';
+
 export const groups: Record<GroupId, { label: string; sub: string; href: string }> = {
-  about: { label: 'About', sub: 'College, leadership, faculty', href: '/about' },
-  programmes: { label: 'Programmes', sub: 'BSW, MSW, M.A., Ph.D.', href: '/programmes' },
+  about: { label: 'About', sub: 'College, leadership, governance', href: '/about' },
+  academics: { label: 'Academics', sub: 'Programmes, calendar, faculty, library', href: '/academics' },
   admissions: { label: 'Admissions', sub: 'How to apply, fees, prospectus', href: '/admissions' },
-  campus: { label: 'Campus life', sub: 'Placement, NSS, library, alumni', href: '/campus' },
-  quality: { label: 'Quality and committees', sub: 'IQAC, NAAC, NIRF, committees', href: '/quality' },
-  notices: { label: 'Notices', sub: 'Circulars, RTI, feedback', href: '/notices' },
+  research: { label: 'Research', sub: 'Research Center, Ph.D., collaborations', href: '/research/research-centre' },
+  quality: { label: 'Quality', sub: 'IQAC, NAAC, NIRF, AQAR', href: '/quality/iqac' },
+  student: { label: 'Student life', sub: 'Support cells, NSS, placement, alumni', href: '/student-life' },
+  info: { label: 'Information corner', sub: 'Notices, news, gallery, RTI', href: '/information/notices' },
   contact: { label: 'Contact', sub: 'Address, phone, map', href: '/contact' },
 };
 
@@ -49,7 +70,7 @@ const L = (...items: string[]): Block => ({ t: 'list', items });
 const TODO = (text: string): Block => ({ t: 'todo', text });
 
 /** A page whose content the old site never had (the menu item was a dead link). */
-const pending = (path: string, title: string, group: GroupId, what: string): Page => ({
+const pending = (path: string, title: string, group: RawGroup, what: string): RawPage => ({
   path, title, group,
   desc: `${title} at Kumbhalkar College of Social Work, Wardha.`,
   blocks: [TODO(`Content to be supplied by the college: ${what}. The old site menu listed this page but linked nowhere.`)],
@@ -120,7 +141,7 @@ const maSems = [
 
 /* ------------------------------------------------------------------ pages */
 
-export const pages: Page[] = [
+const rawPages: RawPage[] = [
   /* ---------------------------------------------------------------- About */
   {
     path: '/about', title: 'About KCSW', group: 'about',
@@ -546,7 +567,7 @@ export const pages: Page[] = [
   },
   {
     path: '/quality/iqac', title: 'IQAC', group: 'quality',
-    desc: 'Internal Quality Assurance Cell (IQAC) of Kumbhalkar College of Social Work, Wardha: members, minutes, MOUs and AQAR reports.',
+    desc: 'Internal Quality Assurance Cell (IQAC) of Kumbhalkar College of Social Work, Wardha: members, minutes, MOUs and feedback forms.',
     lead: 'The Internal Quality Assurance Cell.',
     blocks: [
       H('Members'),
@@ -567,8 +588,6 @@ export const pages: Page[] = [
         ['14', 'Mr. G. Kale', 'Nominee from another institute'],
       ] },
       { t: 'docs', items: [docs.iqacMinutes, docs.iqacMou], title: 'Minutes and MOUs' },
-      { t: 'docs', items: aqar, title: 'Annual Quality Assurance Reports (AQAR)' },
-      TODO('AQAR reports after 2019-20. The old site lists four years only.'),
     ],
   },
   {
@@ -795,6 +814,75 @@ export const pages: Page[] = [
     blocks: [{ t: 'contact' }],
   },
 ];
+
+/* ------------------------------------------------------------ site layout */
+
+const raw = new Map(rawPages.map((p) => [p.path, p]));
+const lastSeg = (p: string) => p.split('/').pop() as string;
+
+/** Pages that are new in this layout. Each is a visible list of what the college must supply. */
+const extras: Record<string, { title: string; blocks: Block[]; lead?: string; desc?: string }> = {
+  '+plans': {
+    title: 'Plans and reports',
+    blocks: [
+      H('Institutional development plan'),
+      TODO('The institutional development plan (the IQAC perspective plan can be adapted). Upload as a PDF.'),
+      H('Annual reports'),
+      TODO('Annual reports, year by year, as PDFs.'),
+    ],
+  },
+  '+aqar': {
+    title: 'AQAR',
+    blocks: [
+      { t: 'docs', items: aqar, title: 'Annual Quality Assurance Reports (AQAR)' },
+      TODO('AQAR reports after 2019-20. The old site lists four years only.'),
+    ],
+  },
+  '+accessibility': {
+    title: 'Accessibility and Divyang support',
+    blocks: [TODO('Facilities for differently abled students (ramps, lifts, accessible toilets, reading support), and a contact person.')],
+  },
+};
+
+const moved = oldToNew();
+const fixHref = (h: string) => moved[h] ?? h;
+const fixBlock = (b: Block): Block => {
+  if (b.t === 'cta') return { ...b, href: fixHref(b.href) };
+  if (b.t === 'table') return { ...b, rows: b.rows.map((r) => r.map((c) => (c.startsWith('/') ? fixHref(c) : c))) };
+  return b;
+};
+
+function build(e: (typeof layout)[number]): Page {
+  const parts = e.sources.map((s) => {
+    const x = s.startsWith('+') ? extras[s] : raw.get(s);
+    if (!x) throw new Error(`structure.mjs: no page for ${s}`);
+    return { key: s.startsWith('+') ? s.slice(1) : lastSeg(s), title: x.title, blocks: x.blocks, lead: x.lead, desc: x.desc, extra: s.startsWith('+') };
+  });
+  const head = parts[0];
+  const blocks: Block[] = [];
+  if (e.toc) blocks.push({ t: 'toc' });
+  parts.forEach((p, i) => {
+    const own = p.blocks.filter((b) => b.t !== 'hub').map(fixBlock);
+    if (e.toc || i > 0) {
+      blocks.push({ t: 'h', text: p.title, id: p.key });
+      blocks.push(...own.map((b): Block => (b.t === 'h' ? { ...b, sub: true } : b)));
+    } else {
+      blocks.push(...own);
+    }
+  });
+  return {
+    path: e.path,
+    title: e.title ?? head.title,
+    desc: e.desc ?? head.desc ?? `${e.title ?? head.title} at Kumbhalkar College of Social Work, Wardha.`,
+    group: e.group as GroupId,
+    lead: e.lead ?? head.lead,
+    blocks,
+    owner: e.owner,
+    updated: CONTENT_DATE,
+  };
+}
+
+export const pages: Page[] = layout.map(build);
 
 /* ---------------------------------------------------------------- helpers */
 
