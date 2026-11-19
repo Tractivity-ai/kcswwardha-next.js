@@ -32,7 +32,7 @@ export function MobileMenu() {
       <dialog className="sheet" ref={ref} aria-label="Main menu" onClose={() => { document.documentElement.style.overflow = ''; }}>
         <div className="sheet__top">
           <span className="brand">
-            <Image src={crest} alt="" width={40} height={39} />
+            <Image src={crest} alt="" width={48} height={48} quality={100} />
             <span className="brand__t">
               <span className="brand__a">Kumbhalkar</span>
               <span className="brand__b">College of Social Work</span>

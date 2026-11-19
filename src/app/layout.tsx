@@ -40,7 +40,7 @@ const jsonLd = {
   alternateName: 'KCSW',
   foundingDate: '1993',
   url: site.url,
-  logo: `${site.url}/og.jpg`,
+  logo: `${site.url}/icon.png`,
   description:
     'Social work college in Sevagram, Wardha, offering BSW, MSW, M.A. in Travel and Tourism and Ph.D. programmes. Accredited by NAAC with grade A+. Affiliated to Rashtrasant Tukadoji Maharaj Nagpur University.',
   address: {

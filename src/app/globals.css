@@ -88,7 +88,7 @@ html[lang=mr] .eyebrow{letter-spacing:.04em;text-transform:none}
 .hdr{position:sticky;top:0;z-index:30;background:var(--cream);border-bottom:1px solid var(--gold)}
 .hdr__in{height:64px;display:flex;align-items:center;gap:10px;padding-inline:16px 12px}
 .brand{display:flex;align-items:center;gap:10px;min-height:44px;text-decoration:none;color:var(--maroon);min-width:0;flex:1}
-.brand img{width:40px;height:40px;object-fit:contain;flex:none}
+.brand img{width:48px;height:48px;object-fit:contain;flex:none}
 .hdr__naac{display:none;width:auto;height:44px;flex:none}
 .brand__t{line-height:1.15;min-width:0}
 .brand__a{display:block;font:600 19px/1.15 var(--serif);letter-spacing:-.005em}
@@ -100,12 +100,12 @@ html[lang=mr] .eyebrow{letter-spacing:.04em;text-transform:none}
 .hdr .lang--top{display:flex}
 @media (max-width:350px){.hdr .lang--top{display:none}}
 .nav,.hdr__apply{display:none}
-@media (min-width:640px){.hdr__naac{display:block;height:46px}.hdr__in{padding-inline:var(--gutter);height:72px}.brand img{width:46px;height:46px}.brand__a{font-size:22px}.brand__b{font-size:13px}}
+@media (min-width:640px){.hdr__naac{display:block;height:46px}.hdr__in{padding-inline:var(--gutter);height:72px}.brand img{width:56px;height:56px}.brand__a{font-size:22px}.brand__b{font-size:13px}}
 @media (min-width:1100px){
   .hdr__naac{height:60px}
   .hdr__in{height:92px;gap:20px;max-width:1440px;margin:0 auto}
   .brand{flex:none}
-  .brand img{width:56px;height:56px}.brand__a{font-size:25px}
+  .brand img{width:64px;height:64px}.brand__a{font-size:25px}
   .nav{display:flex;justify-content:center;gap:2px;flex:1}
   .hdr__apply{display:flex;min-height:48px;padding:0 22px}
   .menu-btn{display:none}
@@ -468,8 +468,8 @@ dialog.sheet::backdrop{background:var(--maroon-d)}
 .ftr .wheel{right:-140px;top:auto;bottom:-80px;opacity:.22}
 .ftr .wrap{position:relative}
 .ftr__brand{display:flex;align-items:center;gap:12px}
-.ftr__brand img{width:48px;height:48px;object-fit:contain}
-.ftr__brand .ftr__naac{width:auto;height:64px;margin-left:10px}
+.ftr__brand img{width:64px;height:64px;object-fit:contain}
+.ftr__brand .ftr__naac{width:auto;height:72px;margin-left:10px}
 .ftr__brand span{font:500 22px/1.15 var(--serif)}
 .ftr__hr{height:1px;background:var(--gold);margin:28px 0}
 .ftr__cols{display:flex;flex-direction:column;gap:20px;font-size:15.5px;line-height:1.55}

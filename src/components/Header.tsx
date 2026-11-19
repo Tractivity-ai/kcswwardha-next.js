@@ -14,13 +14,13 @@ export function Header() {
     <header className="hdr">
       <div className="hdr__in">
         <Link className="brand" href="/" aria-label="Kumbhalkar College of Social Work, home">
-          <Image src={crest} alt="" width={46} height={45} priority />
+          <Image src={crest} alt="" width={64} height={64} quality={100} priority />
           <span className="brand__t">
             <span className="brand__a">Kumbhalkar</span>
             <span className="brand__b">College of Social Work</span>
           </span>
         </Link>
-        <Image className="hdr__naac" src={naac} alt="Accredited by NAAC with grade A+" height={52} />
+        <Image className="hdr__naac" src={naac} alt="Accredited by NAAC with grade A+" height={64} quality={100} />
         <nav className="nav" aria-label="Main">
           {nav.map((n) => (
             <div className="dd" key={n.label}>

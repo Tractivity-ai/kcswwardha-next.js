@@ -13,9 +13,9 @@ export function Footer() {
       <Wheel />
       <div className="wrap">
         <div className="ftr__brand">
-          <Image src={crest} alt="" width={48} height={47} />
+          <Image src={crest} alt="" width={64} height={64} quality={100} />
           <span>Kumbhalkar College<br />of Social Work</span>
-          <Image className="ftr__naac" src={naac} alt="Accredited by NAAC with grade A+" height={52} />
+          <Image className="ftr__naac" src={naac} alt="Accredited by NAAC with grade A+" height={64} quality={100} />
         </div>
         <div className="ftr__hr" />
         <div className="ftr__cols">
