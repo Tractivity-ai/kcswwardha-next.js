@@ -7,6 +7,7 @@ import { LangToggle } from './LangToggle';
 import { MobileMenu } from './MobileMenu';
 import { SmartLink } from './SmartLink';
 import crest from '@/assets/img/crest.png';
+import naac from '@/assets/img/naac-a-plus.png';
 
 export function Header() {
   return (
@@ -19,6 +20,7 @@ export function Header() {
             <span className="brand__b">College of Social Work</span>
           </span>
         </Link>
+        <Image className="hdr__naac" src={naac} alt="Accredited by NAAC with grade A+" height={52} />
         <nav className="nav" aria-label="Main">
           {nav.map((n) => (
             <div className="dd" key={n.label}>
