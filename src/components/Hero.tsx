@@ -43,20 +43,11 @@ export function Hero() {
   const { lang } = useLang();
   const [i, setI] = useState(0);
   const [paused, setPaused] = useState(false); // user pressed pause
-  const [hold, setHold] = useState(false); // pointer or focus is on the banner
-  const [motionOk, setMotionOk] = useState(false);
-  const touch = useRef<number | null>(null);
+  const [hold, setHold] = useState(false); // keyboard focus is inside the banner
+    const touch = useRef<number | null>(null);
   const n = SLIDES.length;
 
-  useEffect(() => {
-    const q = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const set = () => setMotionOk(!q.matches);
-    set();
-    q.addEventListener('change', set);
-    return () => q.removeEventListener('change', set);
-  }, []);
-
-  const playing = motionOk && !paused && !hold;
+  const playing = !paused && !hold;
   useEffect(() => {
     if (!playing) return;
     const t = setTimeout(() => setI((x) => (x + 1) % n), EVERY);
@@ -69,9 +60,7 @@ export function Hero() {
     <section className="hero" id="top" aria-roledescription="carousel" aria-label="Highlights">
       <div
         className="hero__stage"
-        onMouseEnter={() => setHold(true)}
-        onMouseLeave={() => setHold(false)}
-        onFocus={() => setHold(true)}
+        onFocus={(e) => { if (e.target.matches(':focus-visible')) setHold(true); }}
         onBlur={() => setHold(false)}
         onTouchStart={(e) => { touch.current = e.touches[0].clientX; }}
         onTouchEnd={(e) => {
@@ -122,7 +111,7 @@ export function Hero() {
             <button type="button" className="hero__arr" aria-label="Next slide" onClick={() => go(i + 1)}>
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M5 2l5 5-5 5" /></svg>
             </button>
-            {motionOk && (
+            {(
               <button type="button" className="hero__pp" aria-label={paused ? 'Play slideshow' : 'Pause slideshow'} onClick={() => setPaused((p) => !p)}>
                 {paused ? (
                   <svg className="i" viewBox="0 0 18 18" fill="currentColor"><path d="M5 3l10 6-10 6z" /></svg>
