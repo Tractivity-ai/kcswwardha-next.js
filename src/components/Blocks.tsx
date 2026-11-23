@@ -165,6 +165,25 @@ export function Blocks({ blocks }: { blocks: Block[] }) {
                 {b.by && <figcaption>{b.by}</figcaption>}
               </figure>
             );
+          case 'gallery':
+            return (
+              <div className="gal" key={i}>
+                {b.groups.map((g) => (
+                  <section key={g.title}>
+                    <h3 className="pg__h pg__h--sub">{g.title}</h3>
+                    <p>{g.text}</p>
+                    <ul>
+                      {g.images.map((m) => (
+                        <li key={m.src}>
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img src={m.src} width={m.w} height={m.h} alt={g.alt} loading="lazy" decoding="async" />
+                        </li>
+                      ))}
+                    </ul>
+                  </section>
+                ))}
+              </div>
+            );
           case 'people':
             return (
               <ul className="people" key={i}>

@@ -21,6 +21,7 @@ export type Block =
   | { t: 'todo'; text: string }
   | { t: 'embed'; href: string; title: string }
   | { t: 'quote'; text: string; by?: string }
+  | { t: 'gallery'; groups: { title: string; text: string; alt: string; images: { src: string; w: number; h: number }[] }[] }
   | { t: 'people'; items: { photo: 'prakash' | 'vanita' | 'yugant' | 'rani' | 'sonali' | 'rajesh' | 'ravikant'; name: string; role: string }[] }
   | { t: 'cta'; label: string; href: string; external?: boolean }
   | { t: 'hub'; group: string }
@@ -547,7 +548,17 @@ const rawPages: RawPage[] = [
     path: '/campus/gallery', title: 'Gallery', group: 'campus',
     desc: 'Photo gallery of Kumbhalkar College of Social Work, Wardha.',
     blocks: [
-      TODO('Photographs by event and year. The old gallery page holds only the NAAC certificate.'),
+      P('Photographs from the 2025-26 session, taken from the Sankalp 2025-26 magazine.'),
+      { t: 'gallery', groups: [
+        { title: 'Schools adopted in Wardha district', text: 'The college adopted five schools in Wardha district to raise the quality of education. These photographs are from the opening of a robotics and STEM lab at a municipal primary school.', alt: 'Opening of a robotics and STEM lab at a municipal primary school in Wardha', images: [{ src: '/gallery/school-1.jpg', w: 720, h: 439 }, { src: '/gallery/school-2.jpg', w: 720, h: 439 }, { src: '/gallery/school-3.jpg', w: 720, h: 438 }] },
+        { title: 'Programmes for the Sustainable Development Goals', text: 'A cleanliness drive, International Day of Education at a Zilla Parishad school, and a World AIDS Day rally with posters made by social work students.', alt: 'Students and staff at a Sustainable Development Goals programme', images: [{ src: '/gallery/sdg-1.jpg', w: 720, h: 441 }, { src: '/gallery/sdg-2.jpg', w: 720, h: 441 }, { src: '/gallery/sdg-3.jpg', w: 720, h: 440 }] },
+        { title: 'Orientation and awareness sessions', text: 'Sessions for students on research guidance and SWAYAM online courses, and the Career Cell series where professionals speak with students.', alt: 'Students at an orientation and awareness session in the college', images: [{ src: '/gallery/talks-1.jpg', w: 720, h: 378 }, { src: '/gallery/talks-2.jpg', w: 720, h: 379 }, { src: '/gallery/talks-3.jpg', w: 720, h: 441 }] },
+        { title: 'Institutional visits and study tours', text: 'MSW and BSW students visit hospitals, schools, government offices and voluntary organisations in Wardha, Sawangi (Meghe), Mozari and Amravati district, as part of fieldwork learning.', alt: 'Students on an institutional visit or study tour', images: [{ src: '/gallery/visits-1.jpg', w: 720, h: 379 }, { src: '/gallery/visits-2.jpg', w: 720, h: 368 }, { src: '/gallery/visits-3.jpg', w: 720, h: 378 }, { src: '/gallery/visits-4.jpg', w: 720, h: 441 }, { src: '/gallery/visits-5.jpg', w: 720, h: 440 }, { src: '/gallery/visits-6.jpg', w: 720, h: 440 }] },
+        { title: 'Programmes through the year', text: 'Memorial days and commemorations, a cyber safety session, and Reading Inspiration Day, held by the library on the birth anniversary of Dr. A. P. J. Abdul Kalam.', alt: 'Faculty, staff and students at a college programme', images: [{ src: '/gallery/year-1.jpg', w: 720, h: 343 }, { src: '/gallery/year-2.jpg', w: 720, h: 441 }, { src: '/gallery/year-3.jpg', w: 720, h: 441 }, { src: '/gallery/year-4.jpg', w: 720, h: 379 }, { src: '/gallery/year-5.jpg', w: 720, h: 440 }, { src: '/gallery/year-6.jpg', w: 720, h: 440 }] },
+        { title: 'NSS, sports and student events', text: 'NSS awareness rallies, university sports, and a state-level college parliament in Baramati.', alt: 'Students at an NSS, sports or student event', images: [{ src: '/gallery/nss-1.jpg', w: 720, h: 440 }, { src: '/gallery/nss-2.jpg', w: 720, h: 379 }, { src: '/gallery/nss-3.jpg', w: 720, h: 441 }, { src: '/gallery/nss-4.jpg', w: 720, h: 441 }, { src: '/gallery/nss-5.jpg', w: 720, h: 440 }, { src: '/gallery/nss-6.jpg', w: 720, h: 440 }] },
+        { title: 'Annual gathering and NSS rural camp', text: 'The annual Sneh Sammelan, and the NSS rural camp held at Zadshi (Thakli).', alt: 'Annual gathering or NSS rural camp', images: [{ src: '/gallery/annual-1.jpg', w: 720, h: 448 }, { src: '/gallery/annual-2.jpg', w: 720, h: 394 }, { src: '/gallery/annual-3.jpg', w: 720, h: 383 }, { src: '/gallery/annual-4.jpg', w: 720, h: 448 }, { src: '/gallery/annual-5.jpg', w: 720, h: 448 }, { src: '/gallery/annual-6.jpg', w: 720, h: 447 }] },
+      ] },
+      TODO('Photographs from earlier years and from the programmes after the magazine went to print, with the event name and date for each.'),
       { t: 'docs', items: [docs.naacCertificate] },
     ],
   },
@@ -773,7 +784,16 @@ const rawPages: RawPage[] = [
         ['9 February 2021', 'Courtesy visit by the Superintendent of Police'],
         ['7 March 2020', "Principal's guidance session for MSW and BSW students"],
       ] },
-      TODO('These three events are from the old home page. Add recent events and achievements with photographs.'),
+      H('Recent programmes, 2025-26'),
+      { t: 'table', head: ['Date', 'Event'], rows: [
+        ['September 2025', 'Institutional visits by MSW Semester 3 students, including the Jamnalal Bajaj Foundation'],
+        ['25 November 2025', 'Day for the Elimination of Violence against Women observed at the college'],
+        ['1 December 2025', 'World AIDS Day: social work students put up posters and a rally'],
+        ['January 2026', 'NSS special rural camp with 50 volunteers'],
+        ['3 and 4 February 2026', 'Study tour of 36 students to social organisations in Amravati and Yavatmal districts'],
+      ] },
+      { t: 'cta', label: 'See photographs of these programmes', href: '/campus/gallery' },
+      TODO('Dates for the older events above are from the old home page. Add events after the magazine went to print, and student achievements.'),
     ],
   },
   pending('/notices/job-openings', 'Job openings', 'notices', 'current vacancies, or a line saying there are none'),
