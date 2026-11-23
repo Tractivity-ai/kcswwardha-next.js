@@ -1,16 +1,17 @@
 'use client';
 
 import { useId, useState, type FormEvent } from 'react';
-import { T } from '@/lib/i18n';
+import { useLang } from '@/lib/i18n';
 import { hasWhatsapp, waLink } from '@/lib/site';
-import { Arrow, Icon } from './Icon';
+import { Icon } from './Icon';
 
 type Program = 'BSW' | 'MSW' | 'Ph.D.';
 const PROGRAMS: Program[] = ['BSW', 'MSW', 'Ph.D.'];
 
 export function LeadForm() {
   const uid = useId();
-  const [program, setProgram] = useState<Program>('BSW');
+  const { t } = useLang();
+  const [program, setProgram] = useState<Program | ''>('');
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [company, setCompany] = useState(''); // honeypot
@@ -19,6 +20,8 @@ export function LeadForm() {
   const [failed, setFailed] = useState(false);
   const [done, setDone] = useState<null | { name: string; phone: string; program: Program }>(null);
 
+  const okProgram = program !== '';
+  const showProgram = tried && !okProgram;
   const okName = name.trim().length >= 2;
   const okPhone = /^[6-9]\d{9}$/.test(phone);
   const showName = tried && !okName;
@@ -28,6 +31,7 @@ export function LeadForm() {
     e.preventDefault();
     if (busy) return;
     setTried(true);
+    if (!okProgram) { document.getElementById(`${uid}-prog`)?.focus(); return; }
     if (!okName) { document.getElementById(`${uid}-name`)?.focus(); return; }
     if (!okPhone) { document.getElementById(`${uid}-phone`)?.focus(); return; }
     if (company) return; // bot
@@ -47,7 +51,7 @@ export function LeadForm() {
         }),
       });
       if (!res.ok) throw new Error('bad status');
-      setDone({ name: name.trim(), phone, program });
+      setDone({ name: name.trim(), phone, program: program as Program });
     } catch {
       setFailed(true);
     } finally {
@@ -57,67 +61,46 @@ export function LeadForm() {
 
   if (done) {
     return (
-      <div className="lead in d4" id="callback" role="region" aria-label="Request received">
+      <div className="lead" id="callback" role="region" aria-label="Request received">
         <div className="lead__done" tabIndex={-1} ref={(el) => el?.focus({ preventScroll: true })}>
           <Icon name="check" />
-          <h2>Thank you, {done.name}.</h2>
           <p>
-            Our admission desk will call you on +91 {done.phone} about {done.program.endsWith('.') ? done.program : `${done.program}.`} [Call back time to be confirmed]
+            Thank you, {done.name}. Our admission desk will call you on +91 {done.phone} about {done.program.endsWith('.') ? done.program : `${done.program}.`} [Call back time to be confirmed]{' '}
+            <a href={waLink('admissions')} target="_blank" rel="noopener noreferrer">Chat on WhatsApp while you wait</a>
           </p>
-          <a className="btn btn--wa" href={waLink('admissions')} target="_blank" rel="noopener noreferrer">
-            <Icon name="wa" />Chat on WhatsApp while you wait
-          </a>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="lead in d4" id="callback" role="region" aria-label="Request a call back">
+    <div className="lead" id="callback" role="region" aria-label="Request a call back">
       <form onSubmit={onSubmit} noValidate>
-        <div>
-          <h2 className="lead__t"><T k="formTitle" /></h2>
-          <p className="lead__s"><T k="formSub" /></p>
-        </div>
+        <h2 className="lead__t">{t('cbTitle')}</h2>
 
-        <fieldset>
-          <legend><T k="iam" /></legend>
-          <div className="chips">
-            {PROGRAMS.map((p) => (
-              <label className="chip" key={p}>
-                <input type="radio" name="program" value={p} checked={program === p} onChange={() => setProgram(p)} />
-                <span>{p}</span>
-              </label>
-            ))}
-          </div>
-        </fieldset>
+        <select
+          id={`${uid}-prog`} name="program" required aria-label={t('iam')}
+          className={showProgram ? 'bad' : undefined} aria-invalid={showProgram}
+          value={program} onChange={(e) => setProgram(e.target.value as Program)}
+        >
+          <option value="" disabled>{t('iam')}</option>
+          {PROGRAMS.map((p) => <option key={p} value={p}>{p}</option>)}
+        </select>
 
-        <div>
-          <label className="l" htmlFor={`${uid}-name`}><T k="name" /></label>
-          <div className={`fld${showName ? ' bad' : ''}`}>
-            <input
-              id={`${uid}-name`} name="name" type="text" autoComplete="name"
-              placeholder="As on your Class 12 marksheet"
-              value={name} onChange={(e) => setName(e.target.value)}
-              aria-invalid={showName} aria-describedby={`${uid}-name-err`} required
-            />
-          </div>
-          {showName && <div className="err" id={`${uid}-name-err`} role="alert">Please enter your name.</div>}
-        </div>
+        <input
+          className={`in${showName ? ' bad' : ''}`}
+          id={`${uid}-name`} name="name" type="text" autoComplete="name" placeholder={t('name')} aria-label={t('name')}
+          value={name} onChange={(e) => setName(e.target.value)}
+          aria-invalid={showName} required
+        />
 
-        <div>
-          <label className="l" htmlFor={`${uid}-phone`}><T k="mobile" /></label>
-          <div className={`fld${showPhone ? ' bad' : ''}`}>
-            <span className="cc">+91</span>
-            <input
-              id={`${uid}-phone`} name="phone" type="tel" inputMode="numeric" autoComplete="tel-national"
-              maxLength={10} placeholder="10-digit number"
-              value={phone} onChange={(e) => setPhone(e.target.value.replace(/\D/g, '').slice(0, 10))}
-              aria-invalid={showPhone} aria-describedby={`${uid}-phone-err`} required
-            />
-          </div>
-          {showPhone && <div className="err" id={`${uid}-phone-err`} role="alert">Enter a valid 10-digit mobile number.</div>}
-        </div>
+        <input
+          className={`in${showPhone ? ' bad' : ''}`}
+          id={`${uid}-phone`} name="phone" type="tel" inputMode="numeric" autoComplete="tel-national"
+          maxLength={10} placeholder={t("mobile")} aria-label={t('mobile')}
+          value={phone} onChange={(e) => setPhone(e.target.value.replace(/\D/g, '').slice(0, 10))}
+          aria-invalid={showPhone} required
+        />
 
         <input
           type="text" name="company" tabIndex={-1} autoComplete="off" aria-hidden="true"
@@ -125,22 +108,23 @@ export function LeadForm() {
           style={{ position: 'absolute', left: -9999, opacity: 0, height: 0, width: 0 }}
         />
 
-        <button type="submit" className="btn btn--maroon" disabled={busy} style={busy ? { opacity: 0.7 } : undefined}>
-          <span><T k="submit" /></span>
-          <Arrow />
-        </button>
+        <button type="submit" className="lead__btn" disabled={busy}>{t('submit')}</button>
+
+        {(showProgram || showName || showPhone) && (
+          <p className="err" role="alert">
+            {showProgram ? 'Please choose a programme.' : showName ? 'Please enter your name.' : 'Enter a valid 10-digit mobile number.'}
+          </p>
+        )}
         {failed && (
           <p className="lead__fail" role="alert">
             We could not send this just now. Please try again, or chat with us on WhatsApp.
           </p>
         )}
         <p className="lead__fine">
-          By submitting, you agree to be contacted by KCSW by call or WhatsApp about admissions. [Privacy policy link to be added]
+          By submitting, you agree to be contacted by KCSW about admissions. [Privacy policy link to be added]{' '}
+          Prefer chat? <a href={waLink('admissions')} target="_blank" rel="noopener noreferrer">WhatsApp us</a>
+          {!hasWhatsapp && ' [WhatsApp number to be confirmed]'}
         </p>
-        <a className="btn btn--wa" href={waLink('admissions')} target="_blank" rel="noopener noreferrer">
-          <Icon name="wa" /><span><T k="wa" /></span>
-        </a>
-        {!hasWhatsapp && <p className="lead__note">[WhatsApp number to be confirmed]</p>}
       </form>
     </div>
   );

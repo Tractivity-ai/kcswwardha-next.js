@@ -16,7 +16,7 @@ export const dict = {
     formTitle: 'Talk to the admission desk',
     formSub: 'Leave your number and we will call you back. [Call back time to be confirmed]',
     iam: 'I am interested in', name: 'Your name', mobile: 'Mobile number',
-    submit: 'Request a call back', wa: 'Chat on WhatsApp',
+    submit: 'Request a call back', wa: 'Chat on WhatsApp', cbTitle: 'Call back request',
   },
   mr: {
     h1a: 'शिक्षण जे', h1b: 'सेवा करते.',
@@ -27,7 +27,7 @@ export const dict = {
     allNotices: 'सर्व सूचना', readStory: 'आमची कथा वाचा',
     formTitle: 'प्रवेश कक्षाशी बोला', formSub: 'तुमचा नंबर द्या, आम्ही परत फोन करू.',
     iam: 'मला यात रस आहे', name: 'तुमचे नाव', mobile: 'मोबाइल नंबर',
-    submit: 'परत कॉल मिळवा', wa: 'व्हॉट्सअ‍ॅपवर बोला',
+    submit: 'परत कॉल मिळवा', wa: 'व्हॉट्सअ‍ॅपवर बोला', cbTitle: 'परत कॉलची विनंती',
   },
 } as const;
 
