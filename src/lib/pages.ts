@@ -536,7 +536,12 @@ const rawPages: RawPage[] = [
   {
     path: '/campus/magazine', title: 'College magazine', group: 'campus',
     desc: 'The college magazine of Kumbhalkar College of Social Work, Wardha.',
-    blocks: [{ t: 'embed', href: docs.magazine.href, title: 'College magazine (PDF)' }],
+    blocks: [
+      P('Sankalp is the annual magazine of the college. It carries messages from the President, Secretary and Principal, articles by students and faculty, reports of the college committees and photographs of the year\'s programmes.'),
+      { t: 'docs', items: [{ label: 'Sankalp 2025 (annual magazine)', href: '/documents/sankalp-2025.pdf', note: 'Large file, about 41 MB' }], title: 'Annual magazine' },
+      { t: 'embed', href: docs.magazine.href, title: 'College magazine (earlier edition, PDF)' },
+      TODO('Sankalp 2025-26 (the latest edition) is not uploaded yet. The file is about 90 MB and needs to be compressed first.'),
+    ],
   },
   {
     path: '/campus/gallery', title: 'Gallery', group: 'campus',
