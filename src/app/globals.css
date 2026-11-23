@@ -74,9 +74,6 @@ html[lang=mr] .eyebrow{letter-spacing:.04em;text-transform:none}
   .row{transition:background .3s ease}
   .row:hover{background:rgba(110,20,35,.06)}
   .on-dark .row:hover,.row.rowd:hover{background:rgba(246,240,228,.07)}
-  .tile{transition:background .3s ease,color .3s ease,transform .3s ease}
-  .tile:hover{background:var(--maroon)}
-  .tile:hover,.tile:hover .tile__l,.tile:hover .i{color:var(--cream)}
   .btn--gold:hover,.btn--maroon:hover,.btn--wa:hover{filter:brightness(1.1)}
   .btn--ghost:hover{background:rgba(246,240,228,.12)}
   .step:hover .num{background:var(--gold);color:var(--ink)}
@@ -225,7 +222,7 @@ dialog.sheet::backdrop{background:var(--maroon-d)}
   .chipc span{font-size:14px}
 }
 @media (min-width:900px){.trust__row{grid-template-columns:repeat(4,minmax(0,1fr))}.chipc:nth-child(odd){border-left:1px solid var(--gold);padding-left:24px}.chipc:first-child{border-left:0;padding-left:var(--gutter)}.chipc:nth-child(n+3){border-top:0}}
-@media (hover:hover) and (min-width:720px){.chipc{transition:background .3s}.chipc:hover{background:rgba(110,20,35,.05)}}
+
 
 /* ---------- Programs ---------- */
 .programs{border-top:1px solid var(--gold)}
@@ -499,7 +496,6 @@ body{padding-bottom:calc(74px + env(safe-area-inset-bottom))}
 .fcard__l{font-weight:600;font-size:15px;margin-top:4px}
 .fcard__t{font-size:13.5px;line-height:1.45;color:var(--mute)}
 @media (min-width:900px){.fgrid{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin-top:44px}.fcard{padding:26px 22px 28px}.fcard b{font-size:60px}.fcard__t{font-size:14.5px}}
-@media (hover:hover){.fcard{transition:background .25s,border-color .25s}.fcard:hover{background:var(--sand)}}
 .qual{border-top:1px solid var(--gold)}
 .qual__intro{margin-top:14px;font-size:15.5px;line-height:1.6;color:var(--ink3);max-width:520px}
 .qual__list{margin-top:26px;border-top:1px solid var(--gold)}
@@ -675,4 +671,11 @@ body{padding-bottom:calc(74px + env(safe-area-inset-bottom))}
     .sbar{animation:barin linear both!important;animation-timeline:scroll(root)!important;animation-range:600px 760px!important}
     @media (min-width:900px){.fab{animation:fabin linear both!important;animation-timeline:scroll(root)!important;animation-range:260px 420px!important}}
   }
+}
+
+/* One hover for every card: the border turns maroon and a soft shadow lifts it. Lists keep the maroon tint. */
+@media (hover:hover){
+  .pcard,.fcard,.tile,.chipc,.cbox{transition:border-color .25s ease,box-shadow .25s ease}
+  .pcard:hover,.fcard:hover,.tile:hover,.chipc:hover{border-color:var(--maroon);box-shadow:0 14px 28px -18px rgba(31,26,23,.45)}
+  .pcard:hover{border-top-color:var(--maroon)}
 }
