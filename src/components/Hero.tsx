@@ -42,12 +42,11 @@ const EVERY = 6500;
 export function Hero() {
   const { lang } = useLang();
   const [i, setI] = useState(0);
-  const [paused, setPaused] = useState(false); // user pressed pause
-  const [hold, setHold] = useState(false); // keyboard focus is inside the banner
+    const [hold, setHold] = useState(false); // keyboard focus is inside the banner
     const touch = useRef<number | null>(null);
   const n = SLIDES.length;
 
-  const playing = !paused && !hold;
+  const playing = !hold;
   useEffect(() => {
     if (!playing) return;
     const t = setTimeout(() => setI((x) => (x + 1) % n), EVERY);
@@ -97,29 +96,6 @@ export function Hero() {
                 </div>
               );
             })}
-          </div>
-
-          <div className="hero__ctl">
-            <button type="button" className="hero__arr" aria-label="Previous slide" onClick={() => go(i - 1)}>
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M9 2L4 7l5 5" /></svg>
-            </button>
-            {SLIDES.map((_, k) => (
-              <button type="button" key={k} className="hero__dot" aria-label={`Show slide ${k + 1}`} aria-current={k === i} onClick={() => go(k)}>
-                <i />
-              </button>
-            ))}
-            <button type="button" className="hero__arr" aria-label="Next slide" onClick={() => go(i + 1)}>
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M5 2l5 5-5 5" /></svg>
-            </button>
-            {(
-              <button type="button" className="hero__pp" aria-label={paused ? 'Play slideshow' : 'Pause slideshow'} onClick={() => setPaused((p) => !p)}>
-                {paused ? (
-                  <svg className="i" viewBox="0 0 18 18" fill="currentColor"><path d="M5 3l10 6-10 6z" /></svg>
-                ) : (
-                  <svg className="i" viewBox="0 0 18 18" fill="currentColor"><path d="M4 3h3.5v12H4zM10.5 3H14v12h-3.5z" /></svg>
-                )}
-              </button>
-            )}
           </div>
         </div>
       </div>
