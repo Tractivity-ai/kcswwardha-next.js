@@ -21,6 +21,7 @@ export type Block =
   | { t: 'todo'; text: string }
   | { t: 'embed'; href: string; title: string }
   | { t: 'quote'; text: string; by?: string }
+  | { t: 'people'; items: { photo: 'prakash' | 'vanita' | 'yugant' | 'rani' | 'sonali' | 'rajesh' | 'ravikant'; name: string; role: string }[] }
   | { t: 'cta'; label: string; href: string; external?: boolean }
   | { t: 'hub'; group: string }
   | { t: 'contact' };
@@ -146,6 +147,7 @@ const rawPages: RawPage[] = [
       P('For more than 25 years the college has prepared social workers. It teaches the knowledge, skills and techniques of the profession, and it builds the attitude and aptitude needed for a career in professional social work. Over those years it has sent 1,203 social work graduates and postgraduates into service in society.'),
       TODO('The figure of 1,203 graduates is from the old site (25 years). Update it to the current year.'),
       P('The college is committed to developing civic consciousness and a sense of social responsibility in its students. The curriculum is broad, so students build a holistic and ecological view of society. Classroom learning is reinforced through field work, where students learn by direct experience. The aim is education that is socially relevant, and that shapes responsible citizens as well as professionals.'),
+      P('The college is accredited with grade A+ by NAAC, is in the 201-300 rank band of NIRF 2025 (College category), and is ISO 9001:2015 certified.'),
       H('Programmes offered'),
       L('Bachelor of Social Work (BSW)', 'Master of Social Work (MSW)', 'Doctor of Philosophy in Social Work (Ph.D.)'),
       { t: 'cta', label: 'Read about the society that runs the college', href: '/about/society' },
@@ -166,7 +168,22 @@ const rawPages: RawPage[] = [
       ),
       H('What the society runs'),
       P('Social work colleges, primary and ashram schools, a technical workshop for physically challenged students, and homes for senior citizens. The society plans to grow and create more employment in the coming years.'),
-      TODO('Confirm the current list of institutions and projects run by the society, and the current office bearers.'),
+      H('Our founders'),
+      L(
+        'The late Shri Krushnaraoji Kumbhalkar, Founding President',
+        'The late Smt. Lilabai Kumbhalkar, Founding Member and former President',
+        'The late Shri Tulsiramji F. Shende, Founding Treasurer',
+        'The late Dr. Yogesh K. Kumbhalkar, Founding Secretary and former Chairman, whose leadership carried the society forward',
+      ),
+      H('Institutions of the society'),
+      L(
+        'Kumbhalkar College of Social Work, Wardha',
+        'Kumbhalkar Social Work Evening College, Nagpur',
+        'Swami Vivekanand Vruddhashram, Savner',
+        'Proudh Diyanganchi Technical Workshop, Nagpur',
+      ),
+      { t: 'cta', label: 'Governing body', href: '/about/governing-body' },
+      TODO('Confirm this list of institutions and projects is complete and current. It comes from the Sankalp 2025-26 magazine.'),
     ],
   },
   {
@@ -221,16 +238,17 @@ const rawPages: RawPage[] = [
     path: '/about/governing-body', title: 'Governing body', group: 'about',
     desc: 'Members of the governing body of Kumbhalkar College of Social Work, Wardha.',
     blocks: [
-      { t: 'table', head: ['No.', 'Name', 'Designation'], rows: [
-        ['1', 'Shri Prakash K. Kumbhalkar', 'President'],
-        ['2', 'Miss Vanita D. Rewatkar', 'Vice-President'],
-        ['3', 'Mr. Yugant Y. Kumbhalkar', 'Secretary'],
-        ['4', 'Ms. Rani Y. Kumbhalkar', 'Joint Secretary'],
-        ['5', 'Mr. Ravikant M. Marpak', 'Treasurer'],
-        ['6', 'Shri Rajesh K. Kumbhalkar', 'Director'],
-        ['7', 'Ms. Sonali V. Vaidya', 'Director'],
+      P('The governing body of Rashtrasant Tukadoji Maharaj Technical and Educational Society, Ganeshpeth, Nagpur, which runs the college. Names and designations are as printed in Sankalp 2025-26.'),
+      { t: 'people', items: [
+        { photo: 'prakash', name: 'Mr. Prakash K. Kumbhalkar', role: 'President' },
+        { photo: 'vanita', name: 'Ms. Vanita D. Rewatkar', role: 'Vice-President' },
+        { photo: 'yugant', name: 'Mr. Yugant Y. Kumbhalkar', role: 'Secretary' },
+        { photo: 'rani', name: 'Dr. Rani Y. Kumbhalkar', role: 'Treasurer' },
+        { photo: 'sonali', name: 'Ms. Sonali V. Vaidya', role: 'Joint Secretary' },
+        { photo: 'rajesh', name: 'Mr. Rajesh K. Kumbhalkar', role: 'Director' },
+        { photo: 'ravikant', name: 'Mr. Ravikant M. Marpak', role: 'Director' },
       ] },
-      TODO('Photographs of the members, and the current term of the governing body.'),
+      TODO('The current term of the governing body. The older site listed Ms. Rani Kumbhalkar as Joint Secretary, Mr. Marpak as Treasurer and Ms. Vaidya as Director; this page follows the 2025-26 magazine.'),
     ],
   },
   {
@@ -380,6 +398,7 @@ const rawPages: RawPage[] = [
     lead: 'The Krushnalila Training and Placement (Internship) Cell.',
     blocks: [
       P('The Cell has worked for the last 15 years with final-year BSW and MSW students. It supports their overall development, and helps them with internships and job opportunities. It places students with NGOs, companies and government offices, and it runs programmes that prepare students to meet the expectations of NGOs and industry. It also arranges competitive exam guidance, led by the director of the competitive class and by recent successful candidates, along with other internal and external activities.'),
+      P('The Training and Placement Committee for 2025-26 is coordinated by Dr. Rameshwar Vhandkar, with Dr. Satish Dhawad and Prof. Rajesh Tandekar as members. It runs activities for personality development, employability and career guidance.'),
       TODO('Placement figures, names of recruiters and year of the last update. The old site gives no numbers.'),
       H('Objectives'),
       { t: 'list', ordered: true, items: [
@@ -454,7 +473,9 @@ const rawPages: RawPage[] = [
       ),
       H('Code of conduct'),
       L('Respect and integrity in all dealings', 'No discrimination, and activities open to everyone', 'Punctuality at all scheduled activities', 'Confidentiality of sensitive information'),
-      TODO('Name of the current NSS Programme Officer and contact details.'),
+      H('NSS in 2025-26'),
+      P('Dr. Ashok Satpute is the NSS coordinator. About 100 volunteers took part through the year in tree planting, cleanliness drives, shramdaan, and awareness programmes on AIDS and the Constitution. They marked Yoga Day, Van Mahotsav, Youth Day, Independence Day, Teachers Day, Gandhi Jayanti, NSS Day, Constitution Day, World AIDS Day and Women\'s Day. In January 2026, 50 volunteers took part in a special rural camp with cleanliness, health check-up and awareness programmes.'),
+      TODO('Contact details of the NSS coordinator.'),
     ],
   },
   {
@@ -503,6 +524,7 @@ const rawPages: RawPage[] = [
     desc: 'Library department of Kumbhalkar College of Social Work, Wardha.',
     blocks: [
       { t: 'embed', href: docs.library.href, title: 'Library department (PDF)' },
+      P('The librarian is Dr. Varsha Patil.'),
       TODO('Library details in text: number of books, journals, timings, membership rules. The old site shows a PDF only.'),
     ],
   },
@@ -544,6 +566,7 @@ const rawPages: RawPage[] = [
     desc: 'Internal Quality Assurance Cell (IQAC) of Kumbhalkar College of Social Work, Wardha: members, minutes, MOUs and feedback forms.',
     lead: 'The Internal Quality Assurance Cell.',
     blocks: [
+      P('For 2025-26 the IQAC is coordinated by Dr. Rameshwar Vhandkar. This year the cell compiled and updated NAAC documents, encouraged modern teaching methods, ran a Faculty Development Programme, and began skill and career activities for students.'),
       H('Members'),
       { t: 'table', head: ['No.', 'Name', 'Category'], rows: [
         ['1', 'Dr. C. K. Popatkar', 'Head of the institution'],
@@ -570,7 +593,14 @@ const rawPages: RawPage[] = [
     blocks: [
       P('Kumbhalkar College of Social Work is accredited by the National Assessment and Accreditation Council (NAAC) with grade A+.'),
       { t: 'docs', items: [docs.ssr, docs.peerTeam, docs.naacCertificate] },
-      TODO('NAAC CGPA, accreditation cycle and validity period.'),
+      { t: 'facts', items: [
+        ['Grade', 'A+'],
+        ['CGPA', '3.35 on a four-point scale'],
+        ['Cycle', 'Second cycle'],
+        ['Date of certificate', '26 October 2022'],
+        ['Valid up to', '25 October 2027'],
+      ] },
+      P('The certificate was issued by NAAC, an autonomous institution of the University Grants Commission, to Kumbhalkar College of Social Work, Kakawadi, Wardha, affiliated to Rashtrasant Tukadoji Maharaj Nagpur University.'),
     ],
   },
   {
@@ -579,7 +609,8 @@ const rawPages: RawPage[] = [
     blocks: [
       { t: 'docs', items: [docs.nirf2026Overall, docs.nirf2026College], title: 'NIRF 2026' },
       { t: 'docs', items: [docs.nirf2023Overall, docs.nirf2023College], title: 'NIRF 2023' },
-      TODO('Rank or rank band and year. The old site lists the reports without a rank.'),
+      P('NIRF 2025, College category: rank band 201-300.'),
+      TODO('Whether the NIRF 2026 submission has a published rank band.'),
     ],
   },
   {
@@ -682,6 +713,7 @@ const rawPages: RawPage[] = [
         ['6', 'Adv. Priyadarshani Dambhare', 'Legal adviser', '9284329959'],
         ['7', 'Mrs. Kiran K. Dhobale', 'NGO member', '9096679266'],
       ] },
+      P('In 2025-26 the committee was coordinated by Dr. Nalini Bhagat. No complaint was received from any woman employee or student during the session. On 25 November 2025 the college marked the Day for the Elimination of Violence against Women.'),
       { t: 'cta', label: 'Internal Complaints Committee', href: '/quality/internal-complaints-committee' },
     ],
   },
@@ -817,10 +849,12 @@ const extras: Record<string, { title: string; blocks: Block[]; lead?: string; de
     blocks: [
       P('Fieldwork is part of every social work programme. Students work with communities and agencies under the guidance of faculty supervisors.'),
       H('Concurrent fieldwork'),
+      P('The Social Work Practicum Committee, coordinated by Dr. Satish Dhawad, arranges placements. In 2025-26 students did regular fieldwork in social organisations, government departments, hospitals, schools, gram panchayats, anganwadi centres, old age homes and voluntary organisations. They used casework, group work, community organisation and social action, through case studies, surveys, group meetings and awareness programmes on health, sanitation, education, women\'s empowerment and child rights.'),
       TODO('How many days a week, which agencies, and how students are supervised.'),
       H('Block placement'),
       TODO('Duration, timing and the agencies used.'),
       H('Rural camp and study tours'),
+      P('In February 2026 a study tour of 36 students visited social organisations in Amravati and Yavatmal districts, led by Prof. Gajanan Jadhav and Dr. Kamal Potdukhe. In September 2025, MSW Semester 3 students made institutional visits, including the Jamnalal Bajaj Foundation and a leprosy hospital and rehabilitation centre of the Maharogi Sewa Samiti.'),
       TODO('Where camps and tours are held, and the dates of the last year.'),
       H('Agencies and MoUs'),
       TODO('List of partner agencies with the MoU copies.'),

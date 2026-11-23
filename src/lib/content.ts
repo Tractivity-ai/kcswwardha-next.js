@@ -56,7 +56,7 @@ export const trust = [
   { big: 'Est. 1993', small: 'Wardha, Maharashtra' },
   { big: 'RTMNU', small: 'Affiliated university, Nagpur' },
   { big: '1,203', small: 'Graduates in 25 years [update figure]' },
-  { big: 'NAAC A+', small: 'Accredited, grade A+ [cycle and year to confirm]' },
+  { big: 'NAAC A+', small: 'CGPA 3.35, second cycle, valid up to October 2027' },
 ] as const;
 
 export const programs = [

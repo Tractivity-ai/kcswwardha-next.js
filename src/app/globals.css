@@ -679,3 +679,12 @@ body{padding-bottom:calc(74px + env(safe-area-inset-bottom))}
   .pcard:hover,.fcard:hover,.tile:hover,.chipc:hover{border-color:var(--maroon);box-shadow:0 14px 28px -18px rgba(31,26,23,.45)}
   .pcard:hover{border-top-color:var(--maroon)}
 }
+
+/* Portraits with name and role */
+.people{list-style:none;margin:0 0 28px;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 14px}
+.people li{display:flex;flex-direction:column;gap:2px}
+.people img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border:1px solid var(--gold);border-radius:3px;margin-bottom:8px;background:var(--sand)}
+.people b{font:500 18px/1.25 var(--serif);color:var(--maroon)}
+.people span{font-size:15px;color:var(--ink3)}
+@media (min-width:640px){.people{grid-template-columns:repeat(3,minmax(0,1fr));gap:26px 20px}}
+@media (min-width:1100px){.people{grid-template-columns:repeat(4,minmax(0,1fr))}}

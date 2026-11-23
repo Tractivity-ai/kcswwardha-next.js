@@ -1,4 +1,14 @@
+import Image from 'next/image';
 import Link from 'next/link';
+import gbPrakash from '@/assets/img/gb-prakash.jpg';
+import gbVanita from '@/assets/img/gb-vanita.jpg';
+import gbYugant from '@/assets/img/gb-yugant.jpg';
+import gbRani from '@/assets/img/gb-rani.jpg';
+import gbSonali from '@/assets/img/gb-sonali.jpg';
+import gbRajesh from '@/assets/img/gb-rajesh.jpg';
+import gbRavikant from '@/assets/img/gb-ravikant.jpg';
+
+const portraits = { prakash: gbPrakash, vanita: gbVanita, yugant: gbYugant, rani: gbRani, sonali: gbSonali, rajesh: gbRajesh, ravikant: gbRavikant } as const;
 import { groupPages, groups, type Block, type GroupId } from '@/lib/pages';
 import { site } from '@/lib/site';
 import { social } from '@/lib/content';
@@ -154,6 +164,18 @@ export function Blocks({ blocks }: { blocks: Block[] }) {
                 <p className="serif">{b.text}</p>
                 {b.by && <figcaption>{b.by}</figcaption>}
               </figure>
+            );
+          case 'people':
+            return (
+              <ul className="people" key={i}>
+                {b.items.map((m) => (
+                  <li key={m.name}>
+                    <Image src={portraits[m.photo]} alt={`Portrait of ${m.name}`} sizes="(min-width: 900px) 200px, 45vw" quality={85} />
+                    <b>{m.name}</b>
+                    <span>{m.role}</span>
+                  </li>
+                ))}
+              </ul>
             );
           case 'cta':
             return (
