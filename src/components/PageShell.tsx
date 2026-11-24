@@ -7,6 +7,13 @@ import { SideNav } from './SideNav';
 import { Footer } from './Footer';
 import { Header } from './Header';
 
+/** Course data for the programme pages, using only facts printed on those pages. */
+const COURSES: Record<string, { name: string; desc: string; time: string }> = {
+  '/academics/bsw': { name: 'Bachelor of Social Work (BSW)', desc: 'Three-year, six-semester BSW with theory papers, practicum and field work, affiliated to Rashtrasant Tukadoji Maharaj Nagpur University.', time: 'P3Y' },
+  '/academics/msw': { name: 'Master of Social Work (MSW)', desc: 'Two-year, four-semester MSW with method courses, practicum and field work, affiliated to Rashtrasant Tukadoji Maharaj Nagpur University.', time: 'P2Y' },
+  '/research/phd': { name: 'Ph.D. in Social Work', desc: 'Ph.D. in Social Work at the Dr. Kailash Satyarthi Higher Education and Research Center, usually three years full time.', time: 'P3Y' },
+};
+
 /** Template for every inner page: header, title band, section menu, content, footer. */
 export function PageShell({ page }: { page: Page }) {
   const g = groups[page.group];
@@ -22,12 +29,23 @@ export function PageShell({ page }: { page: Page }) {
     itemListElement: crumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: `${site.url}${c.url}` })),
   };
 
+  const course = COURSES[page.path];
+  const courseLd = course && {
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    name: course.name,
+    description: course.desc,
+    timeRequired: course.time,
+    provider: { '@type': 'CollegeOrUniversity', name: site.name, url: site.url },
+  };
+
   return (
     <>
       <a className="skip" href="#main">Skip to content</a>
       <Header />
       <main id="main">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
+        {courseLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseLd) }} />}
         <section className="band weave-d">
           <div className="wrap">
             <nav className="crumbs" aria-label="Breadcrumb">

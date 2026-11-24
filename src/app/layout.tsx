@@ -6,13 +6,13 @@ import { site } from '@/lib/site';
 import { Sprite } from '@/components/Icon';
 import './globals.css';
 
-const title = 'Kumbhalkar College of Social Work, Wardha | BSW, MSW and Ph.D. Admissions 2026-27';
+const title = 'Kumbhalkar College of Social Work, Wardha | BSW, MSW, Ph.D.';
 const description =
   'Social work education in Sevagram, Wardha since 1993. NAAC A+ accredited. Affiliated to Rashtrasant Tukadoji Maharaj Nagpur University. Apply for BSW, MSW and Ph.D. 2026-27.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: { default: title, template: '%s | Kumbhalkar College of Social Work, Wardha' },
+  title: { default: title, template: '%s | KCSW Wardha' },
   description,
   alternates: { canonical: '/' },
   openGraph: {
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     locale: 'en_IN',
     images: [{ url: '/og.jpg', width: 1200, height: 630, alt: site.name }],
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { card: 'summary_large_image', title, description },
 };
 
 export const viewport: Viewport = {

@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: 'Search',
   description: 'Search pages, notices and documents on the Kumbhalkar College of Social Work website.',
   alternates: { canonical: '/search' },
+  robots: { index: false, follow: true },
 };
 
 function index(): Entry[] {
