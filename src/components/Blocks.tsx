@@ -1,5 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import photoTour from '@/assets/img/hero-study-tour.jpg';
+import photoGathering from '@/assets/img/hero-gathering.jpg';
+import photoCounselling from '@/assets/img/hero-counselling.jpg';
+import photoCamp from '@/assets/img/story-camp.jpg';
+import photoNss from '@/assets/img/life-nss.jpg';
+import photoVillage from '@/assets/img/life-village.jpg';
+import photoNssTeam from '@/assets/img/life-nss-team.jpg';
 import gbPrakash from '@/assets/img/gb-prakash.jpg';
 import gbVanita from '@/assets/img/gb-vanita.jpg';
 import gbYugant from '@/assets/img/gb-yugant.jpg';
@@ -86,6 +93,8 @@ function Contact() {
   );
 }
 
+const PHOTOS = { tour: photoTour, gathering: photoGathering, counselling: photoCounselling, camp: photoCamp, nss: photoNss, village: photoVillage, nssTeam: photoNssTeam } as const;
+
 export function Blocks({ blocks }: { blocks: Block[] }) {
   return (
     <>
@@ -157,6 +166,13 @@ export function Blocks({ blocks }: { blocks: Block[] }) {
                 <iframe src={b.href} title={b.title} loading="lazy" />
                 <SmartLink className="btn btn--maroon embed__btn" href={b.href}><span>Open {b.title}</span></SmartLink>
               </div>
+            );
+          case 'photo':
+            return (
+              <figure className="pfig" key={i}>
+                <Image src={PHOTOS[b.key]} alt={b.alt} sizes="(min-width: 900px) 820px, 100vw" />
+                <figcaption>{b.caption}</figcaption>
+              </figure>
             );
           case 'quote':
             return (

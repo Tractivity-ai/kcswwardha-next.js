@@ -25,7 +25,10 @@ export type Block =
   | { t: 'people'; items: { photo: 'prakash' | 'vanita' | 'yugant' | 'rani' | 'sonali' | 'rajesh' | 'ravikant'; name: string; role: string }[] }
   | { t: 'cta'; label: string; href: string; external?: boolean }
   | { t: 'hub'; group: string }
-  | { t: 'contact' };
+  | { t: 'contact' }
+  | { t: 'photo'; key: PhotoKey; alt: string; caption: string };
+
+export type PhotoKey = 'tour' | 'gathering' | 'counselling' | 'camp' | 'nss' | 'village' | 'nssTeam';
 
 export type GroupId = 'about' | 'academics' | 'admissions' | 'research' | 'quality' | 'student' | 'info' | 'contact';
 /** Groups of the first build. Pages are still written under these and regrouped by structure.mjs. */
@@ -979,7 +982,24 @@ function build(e: (typeof layout)[number]): Page {
   };
 }
 
-export const pages: Page[] = layout.map(build);
+/** One photograph at the top of selected pages, from the college's own photo folder. */
+const TOP_PHOTO: Record<string, Extract<Block, { t: 'photo' }>> = {
+  '/about': { t: 'photo', key: 'gathering', alt: 'Students, faculty and guests at the annual gathering', caption: 'The annual gathering of students, faculty and guests' },
+  '/academics': { t: 'photo', key: 'camp', alt: 'Students and faculty sitting in a circle for a group session by a lake', caption: 'A group session during a field camp' },
+  '/academics/bsw': { t: 'photo', key: 'tour', alt: 'Students and faculty in front of a study tour bus', caption: 'BSW students and faculty on a study tour' },
+  '/academics/msw': { t: 'photo', key: 'camp', alt: 'Students and faculty sitting in a circle for a group session by a lake', caption: 'A group session during a field camp' },
+  '/academics/fieldwork': { t: 'photo', key: 'village', alt: 'Students and villagers cleaning a village lane', caption: 'A cleanliness drive in a village' },
+  '/admissions': { t: 'photo', key: 'counselling', alt: 'Faculty addressing students at the certificate course in counselling orientation', caption: 'Orientation for the certificate course in counselling' },
+  '/student-life': { t: 'photo', key: 'nssTeam', alt: 'NSS volunteers and faculty at a roadside awareness stall', caption: 'NSS volunteers at an awareness stall' },
+  '/student-life/nss-sports': { t: 'photo', key: 'nss', alt: 'NSS volunteers and faculty tending the college garden', caption: 'NSS volunteers on campus' },
+  '/student-life/support-cells': { t: 'photo', key: 'counselling', alt: 'Faculty addressing students at the certificate course in counselling orientation', caption: 'A counselling course session' },
+  '/information/news-events': { t: 'photo', key: 'gathering', alt: 'Students, faculty and guests at the annual gathering', caption: 'The annual gathering' },
+};
+
+export const pages: Page[] = layout.map(build).map((pg) => {
+  const ph = TOP_PHOTO[pg.path];
+  return ph ? { ...pg, blocks: [ph, ...pg.blocks] } : pg;
+});
 
 /* ---------------------------------------------------------------- helpers */
 
