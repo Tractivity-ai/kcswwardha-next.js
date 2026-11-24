@@ -6,7 +6,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { LeadForm } from './LeadForm';
 import hero from '@/assets/img/hero-study-tour.jpg';
 import e1 from '@/assets/img/hero-gathering.jpg';
-import e2 from '@/assets/img/hero-sanjhagram.jpg';
+import e2 from '@/assets/img/hero-fieldwork.jpg';
 
 type Slide = {
   img: StaticImageData;
@@ -23,7 +23,7 @@ const SLIDES: Slide[] = [
     en: { eyebrow: 'BSW, MSW and Ph.D. in Wardha', h: 'Education that serves.', sub: 'Social work education in Sevagram, Wardha, since 1993.', btn: 'Apply for 2026-27' },
   },
   {
-    img: e2, alt: 'Students and faculty with a community group at Sanjhagram village', pos: '50% 55%', href: '/academics/fieldwork',
+    img: e2, alt: 'Students taking field notes during a visit to a municipal waste management site', pos: '50% 40%', href: '/academics/fieldwork',
     en: { eyebrow: 'Social work in practice', h: 'Learning in the field, not only the classroom.', sub: 'Fieldwork is part of every programme. Students work with communities and agencies under faculty supervision.', btn: 'About fieldwork' },
   },
   {
