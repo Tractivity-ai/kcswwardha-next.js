@@ -12,7 +12,7 @@ export function Header() {
   return (
     <header className="hdr">
       <div className="hdr__in">
-        <Link className="brand" href="/" aria-label="Kumbhalkar College of Social Work, home">
+        <Link className="brand" href="/" aria-label="Kumbhalkar College of Social Work">
           <Image src={crest} alt="" width={64} height={64} quality={100} priority />
           <span className="brand__t">
             <span className="brand__a">Kumbhalkar</span>

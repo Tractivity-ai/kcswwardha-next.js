@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
 import { newsreader, hanken } from '@/lib/fonts';
-import { LangProvider } from '@/lib/i18n';
 import { site } from '@/lib/site';
 import { Sprite } from '@/components/Icon';
 import './globals.css';
@@ -63,7 +62,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <Sprite />
-        <LangProvider>{children}</LangProvider>
+        {children}
       </body>
     </html>
   );

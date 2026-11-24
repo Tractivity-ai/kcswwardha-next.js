@@ -1,7 +1,3 @@
-'use client';
-
-import { createContext, useContext, useMemo, type ReactNode } from 'react';
-
 /** English copy. */
 export const dict = {
   en: {
@@ -20,21 +16,11 @@ export const dict = {
 
 export type Key = keyof (typeof dict)['en'];
 
-type Ctx = { t: (k: Key) => string };
-const LangContext = createContext<Ctx | null>(null);
-
-export function LangProvider({ children }: { children: ReactNode }) {
-  const value = useMemo<Ctx>(() => ({ t: (k) => dict.en[k] }), []);
-  return <LangContext.Provider value={value}>{children}</LangContext.Provider>;
+/** Text for components. English only, so this needs no client code. */
+export function useLang() {
+  return { t: (k: Key): string => dict.en[k] };
 }
 
-export function useLang(): Ctx {
-  const c = useContext(LangContext);
-  if (!c) throw new Error('useLang must be used inside LangProvider');
-  return c;
-}
-
-/** Text for use inside server components. */
 export function T({ k }: { k: Key }) {
-  return <>{useLang().t(k)}</>;
+  return <>{dict.en[k]}</>;
 }

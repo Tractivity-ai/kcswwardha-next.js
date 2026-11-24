@@ -5,8 +5,6 @@ export const newsreader = localFont({
     { path: '../assets/fonts/newsreader-latin-400-normal.woff2', weight: '400', style: 'normal' },
     { path: '../assets/fonts/newsreader-latin-500-normal.woff2', weight: '500', style: 'normal' },
     { path: '../assets/fonts/newsreader-latin-600-normal.woff2', weight: '600', style: 'normal' },
-    { path: '../assets/fonts/newsreader-latin-400-italic.woff2', weight: '400', style: 'italic' },
-    { path: '../assets/fonts/newsreader-latin-500-italic.woff2', weight: '500', style: 'italic' },
   ],
   variable: '--font-newsreader',
   display: 'swap',
