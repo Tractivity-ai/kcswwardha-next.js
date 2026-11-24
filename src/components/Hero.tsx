@@ -3,7 +3,6 @@
 import Image, { type StaticImageData } from 'next/image';
 import Link from 'next/link';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { trust } from '@/lib/content';
 import { LeadForm } from './LeadForm';
 import hero from '@/assets/img/hero.jpg';
 import e1 from '@/assets/img/e1.jpg';
@@ -34,6 +33,9 @@ const SLIDES: Slide[] = [
 ];
 
 const EVERY = 6500;
+
+/** Short facts shown as a bullet strip at the foot of the banner. */
+const FACTS = ['Est. 1993', 'RTMNU', 'NAAC A+', '1,203 graduates'];
 
 export function Hero() {
   const [i, setI] = useState(0);
@@ -93,15 +95,16 @@ export function Hero() {
             })}
           </div>
         </div>
+
+        <ul className="hero__facts" aria-label="About the college">
+          {FACTS.map((f) => (
+            <li key={f}>{f}</li>
+          ))}
+        </ul>
       </div>
 
       <div className="hero__form">
         <LeadForm />
-        <ul className="hero__facts" aria-label="Accreditation and affiliation">
-          {trust.map((c) => (
-            <li key={c.big}><b>{c.big}</b><span>{c.small}</span></li>
-          ))}
-        </ul>
       </div>
     </section>
   );
