@@ -667,13 +667,19 @@ body{padding-bottom:calc(74px + env(safe-area-inset-bottom))}
 .gal li img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;border-radius:3px;background:var(--sand)}
 @media (min-width:640px){.gal ul{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}}
 
-/* ---------- Hero facts: bullet strip at the foot of the banner ---------- */
-.hero__facts{position:relative;z-index:2;list-style:none;margin:0;padding:10px 14px 12px;display:flex;flex-wrap:wrap;gap:2px 0;background:rgba(58,8,17,.55);color:#fff;font-size:12.5px;line-height:1.5;white-space:nowrap}
-.hero__facts li{display:flex;align-items:center}
-.hero__facts li+li::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--logoy);margin:0 7px}
+/* ---------- Hero key stats at the foot of the banner ---------- */
+.hero__facts{position:relative;z-index:2;list-style:none;margin:0;padding:12px 14px 14px;display:grid;grid-template-columns:repeat(4,auto);justify-content:space-between;gap:0;background:rgba(58,8,17,.6);color:#fff}
+.hero__facts li{display:flex;flex-direction:column;padding-inline:10px;border-left:1px solid rgba(255,255,255,.28)}
+.hero__facts li:first-child{border-left:0;padding-left:0}
+.hero__facts li:last-child{padding-right:0}
+.hero__facts b{font:600 22px/1.1 var(--serif);white-space:nowrap}
+.hero__facts span{margin-top:3px;font-size:11.5px;line-height:1.25;opacity:.9}
 @media (min-width:900px){
-  .hero__facts{position:absolute;left:0;right:0;bottom:66px;max-width:1440px;margin:0 auto;padding:0 var(--gutter);background:none;font-size:15px}
-  .hero__facts li+li::before{margin:0 14px}
+  .hero__facts{position:absolute;left:0;right:0;bottom:66px;max-width:1440px;margin:0 auto;padding:0 var(--gutter);background:none;display:flex;justify-content:flex-start;gap:0}
+  .hero__facts li{padding-inline:32px}
+  .hero__facts li:first-child{padding-left:0}
+  .hero__facts b{font-size:34px}
+  .hero__facts span{font-size:14px;margin-top:4px}
 }
 
 /* ---------- White theme: two logo colours (maroon, yellow) on white, after Lexora's structure ---------- */

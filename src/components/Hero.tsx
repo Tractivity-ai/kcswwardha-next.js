@@ -34,8 +34,13 @@ const SLIDES: Slide[] = [
 
 const EVERY = 6500;
 
-/** Short facts shown as a bullet strip at the foot of the banner. */
-const FACTS = ['Est. 1993', 'RTMNU', 'NAAC A+', '1,203 graduates'];
+/** Key stats shown at the foot of the banner. */
+const FACTS = [
+  { n: '1993', l: 'Established' },
+  { n: 'A+', l: 'NAAC grade' },
+  { n: '1,203', l: 'Graduates' },
+  { n: 'RTMNU', l: 'Affiliated university' },
+] as const;
 
 export function Hero() {
   const [i, setI] = useState(0);
@@ -98,7 +103,7 @@ export function Hero() {
 
         <ul className="hero__facts" aria-label="About the college">
           {FACTS.map((f) => (
-            <li key={f}>{f}</li>
+            <li key={f.l}><b>{f.n}</b><span>{f.l}</span></li>
           ))}
         </ul>
       </div>
