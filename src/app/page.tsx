@@ -19,8 +19,8 @@ export default function Home() {
         <Notices />
         <Life />
         <Quality />
-        <Faq />
         <Principal />
+        <Faq />
       </main>
       <Footer />
       <FloatingActions />
