@@ -21,7 +21,7 @@ export function Programs() {
   return (
     <section className="programs weave sec" id="programs" aria-labelledby="programs-h">
       <div className="wrap">
-        <h2 className="h2 rv" id="programs-h">Programmes</h2>
+        <h2 className="h2 rv" id="programs-h">BSW, MSW and Ph.D. programmes in Wardha</h2>
         <div className="pgrid">
           {programs.map((p) => (
             <article className="pcard card rv" key={p.code}>
@@ -50,7 +50,7 @@ export function Story() {
         <div className="rule" />
         <div className="story__g">
           <div className="story__a">
-            <h2 className="h2 rv" id="story-q">About the college</h2>
+            <h2 className="h2 rv" id="story-q">About Kumbhalkar College of Social Work</h2>
             <p className="story__p rv">
               Wardha is Gandhi&apos;s Sevabhoomi. Our campus on Sevagram Road was once a Khadi and Gramudyog workstation.
               Since 1993, the same ground has prepared students for a life of service, with classroom learning strengthened by field work.
@@ -76,7 +76,7 @@ export function Admission() {
       <div className="wrap">
         <div className="adm__g">
           <div className="adm__a">
-            <h2 className="h2 rv" id="adm-h">Admissions 2026-27</h2>
+            <h2 className="h2 rv" id="adm-h">Admissions 2026-27: BSW, MSW and Ph.D.</h2>
             <ol className="steps">
               {steps.map((s) => (
                 <li className="step rv" key={s.n}>
@@ -119,7 +119,7 @@ export function Notices() {
     <section className="notices weave sec" id="notices" aria-labelledby="notices-h">
       <div className="wrap notices__g">
         <div className="notices__head">
-          <h2 className="h2 rv" id="notices-h">Notices</h2>
+          <h2 className="h2 rv" id="notices-h">Latest notices and circulars</h2>
         </div>
         <div className="notices__list rv">
           {notices.map((n) => (
@@ -145,7 +145,7 @@ export function Life() {
     <section className="life sec" id="life" aria-labelledby="life-h">
       <div className="wrap life__g">
         <div className="life__head">
-          <h2 className="h2 rv" id="life-h">Student life and field work</h2>
+          <h2 className="h2 rv" id="life-h">Student life, NSS and field work</h2>
         </div>
         <div className="life__photos">
           {lifePhotos.map((p) => (
@@ -171,12 +171,21 @@ export function Life() {
 }
 
 export function Faq() {
+  /** Search markup uses only answers that are free of bracketed to-confirm text. */
+  const faqLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs
+      .filter((f) => !f.a.includes('['))
+      .map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+  };
   return (
     <section className="faq weave sec" id="faq" aria-labelledby="faq-h">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <div className="wrap faq__g">
         <div className="faq__head">
-          <h2 className="h2 rv" id="faq-h">Frequently asked questions</h2>
-          <p className="faq__intro rv">Short answers from the admission desk. [Answers to be supplied by the office]</p>
+          <h2 className="h2 rv" id="faq-h">Admission FAQs: BSW, MSW and Ph.D.</h2>
+          <p className="faq__intro rv">Short answers from the admission office.</p>
         </div>
         <div className="faq__list rv">
           {faqs.map((f, i) => (
@@ -233,7 +242,7 @@ export function Facts() {
   return (
     <section className="facts-s sec" id="people" aria-labelledby="facts-h">
       <div className="wrap">
-        <h2 className="h2" id="facts-h">College at a glance</h2>
+        <h2 className="h2" id="facts-h">Kumbhalkar College at a glance</h2>
         <div className="fgrid">
           {facts.map((f) => (
             <Link className="fcard" href={f.href} key={f.label}>
@@ -253,7 +262,7 @@ export function Quality() {
     <section className="qual weave sec" id="quality" aria-labelledby="qual-h">
       <div className="wrap qual__g">
         <div className="qual__head">
-          <h2 className="h2" id="qual-h">Quality and accreditation</h2>
+          <h2 className="h2" id="qual-h">NAAC A+ accreditation and quality</h2>
           <p className="qual__intro">Accreditation reports, quality assurance records and the committees that keep the college accountable.</p>
         </div>
         <div className="qual__list">

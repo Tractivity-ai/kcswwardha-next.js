@@ -111,15 +111,17 @@ export const quality = [
 ] as const;
 
 export const faqs = [
-  { tag: 'BSW', q: 'Who can apply for the BSW?', a: '[Admission office to add: accepted Class 12 streams, minimum marks, age limit]' },
-  { tag: 'MSW', q: 'Who can apply for the MSW, and what can I specialise in?', a: '[Add: accepted graduate degrees, minimum marks, specialisations offered]' },
-  { tag: 'Admission', q: 'Is admission by merit or by entrance test?', a: '[Add: selection method, counselling or interview, last date to apply, merit list dates]' },
-  { tag: 'Fees', q: 'What are the fees, and are scholarships available?', a: '[Add: yearly fee for each programme, scholarships and fee concessions]. The full list is in the fee structure PDF.' },
-  { tag: 'Documents', q: 'Which documents do I need to bring?', a: '[Add: certificates, mark sheets, photographs and ID proof, originals and copies]. The full list is in the admission procedure PDF. Every student also needs a medical examination at admission.' },
-  { tag: 'Field work', q: 'What is field work, and how often will I go?', a: 'Classroom learning is reinforced through field work, where students learn from direct experience. [Add: days per week, partner organisations, supervisors]' },
-  { tag: 'Campus', q: 'Is hostel accommodation available?', a: '[Add: hostel availability, seats, fees, rules, distance from campus]' },
-  { tag: 'Ph.D.', q: 'How do I apply for the Ph.D.?', a: 'Ph.D. admission follows the directions of Nagpur University. The latest notices and seat status are on the Ph.D. page. [Add: eligibility, seats, fees]' },
-  { tag: 'After the degree', q: 'What can I do after the BSW or MSW?', a: 'The Training and Placement Cell supports internships and placements with NGOs, companies and government offices. [Add: real outcomes from our graduates]' },
+  { tag: 'BSW', q: 'Who can apply for the BSW, and how long is it?', a: 'The BSW is a three-year, six-semester programme. Students who have passed Class 12 from a recognised board can apply. The university sets the minimum marks and the rules for each admission year, and the admission procedure PDF lists them.' },
+  { tag: 'MSW', q: 'Who can apply for the MSW, and how long is it?', a: 'The MSW is a two-year, four-semester programme. Graduates of a recognised university can apply, as set out in the university rules and the admission procedure PDF. The course covers case work, group work and community work, with a practicum in every semester. [College to confirm the specialisation papers offered]' },
+  { tag: 'Admission', q: 'How does admission work?', a: 'Admission follows the rules of Rashtrasant Tukadoji Maharaj Nagpur University. Choose a programme, fill in the online admission form and submit the documents listed in the admission procedure. [College to confirm: selection method, last date to apply and merit list dates]' },
+  { tag: 'Fees', q: 'What are the fees, and are scholarships available?', a: 'The fee for each programme is listed in the fee structure PDF on the admissions page. [College to confirm: scholarships and fee concessions available to students]' },
+  { tag: 'Documents', q: 'Which documents do I need for admission?', a: 'The admission procedure PDF lists the documents, which usually include mark sheets, the last college or school leaving certificate, a category certificate where it applies, an identity proof and photographs. Every student also needs a medical examination at admission.' },
+  { tag: 'Field work', q: 'What is field work in social work education?', a: 'Field work is supervised practice in the community and in social agencies, alongside classroom study. It includes concurrent fieldwork during the semester, block placement, rural camps and study tours, and each student works under the guidance of faculty supervisors.' },
+  { tag: 'Campus', q: 'Is hostel accommodation available?', a: '[College to confirm: hostel availability, seats, fees and rules, and the distance from the campus on Sevagram Road]' },
+  { tag: 'Ph.D.', q: 'How do I apply for the Ph.D. in Social Work?', a: 'Ph.D. admission follows the directions of Nagpur University and is held at the Dr. Kailash Satyarthi Higher Education and Research Center. The programme usually takes three years full time. The latest notices, admission schedule and vacant seat status are on the Ph.D. page.' },
+  { tag: 'Accreditation', q: 'Is the college accredited, and which university is it affiliated to?', a: 'Yes. Kumbhalkar College of Social Work is accredited by NAAC with grade A+ (CGPA 3.35, second cycle), valid up to 25 October 2027. It is affiliated to Rashtrasant Tukadoji Maharaj Nagpur University and has run since 1993.' },
+  { tag: 'Location', q: 'Where is the college?', a: 'The college is on Sevagram Road, Opp. Mahila Ashram, Wardha 442001, Maharashtra. The contact page has the map, phone numbers and email addresses.' },
+  { tag: 'After the degree', q: 'What can I do after the BSW or MSW?', a: 'Social work graduates work with NGOs, companies, hospitals, schools and government offices. The Training and Placement Cell supports internships and placements and offers competitive exam guidance for final-year BSW and MSW students.' },
 ] as const;
 
 export const principal = {

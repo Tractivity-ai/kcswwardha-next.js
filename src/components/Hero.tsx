@@ -87,8 +87,14 @@ export function Hero() {
               const Head = k === 0 ? 'h1' : 'h2';
               return (
                 <div key={k} className={`hero__txt${k === i ? ' on' : ''}`} aria-hidden={k !== i} role="group" aria-roledescription="slide" aria-label={`${k + 1} of ${n}`} {...(k !== i ? { inert: true } : {})}>
-                  <p className="eyebrow">{c.eyebrow}</p>
-                  <Head>{c.h}</Head>
+                  {k === 0 ? (
+                    <h1><span className="eyebrow">{c.eyebrow}</span><span className="hl">{c.h}</span></h1>
+                  ) : (
+                    <>
+                      <p className="eyebrow">{c.eyebrow}</p>
+                      <Head>{c.h}</Head>
+                    </>
+                  )}
                   <p className="hero__sub">{c.sub}</p>
                   {s.href.startsWith('#') ? (
                     <a className="btn btn--gold" href={s.href}><span>{c.btn}</span></a>

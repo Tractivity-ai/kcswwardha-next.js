@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { groupPages, groups, type Page } from '@/lib/pages';
 import { site } from '@/lib/site';
+import { seo } from '@/lib/seo';
 import { Blocks } from './Blocks';
 import { FloatingActions } from './FloatingActions';
 import { SideNav } from './SideNav';
@@ -57,7 +58,7 @@ export function PageShell({ page }: { page: Page }) {
                 ))}
               </ol>
             </nav>
-            <h1 className="band__h">{page.title}</h1>
+            <h1 className="band__h">{seo[page.path]?.h1 ?? page.title}</h1>
             {page.lead && <p className="band__lead">{page.lead}</p>}
           </div>
         </section>

@@ -745,3 +745,4 @@ body{background:#fff}
 
 .pfig{margin:0 0 24px}.pfig img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:3px}.pfig figcaption{margin-top:8px;font-size:14px;color:#5b4a4d}
 @media (min-width:900px){.pfig{margin-bottom:30px}}
+.hero__txt h1 .eyebrow,.hero__txt h1 .hl{display:block}
