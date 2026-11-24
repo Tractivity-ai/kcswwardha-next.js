@@ -26,7 +26,8 @@ export type Block =
   | { t: 'cta'; label: string; href: string; external?: boolean }
   | { t: 'hub'; group: string }
   | { t: 'contact' }
-  | { t: 'photo'; key: PhotoKey; alt: string; caption: string };
+  | { t: 'photo'; key: PhotoKey; alt: string; caption: string }
+  | { t: 'related'; links: { label: string; href: string }[] };
 
 export type PhotoKey = 'tour' | 'gathering' | 'counselling' | 'camp' | 'nss' | 'village' | 'nssTeam';
 
@@ -996,9 +997,30 @@ const TOP_PHOTO: Record<string, Extract<Block, { t: 'photo' }>> = {
   '/information/news-events': { t: 'photo', key: 'gathering', alt: 'Students, faculty and guests at the annual gathering', caption: 'The annual gathering' },
 };
 
+/** Links to related pages at the foot of key pages. The link text names the destination. */
+const RL = (label: string, href: string) => ({ label, href });
+const RELATED: Record<string, { label: string; href: string }[]> = {
+  '/about': [RL('BSW, MSW and Ph.D. programmes', '/academics'), RL('Admissions 2026-27', '/admissions'), RL('NAAC A+ accreditation', '/quality/naac-nirf-aqar'), RL('Principal and governing body', '/about/leadership'), RL('Contact the college', '/contact')],
+  '/academics': [RL('Bachelor of Social Work (BSW)', '/academics/bsw'), RL('Master of Social Work (MSW)', '/academics/msw'), RL('Ph.D. in Social Work', '/research/phd'), RL('Fieldwork and practicum', '/academics/fieldwork'), RL('Apply for admission', '/admissions')],
+  '/academics/bsw': [RL('Apply for the BSW', '/admissions/apply'), RL('Fee structure', '/admissions#fee-structure'), RL('Fieldwork and practicum', '/academics/fieldwork'), RL('Master of Social Work (MSW)', '/academics/msw'), RL('Training and placement', '/student-life/placement')],
+  '/academics/msw': [RL('Apply for the MSW', '/admissions/apply'), RL('Fee structure', '/admissions#fee-structure'), RL('Fieldwork and practicum', '/academics/fieldwork'), RL('Ph.D. in Social Work', '/research/phd'), RL('Training and placement', '/student-life/placement')],
+  '/academics/fieldwork': [RL('Bachelor of Social Work (BSW)', '/academics/bsw'), RL('Master of Social Work (MSW)', '/academics/msw'), RL('NSS, sports and activities', '/student-life/nss-sports'), RL('Training and placement', '/student-life/placement')],
+  '/admissions': [RL('BSW programme details', '/academics/bsw'), RL('MSW programme details', '/academics/msw'), RL('Ph.D. admission', '/research/phd'), RL('Apply online', '/admissions/apply'), RL('Notices and circulars', '/information/notices')],
+  '/admissions/apply': [RL('BSW programme details', '/academics/bsw'), RL('MSW programme details', '/academics/msw'), RL('Ph.D. in Social Work', '/research/phd'), RL('Admission questions and answers', '/#faq'), RL('Contact the admission office', '/contact')],
+  '/research/phd': [RL('Dr. Kailash Satyarthi Research Center', '/research/research-centre'), RL('Research projects and publications', '/research/projects-publications'), RL('Apply for admission', '/admissions'), RL('Notices and circulars', '/information/notices')],
+  '/research/research-centre': [RL('Ph.D. in Social Work', '/research/phd'), RL('Research projects and publications', '/research/projects-publications'), RL('Collaborations and consultancy', '/research/collaborations-consultancy')],
+  '/student-life/placement': [RL('Bachelor of Social Work (BSW)', '/academics/bsw'), RL('Master of Social Work (MSW)', '/academics/msw'), RL('Alumni association', '/student-life/alumni'), RL('Fieldwork and practicum', '/academics/fieldwork')],
+  '/student-life/nss-sports': [RL('Fieldwork and practicum', '/academics/fieldwork'), RL('Support, grievance and student cells', '/student-life/support-cells'), RL('Photo gallery', '/information/gallery'), RL('Training and placement', '/student-life/placement')],
+  '/quality/naac-nirf-aqar': [RL('Internal Quality Assurance Cell (IQAC)', '/quality/iqac'), RL('About the college', '/about'), RL('Admissions 2026-27', '/admissions'), RL('Annual reports and accounts', '/about/plans-reports-accounts')],
+  '/quality/iqac': [RL('NAAC accreditation, NIRF and AQAR', '/quality/naac-nirf-aqar'), RL('Faculty and staff', '/academics/faculty-staff'), RL('About the college', '/about')],
+  '/contact': [RL('Admissions 2026-27', '/admissions'), RL('Apply online', '/admissions/apply'), RL('BSW, MSW and Ph.D. programmes', '/academics')],
+};
+
 export const pages: Page[] = layout.map(build).map((pg) => {
   const ph = TOP_PHOTO[pg.path];
-  return ph ? { ...pg, blocks: [ph, ...pg.blocks] } : pg;
+  const rel = RELATED[pg.path];
+  const blocks = [...(ph ? [ph] : []), ...pg.blocks, ...(rel ? [{ t: 'related' as const, links: rel }] : [])];
+  return { ...pg, blocks };
 });
 
 /* ---------------------------------------------------------------- helpers */

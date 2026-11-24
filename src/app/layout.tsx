@@ -53,14 +53,23 @@ const jsonLd = {
   parentOrganization: { '@type': 'CollegeOrUniversity', name: 'Rashtrasant Tukadoji Maharaj Nagpur University' },
   telephone: site.phone || '+919403339741',
   email: site.email || site.emails[0],
+  hasMap: site.mapsUrl,
+  award: 'NAAC accreditation, grade A+ (CGPA 3.35), valid up to 25 October 2027',
+  employee: { '@type': 'Person', name: 'Dr. Chandu K. Popatkar', jobTitle: 'Principal' },
+  contactPoint: [
+    { '@type': 'ContactPoint', contactType: 'customer service', telephone: '+919403339741', email: 'info@kcswwardha.in', areaServed: 'IN' },
+  ],
   sameAs: ['https://www.facebook.com/kscwwardha/', 'https://www.youtube.com/channel/UCPSsCtDb-Q9LClMiSvLMWWw'],
 };
+
+const siteLd = { '@context': 'https://schema.org', '@type': 'WebSite', name: site.name, alternateName: 'KCSW Wardha', url: site.url, inLanguage: 'en-IN' };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${newsreader.variable} ${hanken.variable}`}>
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteLd) }} />
         <Sprite />
         {children}
       </body>

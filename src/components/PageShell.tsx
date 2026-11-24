@@ -30,6 +30,16 @@ export function PageShell({ page }: { page: Page }) {
     itemListElement: crumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: `${site.url}${c.url}` })),
   };
 
+  const webPageLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: seo[page.path]?.title ?? page.title,
+    description: seo[page.path]?.desc ?? page.desc,
+    url: `${site.url}${page.path}`,
+    dateModified: '2026-11-19',
+    inLanguage: 'en-IN',
+    isPartOf: { '@type': 'WebSite', name: site.name, url: site.url },
+  };
   const course = COURSES[page.path];
   const courseLd = course && {
     '@context': 'https://schema.org',
@@ -46,6 +56,7 @@ export function PageShell({ page }: { page: Page }) {
       <Header />
       <main id="main">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageLd) }} />
         {courseLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseLd) }} />}
         <section className="band weave-d">
           <div className="wrap">

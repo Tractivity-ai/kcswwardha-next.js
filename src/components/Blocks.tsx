@@ -174,6 +174,15 @@ export function Blocks({ blocks }: { blocks: Block[] }) {
                 <figcaption>{b.caption}</figcaption>
               </figure>
             );
+          case 'related':
+            return (
+              <nav className="rel" aria-label="Related pages" key={i}>
+                <h2 className="pg__h">Related pages</h2>
+                <ul>
+                  {b.links.map((l) => <li key={l.href}><Link href={l.href}>{l.label}</Link></li>)}
+                </ul>
+              </nav>
+            );
           case 'quote':
             return (
               <figure className="sign" key={i}>
