@@ -16,21 +16,6 @@ import principalPhoto from '@/assets/img/principal.jpg';
 
 const lifeImages = { e1, e2, e3 } as const;
 
-export function Trust() {
-  return (
-    <section className="trust" id="trust" aria-label="Accreditation and affiliation">
-      <div className="trust__row">
-        {trust.map((c) => (
-          <div className="chipc" key={c.big}>
-            <b>{c.big}</b>
-            <span>{c.small}</span>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
 export function Programs() {
   return (
     <section className="programs weave sec" id="programs" aria-labelledby="programs-h">

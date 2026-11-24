@@ -25,14 +25,3 @@ export const hanken = localFont({
   fallback: ['system-ui', 'sans-serif'],
 });
 
-/** Marathi and Hindi. Only fetched by the browser when Devanagari text is on the page. */
-export const deva = localFont({
-  src: [
-    { path: '../assets/fonts/noto-sans-devanagari-devanagari-400-normal.woff2', weight: '400', style: 'normal' },
-    { path: '../assets/fonts/noto-sans-devanagari-devanagari-600-normal.woff2', weight: '600', style: 'normal' },
-  ],
-  variable: '--font-deva',
-  display: 'swap',
-  preload: false,
-  fallback: ['sans-serif'],
-});

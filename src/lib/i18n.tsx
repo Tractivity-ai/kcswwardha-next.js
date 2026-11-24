@@ -1,10 +1,8 @@
 'use client';
 
-import { createContext, useCallback, useContext, useEffect, useMemo, useSyncExternalStore, type ReactNode } from 'react';
+import { createContext, useContext, useMemo, type ReactNode } from 'react';
 
-export type Lang = 'en' | 'mr';
-
-/** English is final copy. Marathi is placeholder text for a native speaker to review. */
+/** English copy. */
 export const dict = {
   en: {
     h1a: 'Education that', h1b: 'serves.',
@@ -18,48 +16,15 @@ export const dict = {
     iam: 'I am interested in', name: 'Your name', mobile: 'Mobile number',
     submit: 'Request a call back', wa: 'Chat on WhatsApp', cbTitle: 'Call back request',
   },
-  mr: {
-    h1a: 'शिक्षण जे', h1b: 'सेवा करते.',
-    sub: 'सेवाग्राम, वर्धा येथे १९९३ पासून समाजकार्य शिक्षण.',
-    apply: '२०२६-२७ साठी अर्ज करा', applyShort: 'अर्ज करा', view: 'अभ्यासक्रम पहा',
-    programs: 'अभ्यासक्रम', story: 'सेवाग्रामची कथा', admission: 'प्रवेश',
-    notices: 'सूचना', life: 'जीवन आणि क्षेत्रकार्य', principal: 'प्राचार्यांचा संदेश',
-    allNotices: 'सर्व सूचना', readStory: 'आमची कथा वाचा',
-    formTitle: 'प्रवेश कक्षाशी बोला', formSub: 'तुमचा नंबर द्या, आम्ही परत फोन करू.',
-    iam: 'मला यात रस आहे', name: 'तुमचे नाव', mobile: 'मोबाइल नंबर',
-    submit: 'परत कॉल मिळवा', wa: 'व्हॉट्सअ‍ॅपवर बोला', cbTitle: 'परत कॉलची विनंती',
-  },
 } as const;
 
 export type Key = keyof (typeof dict)['en'];
 
-type Ctx = { lang: Lang; setLang: (l: Lang) => void; t: (k: Key) => string };
+type Ctx = { t: (k: Key) => string };
 const LangContext = createContext<Ctx | null>(null);
-const STORE = 'kcsw-lang';
-
-/** Saved language lives in localStorage; useSyncExternalStore reads it without a hydration mismatch. */
-const listeners = new Set<() => void>();
-const subscribe = (cb: () => void) => { listeners.add(cb); return () => { listeners.delete(cb); }; };
-let memory: Lang | null = null; // keeps the switch working when storage is blocked
-const readSaved = (): Lang => {
-  if (memory) return memory;
-  try { return localStorage.getItem(STORE) === 'mr' ? 'mr' : 'en'; } catch { return 'en'; }
-};
 
 export function LangProvider({ children }: { children: ReactNode }) {
-  const lang = useSyncExternalStore<Lang>(subscribe, readSaved, () => 'en');
-
-  useEffect(() => {
-    document.documentElement.lang = lang;
-  }, [lang]);
-
-  const setLang = useCallback((l: Lang) => {
-    memory = l;
-    try { localStorage.setItem(STORE, l); } catch {}
-    listeners.forEach((cb) => cb());
-  }, []);
-
-  const value = useMemo<Ctx>(() => ({ lang, setLang, t: (k) => dict[lang][k] }), [lang, setLang]);
+  const value = useMemo<Ctx>(() => ({ t: (k) => dict.en[k] }), []);
   return <LangContext.Provider value={value}>{children}</LangContext.Provider>;
 }
 
@@ -69,7 +34,7 @@ export function useLang(): Ctx {
   return c;
 }
 
-/** Translated text for use inside server components. */
+/** Text for use inside server components. */
 export function T({ k }: { k: Key }) {
   return <>{useLang().t(k)}</>;
 }

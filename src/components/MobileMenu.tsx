@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { menuGroups } from '@/lib/content';
 import { T } from '@/lib/i18n';
 import { Arrow, Icon } from './Icon';
-import { LangToggle } from './LangToggle';
 import crest from '@/assets/img/crest.png';
 
 /** Menu button plus the full screen sheet. A native <dialog> gives focus trapping and Esc for free. */
@@ -54,10 +53,6 @@ export function MobileMenu() {
           ))}
         </nav>
         <div className="sheet__foot">
-          <div className="sheet__lang">
-            <span>Language</span>
-            <LangToggle />
-          </div>
           <Link className="btn btn--gold" href="/#callback" onClick={close}>
             <span><T k="submit" /></span>
           </Link>

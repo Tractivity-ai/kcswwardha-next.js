@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { nav } from '@/lib/content';
 import { T } from '@/lib/i18n';
 import { Icon } from './Icon';
-import { LangToggle } from './LangToggle';
 import { MobileMenu } from './MobileMenu';
 import { SmartLink } from './SmartLink';
 import crest from '@/assets/img/crest.png';
@@ -38,7 +37,6 @@ export function Header() {
           <div className="dd"><Link href="/contact">Contact</Link></div>
         </nav>
         <Link className="hdr__search" href="/search" aria-label="Search the site"><Icon name="search" /></Link>
-        <LangToggle className="lang--top" />
         <Link className="btn btn--gold hdr__apply" href="/#callback"><span><T k="applyShort" /></span></Link>
         <MobileMenu />
       </div>
