@@ -8,13 +8,14 @@ import { SmartLink } from './SmartLink';
 import { docs } from '@/lib/docs';
 import { waLink } from '@/lib/site';
 import { Arrow, Icon, Wheel } from './Icon';
-import hero from '@/assets/img/hero.jpg';
-import e1 from '@/assets/img/e1.jpg';
-import e2 from '@/assets/img/e2.jpg';
-import e3 from '@/assets/img/e3.jpg';
+import admBg from '@/assets/img/adm-bg.jpg';
+import storyCamp from '@/assets/img/story-camp.jpg';
+import lifeNss from '@/assets/img/life-nss.jpg';
+import lifeVillage from '@/assets/img/life-village.jpg';
+import lifeTeam from '@/assets/img/life-nss-team.jpg';
 import principalPhoto from '@/assets/img/principal.jpg';
 
-const lifeImages = { e1, e2, e3 } as const;
+const lifeImages = { nss: lifeNss, village: lifeVillage, team: lifeTeam } as const;
 
 export function Programs() {
   return (
@@ -58,7 +59,7 @@ export function Story() {
           </div>
           <div className="story__b">
             <div className="ph rv">
-              <Image src={e3} alt="Students and faculty gathered under trees on the campus" sizes="(min-width: 900px) 50vw, 100vw" />
+              <Image src={storyCamp} alt="Students and faculty sitting in a circle for a group session by a lake" sizes="(min-width: 900px) 50vw, 100vw" />
               <span className="keyline" />
             </div>
           </div>
@@ -71,7 +72,7 @@ export function Story() {
 export function Admission() {
   return (
     <section className="adm weave-d sec" id="admission" aria-labelledby="adm-h">
-      <Image className="adm__bg kb" src={hero} alt="" fill sizes="100vw" quality={50} />
+      <Image className="adm__bg kb" src={admBg} alt="" fill sizes="100vw" quality={50} />
       <div className="wrap">
         <div className="adm__g">
           <div className="adm__a">
@@ -153,7 +154,6 @@ export function Life() {
                 <Image
                   src={lifeImages[p.key]} alt={p.alt}
                   sizes="(min-width: 1100px) 40vw, (min-width: 768px) 30vw, 230px"
-                  style={'position' in p ? { objectPosition: p.position } : undefined}
                 />
               </div>
               <figcaption>{p.caption}</figcaption>

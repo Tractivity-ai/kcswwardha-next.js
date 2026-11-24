@@ -23,7 +23,7 @@ const SLIDES: Slide[] = [
     en: { eyebrow: 'BSW, MSW and Ph.D. in Wardha', h: 'Education that serves.', sub: 'Social work education in Sevagram, Wardha, since 1993.', btn: 'Apply for 2026-27' },
   },
   {
-    img: e2, alt: 'Faculty addressing students at the certificate course in counselling orientation', pos: '50% 50%', href: '/academics',
+    img: e2, alt: 'Faculty addressing students at the certificate course in counselling orientation', pos: '24% 22%', href: '/academics',
     en: { eyebrow: 'Short courses', h: 'Certificate course in counselling.', sub: 'Faculty-led sessions for students, alongside the BSW, MSW and Ph.D. programmes.', btn: 'Our programmes' },
   },
   {

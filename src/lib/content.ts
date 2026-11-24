@@ -84,9 +84,9 @@ export const notices = [
 ] as const;
 
 export const lifePhotos = [
-  { key: 'e1', alt: 'Faculty and guests standing together on the campus lawn', caption: 'Faculty and guests on the campus lawn' },
-  { key: 'e2', alt: 'A community meeting with people seated in a hall', caption: 'A community meeting in session' },
-  { key: 'e3', alt: 'Students listening to a faculty member outdoors', caption: 'Students in conversation outdoors', position: '60% 50%' },
+  { key: 'nss', alt: 'NSS volunteers and faculty tending the college garden', caption: 'NSS volunteers on campus' },
+  { key: 'village', alt: 'Students and villagers cleaning a village lane', caption: 'A cleanliness drive in a village' },
+  { key: 'team', alt: 'NSS volunteers and faculty in uniform at a roadside awareness stall', caption: 'NSS team at an awareness stall' },
 ] as const;
 
 /** Tiles under "Life and field work". */
