@@ -7,6 +7,7 @@ import photoCamp from '@/assets/img/story-camp.jpg';
 import photoNss from '@/assets/img/life-nss.jpg';
 import photoVillage from '@/assets/img/life-village.jpg';
 import photoNssTeam from '@/assets/img/life-nss-team.jpg';
+import gbPrincipal from '@/assets/img/gb-principal.jpg';
 import gbPrakash from '@/assets/img/gb-prakash.jpg';
 import gbVanita from '@/assets/img/gb-vanita.jpg';
 import gbYugant from '@/assets/img/gb-yugant.jpg';
@@ -15,7 +16,7 @@ import gbSonali from '@/assets/img/gb-sonali.jpg';
 import gbRajesh from '@/assets/img/gb-rajesh.jpg';
 import gbRavikant from '@/assets/img/gb-ravikant.jpg';
 
-const portraits = { prakash: gbPrakash, vanita: gbVanita, yugant: gbYugant, rani: gbRani, sonali: gbSonali, rajesh: gbRajesh, ravikant: gbRavikant } as const;
+const portraits = { principal: gbPrincipal, prakash: gbPrakash, vanita: gbVanita, yugant: gbYugant, rani: gbRani, sonali: gbSonali, rajesh: gbRajesh, ravikant: gbRavikant } as const;
 import { groupPages, groups, type Block, type GroupId } from '@/lib/pages';
 import { site } from '@/lib/site';
 import { social } from '@/lib/content';

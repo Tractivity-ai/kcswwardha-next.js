@@ -22,7 +22,7 @@ export type Block =
   | { t: 'embed'; href: string; title: string }
   | { t: 'quote'; text: string; by?: string }
   | { t: 'gallery'; groups: { title: string; text: string; alt: string; images: { src: string; w: number; h: number }[] }[] }
-  | { t: 'people'; items: { photo: 'prakash' | 'vanita' | 'yugant' | 'rani' | 'sonali' | 'rajesh' | 'ravikant'; name: string; role: string }[] }
+  | { t: 'people'; items: { photo: 'principal' | 'prakash' | 'vanita' | 'yugant' | 'rani' | 'sonali' | 'rajesh' | 'ravikant'; name: string; role: string }[] }
   | { t: 'cta'; label: string; href: string; external?: boolean }
   | { t: 'hub'; group: string }
   | { t: 'contact' }
@@ -236,7 +236,7 @@ const rawPages: RawPage[] = [
         'Contribute to the local and global community in a respectful and collaborative way',
       ),
       P('I wish you all a wonderful college year. If I can help in any way, please do not hesitate to contact me. My door is always open. I am honoured to serve as your Principal.'),
-      { t: 'quote', text: 'Dr. Chandu K. Popatkar', by: 'Principal (B.Sc., M.S.W., NET, B.J., Ph.D.)' },
+      { t: 'people', items: [{ photo: 'principal', name: 'Dr. Chandu K. Popatkar', role: 'Principal (B.Sc., M.S.W., NET, B.J., Ph.D.)' }] },
     ],
   },
   {
