@@ -4,6 +4,8 @@ import Image, { type StaticImageData } from 'next/image';
 import Link from 'next/link';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { LeadForm } from './LeadForm';
+import stage from '@/assets/img/hero-stage.jpg';
+import stageM from '@/assets/img/hero-stage-m.jpg';
 import hero from '@/assets/img/hero-study-tour.jpg';
 import heroM from '@/assets/img/hero-study-tour-m.jpg';
 import e1 from '@/assets/img/hero-camp.jpg';
@@ -20,11 +22,15 @@ type Slide = {
   en: { eyebrow: string; h: string; sub: string; btn: string };
 };
 
-/** Banner copy. Slides 2 and 3 are placeholder wording for the college to confirm. */
+/** Banner copy. Slides 2 to 4 are placeholder wording for the college to confirm. */
 const SLIDES: Slide[] = [
   {
-    img: hero, imgM: heroM, alt: 'Students and faculty of the college standing together in front of a study tour bus', pos: '50% 50%', href: '#admission',
+    img: stage, imgM: stageM, alt: 'Faculty and students of the college together on stage at a programme', pos: '50% 50%', href: '#admission',
     en: { eyebrow: 'BSW, MSW and Ph.D. in Wardha', h: 'Education that serves.', sub: 'Social work education in Sevagram, Wardha, since 1993.', btn: 'Apply for 2026-27' },
+  },
+  {
+    img: hero, imgM: heroM, alt: 'Students and faculty of the college standing together in front of a study tour bus', pos: '50% 50%', href: '/student-life',
+    en: { eyebrow: 'Field learning', h: 'Learning beyond the classroom.', sub: 'Study tours and field visits are part of student life at the college.', btn: 'Student life' },
   },
   {
     img: e2, imgM: e2m, alt: 'Faculty addressing students at the certificate course in counselling orientation', pos: '15% 50%', href: '/academics',
