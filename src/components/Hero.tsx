@@ -5,11 +5,14 @@ import Link from 'next/link';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { LeadForm } from './LeadForm';
 import hero from '@/assets/img/hero-study-tour.jpg';
-import e1 from '@/assets/img/hero-gathering.jpg';
+import e1 from '@/assets/img/hero-camp.jpg';
 import e2 from '@/assets/img/hero-counselling.jpg';
+import e2m from '@/assets/img/hero-counselling-m.jpg';
+import e3m from '@/assets/img/hero-camp-m.jpg';
 
 type Slide = {
   img: StaticImageData;
+  imgM?: StaticImageData;
   alt: string;
   pos?: string;
   href: string;
@@ -23,11 +26,11 @@ const SLIDES: Slide[] = [
     en: { eyebrow: 'BSW, MSW and Ph.D. in Wardha', h: 'Education that serves.', sub: 'Social work education in Sevagram, Wardha, since 1993.', btn: 'Apply for 2026-27' },
   },
   {
-    img: e2, alt: 'Faculty addressing students at the certificate course in counselling orientation', pos: '24% 22%', href: '/academics',
+    img: e2, imgM: e2m, alt: 'Faculty addressing students at the certificate course in counselling orientation', pos: '15% 50%', href: '/academics',
     en: { eyebrow: 'Short courses', h: 'Certificate course in counselling.', sub: 'Faculty-led sessions for students, alongside the BSW, MSW and Ph.D. programmes.', btn: 'Our programmes' },
   },
   {
-    img: e1, alt: 'Students, faculty and guests at the annual gathering', pos: '50% 45%', href: '/information/notices',
+    img: e1, imgM: e3m, alt: 'Students and faculty sitting in a circle for a group session by a lake', pos: '50% 60%', href: '/information/notices',
     en: { eyebrow: 'Ph.D. admissions 2025-26', h: 'Ph.D. admission notices are out.', sub: 'Read the provisional admission schedule and the vacant seat status.', btn: 'See notices' },
   },
 ];
@@ -74,7 +77,8 @@ export function Hero() {
         <div className="hero__media" aria-hidden="true">
           {SLIDES.map((s, k) => (
             <div key={k} className={`hero__slide${k === i ? ' on' : ''}`} style={{ ['--pos' as string]: s.pos }}>
-              <Image src={s.img} alt="" fill priority={k === 0} sizes="100vw" quality={80} />
+              <Image className={s.imgM ? 'hd' : undefined} src={s.img} alt="" fill priority={k === 0} sizes="100vw" quality={80} />
+              {s.imgM && <Image className="hm" src={s.imgM} alt="" fill sizes="100vw" quality={80} />}
             </div>
           ))}
           <div className="hero__tint" />

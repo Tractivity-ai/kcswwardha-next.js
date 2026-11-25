@@ -747,3 +747,5 @@ body{background:#fff}
 @media (min-width:900px){.pfig{margin-bottom:30px}}
 .hero__txt h1 .eyebrow,.hero__txt h1 .hl{display:block}
 .rel{margin-top:36px;padding-top:20px;border-top:1px solid var(--sand)}.rel .pg__h{margin:0 0 10px;font-size:20px}.rel ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px 20px}.rel a{display:inline-block;padding:6px 0;color:var(--maroon);text-decoration:underline;text-underline-offset:3px}.rel a:hover{text-decoration-thickness:2px}
+.hero__slide .hd{display:none}.hero__slide .hm{display:block}
+@media (min-width:900px){.hero__slide .hd{display:block}.hero__slide .hm{display:none}}
