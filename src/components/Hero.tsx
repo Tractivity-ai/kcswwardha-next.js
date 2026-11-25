@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { LeadForm } from './LeadForm';
 import hero from '@/assets/img/hero-study-tour.jpg';
+import heroM from '@/assets/img/hero-study-tour-m.jpg';
 import e1 from '@/assets/img/hero-camp.jpg';
 import e2 from '@/assets/img/hero-counselling.jpg';
 import e2m from '@/assets/img/hero-counselling-m.jpg';
@@ -22,7 +23,7 @@ type Slide = {
 /** Banner copy. Slides 2 and 3 are placeholder wording for the college to confirm. */
 const SLIDES: Slide[] = [
   {
-    img: hero, alt: 'Students and faculty of the college standing together in front of a study tour bus', pos: '50% 50%', href: '#admission',
+    img: hero, imgM: heroM, alt: 'Students and faculty of the college standing together in front of a study tour bus', pos: '50% 50%', href: '#admission',
     en: { eyebrow: 'BSW, MSW and Ph.D. in Wardha', h: 'Education that serves.', sub: 'Social work education in Sevagram, Wardha, since 1993.', btn: 'Apply for 2026-27' },
   },
   {
