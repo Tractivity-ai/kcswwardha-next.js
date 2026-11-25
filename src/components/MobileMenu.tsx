@@ -6,6 +6,12 @@ import Link from 'next/link';
 import { menuGroups } from '@/lib/content';
 import { T } from '@/lib/i18n';
 import { Arrow, Icon } from './Icon';
+import { site } from '@/lib/site';
+
+const dial = (p: string) => {
+  const d = p.replace(/[^\d+]/g, '');
+  return `tel:${d.startsWith('+') ? d : '+91' + d}`;
+};
 import crest from '@/assets/img/crest.png';
 
 /** Menu button plus the full screen sheet. A native <dialog> gives focus trapping and Esc for free. */
@@ -53,6 +59,10 @@ export function MobileMenu() {
           ))}
         </nav>
         <div className="sheet__foot">
+          <div className="sheet__contact">
+            {site.phones.map((p) => <a key={p} href={dial(p)}><Icon name="phone" />{p}</a>)}
+            {site.emails.map((m) => <a key={m} href={`mailto:${m}`}><Icon name="mail" />{m}</a>)}
+          </div>
           <Link className="btn btn--gold" href="/#callback" onClick={close}>
             <span><T k="submit" /></span>
           </Link>
