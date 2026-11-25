@@ -7,7 +7,7 @@ import crest from '@/assets/img/crest.png';
 import naac from '@/assets/img/naac-a-plus.png';
 
 export function Footer() {
-  const tel = (p: string) => `tel:${p.replace(/[^\d+]/g, '')}`;
+  const tel = (p: string) => { const d = p.replace(/[^\d+]/g, ''); return `tel:${d.startsWith('+') ? d : '+91' + d}`; };
   return (
     <footer className="ftr weave-d" id="contact">
       <Wheel />

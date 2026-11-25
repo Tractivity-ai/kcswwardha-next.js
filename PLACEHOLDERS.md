@@ -8,7 +8,7 @@ Count: 72 items on 28 pages. Last refreshed 24 November 2026.
 
 These affect the most pages.
 
-- Which phone number and email are the main ones, plus office hours and the WhatsApp number (to follow). The old site's top bar shows +91 715-224-1848 and info@kcswwardha.in; its footer shows 9403339741, 9637755310 and kcswwardha@rediffmail.com. No office hours are printed on its home page. Confirm which to treat as primary.
+- Office hours and the WhatsApp number (to follow). All three phone numbers and both emails from the old site are shown on the site.
 - The admission session and dates: last date to apply, merit list dates, selection method (counselling, interview or merit).
 - Eligibility, fees, scholarships and documents for BSW, MSW and Ph.D. The FAQ answers on the home page were drafted on general norms and must be checked.
 - The graduates figure (1,203) comes from the old site and covers 25 years. Give the current figure.
@@ -149,7 +149,7 @@ Page addresses are the new site's.
 - Names and contact details of the PIO, APIO and Appellate Authority, and the date this procedure was approved. The old page leaves them blank.
 
 ### /contact
-- Which phone number and email are the main ones. The old site shows one set in the top bar and another in the footer and on this page. Also: office hours, WhatsApp number and a map embed.
+- Office hours, WhatsApp number and a map embed.
 - Names, phone numbers and emails by office. Three numbers are on the site today (+91 715-224-1848, 9403339741, 9637755310) without saying which office each belongs to.
 - [Privacy policy link to be added]
 - [WhatsApp number to be confirmed]

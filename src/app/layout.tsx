@@ -51,13 +51,15 @@ const jsonLd = {
     addressCountry: 'IN',
   },
   parentOrganization: { '@type': 'CollegeOrUniversity', name: 'Rashtrasant Tukadoji Maharaj Nagpur University' },
-  telephone: site.phone || '+919403339741',
-  email: site.email || site.emails[0],
+  telephone: site.phones.map((x) => '+91' + x.replace(/\D/g, '').replace(/^91/, '')),
+  email: [...site.emails],
   hasMap: site.mapsUrl,
   award: 'NAAC accreditation, grade A+ (CGPA 3.35), valid up to 25 October 2027',
   employee: { '@type': 'Person', name: 'Dr. Chandu K. Popatkar', jobTitle: 'Principal' },
   contactPoint: [
-    { '@type': 'ContactPoint', contactType: 'customer service', telephone: '+919403339741', email: 'info@kcswwardha.in', areaServed: 'IN' },
+    { '@type': 'ContactPoint', contactType: 'admissions', telephone: '+919403339741', email: 'info@kcswwardha.in', areaServed: 'IN' },
+    { '@type': 'ContactPoint', contactType: 'customer service', telephone: '+917152241848', email: 'kcswwardha@rediffmail.com', areaServed: 'IN' },
+    { '@type': 'ContactPoint', contactType: 'customer service', telephone: '+919637755310', areaServed: 'IN' },
   ],
   sameAs: ['https://www.facebook.com/kscwwardha/', 'https://www.youtube.com/channel/UCPSsCtDb-Q9LClMiSvLMWWw'],
 };

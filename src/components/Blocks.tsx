@@ -23,7 +23,7 @@ import { Icon } from './Icon';
 import { LeadForm } from './LeadForm';
 import { SmartLink } from './SmartLink';
 
-const tel = (p: string) => `tel:${p.replace(/[^\d+]/g, '')}`;
+const tel = (p: string) => { const d = p.replace(/[^\d+]/g, ''); return `tel:${d.startsWith('+') ? d : '+91' + d}`; };
 
 function Table({ head, rows, caption }: { head: string[]; rows: string[][]; caption?: string }) {
   return (
@@ -87,7 +87,7 @@ function Contact() {
           {social.map((s) => <a key={s.label} className="cl" href={s.href} target="_blank" rel="noopener noreferrer">{s.label}</a>)}
         </div>
       </div>
-      <p className="todo"><b>To confirm</b>Which phone number and email are the main ones. The old site shows one set in the top bar and another in the footer and on this page. Also: office hours, WhatsApp number and a map embed.</p>
+      <p className="todo"><b>To confirm</b>Office hours, WhatsApp number and a map embed.</p>
       <div className="contact__form"><LeadForm /></div>
     </div>
   );
