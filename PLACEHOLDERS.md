@@ -8,14 +8,13 @@ Count: 72 items on 28 pages. Last refreshed 24 November 2026.
 
 These affect the most pages.
 
-- Which phone number and email are the main ones (the old site shows different sets in the top bar, footer and contact page), plus office hours and the WhatsApp number.
+- Which phone number and email are the main ones, plus office hours and the WhatsApp number (to follow). The old site's top bar shows +91 715-224-1848 and info@kcswwardha.in; its footer shows 9403339741, 9637755310 and kcswwardha@rediffmail.com. No office hours are printed on its home page. Confirm which to treat as primary.
 - The admission session and dates: last date to apply, merit list dates, selection method (counselling, interview or merit).
 - Eligibility, fees, scholarships and documents for BSW, MSW and Ph.D. The FAQ answers on the home page were drafted on general norms and must be checked.
 - The graduates figure (1,203) comes from the old site and covers 25 years. Give the current figure.
 - Hero banner wording for slide 2 (certificate course in counselling) and slide 3 (Ph.D. admission notices).
-- Whether the M.Phil. is still offered. The old site lists it in its course list and admission form.
+- Whether the M.Phil. is still offered. The old site's footer lists "Master of Philosophy", but its home page course boxes show only BSW, MSW and Ph.D.
 - Consent for any photo that shows children, patients or people served by the college. We have not used such photos.
-- A corrected NAAC badge image. The current one reads "AACCREDITED".
 
 ## Needed for launch (technical, not for the college)
 
