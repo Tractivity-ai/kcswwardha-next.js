@@ -2,7 +2,7 @@
 
 Every item below appears on the site as visible text in [square brackets] or in a "To confirm" box. Replace it with the real fact, or tell us to remove it. Everything else on the site comes from the old site, kcswwardha.in, the 2026 magazine and the college's photo folder.
 
-Count: 72 items on 28 pages. Last refreshed 24 November 2026.
+Count: 71 items on 28 pages. Last refreshed 24 November 2026.
 
 ## Decisions and facts needed first
 
@@ -32,7 +32,6 @@ Page addresses are the new site's.
 - [College to confirm: hostel availability, seats, fees and rules, and the distance from the campus on Sevagram Road]
 
 ### /about
-- The figure of 1,203 graduates is from the old site (25 years). Update it to the current year.
 - Content to be supplied by the college: university affiliation letter, approvals and recognitions. The old site menu listed this page but linked nowhere.
 
 ### /about/society

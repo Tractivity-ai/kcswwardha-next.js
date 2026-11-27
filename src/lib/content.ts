@@ -55,7 +55,7 @@ export const menuGroups = [
 export const trust = [
   { big: 'Est. 1993', small: 'Wardha, Maharashtra' },
   { big: 'RTMNU', small: 'Affiliated university, Nagpur' },
-  { big: '1,203', small: 'Graduates in 25 years [update figure]' },
+  { big: '1,200+', small: 'Graduates in 25 years' },
   { big: 'NAAC A+', small: 'CGPA 3.35, valid up to October 2027' },
 ] as const;
 

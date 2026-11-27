@@ -48,7 +48,7 @@ const EVERY = 6500;
 const FACTS = [
   { n: '1993', l: 'Established' },
   { n: 'A+', l: 'NAAC grade' },
-  { n: '1,203', l: 'Graduates' },
+  { n: '1,200+', l: 'Graduates' },
   { n: 'RTMNU', l: 'Affiliated university' },
 ] as const;
 

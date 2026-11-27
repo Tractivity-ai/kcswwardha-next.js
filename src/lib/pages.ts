@@ -149,8 +149,7 @@ const rawPages: RawPage[] = [
     lead: 'Social work education on the ground where Mahatma Gandhi worked, in Wardha, since 1993.',
     blocks: [
       P('Wardha is the Sevabhoomi of Mahatma Gandhi. Kumbhalkar College of Social Work was established here in 1993. The campus stands on a historic site that was once a Khadi and Gramudyog workstation of Gandhi. The college is affiliated to Rashtrasant Tukadoji Maharaj Nagpur University (RTMNU), Nagpur, Maharashtra.'),
-      P('For more than 25 years the college has prepared social workers. It teaches the knowledge, skills and techniques of the profession, and it builds the attitude and aptitude needed for a career in professional social work. Over those years it has sent 1,203 social work graduates and postgraduates into service in society.'),
-      TODO('The figure of 1,203 graduates is from the old site (25 years). Update it to the current year.'),
+      P('For more than 25 years the college has prepared social workers. It teaches the knowledge, skills and techniques of the profession, and it builds the attitude and aptitude needed for a career in professional social work. Over those years it has sent more than 1,200 social work graduates and postgraduates into service in society.'),
       P('The college is committed to developing civic consciousness and a sense of social responsibility in its students. The curriculum is broad, so students build a holistic and ecological view of society. Classroom learning is reinforced through field work, where students learn by direct experience. The aim is education that is socially relevant, and that shapes responsible citizens as well as professionals.'),
       P('The college is accredited with grade A+ by NAAC, is in the 201-300 rank band of NIRF 2025 (College category), and is ISO 9001:2015 certified.'),
       H('Programmes offered'),
