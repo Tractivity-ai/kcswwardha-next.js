@@ -14,7 +14,6 @@ These affect the most pages.
 
 ## Needed for launch (technical, not for the college)
 
-- Set the site address to https://kcswwardha.in and point the domain at the new site.
 
 ## By page
 
