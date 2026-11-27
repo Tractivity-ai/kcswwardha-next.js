@@ -12,9 +12,6 @@ These affect the most pages.
 - The admission session and dates: last date to apply, merit list dates, selection method (counselling, interview or merit).
 - Eligibility, fees, scholarships and documents for BSW, MSW and Ph.D. The FAQ answers on the home page were drafted on general norms and must be checked.
 - The graduates figure (1,203) comes from the old site and covers 25 years. Give the current figure.
-- Hero banner wording for slide 2 (certificate course in counselling) and slide 3 (Ph.D. admission notices).
-- Whether the M.Phil. is still offered. The old site's footer lists "Master of Philosophy", but its home page course boxes show only BSW, MSW and Ph.D.
-- Consent for any photo that shows children, patients or people served by the college. We have not used such photos.
 
 ## Needed for launch (technical, not for the college)
 
