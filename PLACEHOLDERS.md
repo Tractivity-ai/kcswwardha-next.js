@@ -15,9 +15,6 @@ These affect the most pages.
 ## Needed for launch (technical, not for the college)
 
 - Set the site address to https://kcswwardha.in and point the domain at the new site.
-- Check the old-URL redirects against the live old site.
-- Submit the sitemap in Google Search Console and Bing Webmaster Tools, and add analytics.
-- Create or verify the college's Google Business Profile, with the same name, address and phone as the site.
 
 ## By page
 
