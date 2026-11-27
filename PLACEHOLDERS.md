@@ -11,7 +11,6 @@ These affect the most pages.
 - Office hours and the WhatsApp number (to follow). All three phone numbers and both emails from the old site are shown on the site.
 - The admission session and dates: last date to apply, merit list dates, selection method (counselling, interview or merit).
 - Eligibility, fees, scholarships and documents for BSW, MSW and Ph.D. The FAQ answers on the home page were drafted on general norms and must be checked.
-- The graduates figure (1,203) comes from the old site and covers 25 years. Give the current figure.
 
 ## Needed for launch (technical, not for the college)
 
